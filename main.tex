@@ -270,16 +270,16 @@ relevant algorithms to detect segmentation edges. The result is a list
 of points for each retrieved edge. To compute the PGH another kind of
 geometric form, lines, is needed. Extraction of approximated lines
 from the list of points can be achieved by using the
-recursive algorithm \cite{thacker1995assessing} as below:
+recursive algorithm \cite{thacker1995assessing}, which is a new improved version with the Lowe's method\cite{lowe1987three} as below:
 {\small{\begin{description}
     \item[$\bullet$] Create a line connected by two edge endpoints
     \item[$\bullet$] For each point in the edge :
       \begin{description}
-      \item[$\cdot$] Calculate perpendicular distance to the line
-      \item[$\cdot$] Keep the point at  max distance, i.e. max point
-      \item[$\cdot$] Divide edge at max point into two parts:
-      \item[$\cdot$] Repeat with the two new parts of the edge.
-  \end{description}
+    		  \item[$\cdot$] Calculate the perpendicular distance from it to the line,
+      	  \item[$\cdot$] Keep the point which have max distance, i.e. max point
+ 	 \end{description}
+	  \item[$\bullet$] Divide edge at max point into two parts: the first part includes the points from the beginning endpoint to the max point and the last one is the points from the max point to  the endpoint.
+      \item[$\bullet$] Repeat step 1 with two new parts of the edge.
   \end{description}
  } }
 The algorithm stops when the edge cannot be broken more. Concretely,
@@ -287,26 +287,22 @@ we stop the algorithm when the maximum perpendicular distance of max
 point is less than $3$ pixels, i.e. enough small to create an approximated line.
 
 \paragraph{Comparison between model and scene}
-To determine the correspondence between the model and the scene image,
-we compute the PGH\cite{evans1993use} using the approximated lines of
-each image. The steps to construct the PGH as follows:
-
+In the previous stage, we convert the presented of edge from the list of points to the list of lines. It is useful to present the image in a compact and invariant. To determine the correspondence between the model and the scene image, we compute the similarity metric between two images. This value is indicated by comparing the PGH\cite{evans1993use} of the images.\\
+The PGH is constructed from the geometric relationships of the lines (i.e relative angle and perpendicular distance). The relative angle is defined by angle between two lines; and the perpendicular distance uses the distance from two endpoints of the first line to the second line. With a line in image, we record the geometric relationships  between it and other lines in image when we consider it as reference line. It means that PGH of an image is combined from all PGHs of all lines in image.\\
+The PGH is represented as a two dimension matrix with axis for relative angle and perpendicular distance. Each axis is divided into a number of rows (or columns) which determined by the expected accuracy of process. The steps to construct the PGH for an image as follows:
 {\small{
 \begin{description}
-\item[$\bullet$] Create a PGH matrix,
-\item[$\bullet$] Choose a reference line,
+\item[$\bullet$] Create a matrix,
+\item[$\bullet$] Choose a \textbf{reference line},
 \item[$\bullet$] For each other lines in the shape,
 	\begin{description}
 		\item[$\cdot$] Calculating the perpendicular distance from two endpoints to the reference line,
 		\item[$\cdot$] Computing the angle between the considered line and the reference line,
 		\item[$\cdot$] Recording the perpendicular distance and angle into the matrix.
 	\end{description}
-\item[$\bullet$] Repeat step 2 (choose reference line) to all the lines in the shape considered as reference lines,
+\item[$\bullet$] Repeat step 2 (choose reference line) until all lines in the image are considered as reference lines.
 \end{description}
 }}
-The algorithm stop when all lines of shape have been considered as reference
- line.
- \\
 To be able to compare model and scene, a similarity metric
 is needed. The Bhattacharya\cite{palaniswamy2010automatic} similarity
 metric is used to compare the distribution (PGH) for the model and the
@@ -326,22 +322,25 @@ the model landmarks in the scene
 image\cite{ashbrook1995robust}. Applying PHT includes two steps:
 first, we find the pair of scene lines that similar with a pair of
 model lines (named training process); second, we estimate the model landmarks in the scene image.\\[0.2cm]
-Training process includes the duration to construct the reference table for model image and process to find the similar pair of lines between model and scene image. The steps as follows:
-\small{
+Training process includes the duration to construct the reference table for model image and process to find the similar pair of lines between model and scene image.\\
+The reference table is created when we consider relative position between each pair of lines in model image and an arbitrary point(i.e reference point). It contains the relative information (angle and distance) from each line of pair to the reference point. The angle is angle between horizontal axis (begin from reference point) and perpendicular line from the reference point to the line. The distance is perpendicular distance from the reference point to the line. The steps to construct the reference table as follows:
+
+{\small{
+	\begin{description}
+		\item[$\bullet$] Create the table to record relative information (3 columns\footnote{The first column contains pair of lines, two last columns contain the relation position of each line (in pair of lines)with reference point}),
+		\item[$\bullet$] Choose the reference point in model,
+		\item[$\bullet$] For each pair of model lines, calculate the distance and angle from each line to the point and save into the table.
+	\end{description}
+}}
+After obtaining the reference table of model image, we consider the presence of the model in the scene image by finding the similar pair of lines between them. And a probabilistic statistical is applied to finish this work. With the ``vote'' for each similar pair between model and scene, we will obtain the pair of lines have the largest ``vote'' value, and there is the pair of scene line similar with pair of model. The steps to find the similar pair of lines between model and scene image as follows:
+{\small{
 \begin{description}
-	\item[$\bullet$] Create the reference table,
-		\begin{description}
-			\item[$\cdot$] Choose an arbitrary point in the model,
-			\item[$\cdot$] Create a table to record the information,
-			\item[$\cdot$] For each pair of model lines, calculate the perpendicular distance and angle from each line to the point and save into the table.
-		\end{description}
 	\item[$\bullet$] Create an accumulator (a two dimension matrix (angle and perpendicular distance)),
-	\item[$\bullet$] For each pair of scene lines, find the pair of model lines within correspondence in position, orientation and scale. Select the respective value in reference table,
+	\item[$\bullet$] For each pair of scene lines, find the pair of model lines within correspondence in position, orientation and scale. Select the respective value (relative information) in reference table,
 	\item[$\bullet$] Increase the value in accumulator at respective position and keep the cell that have the maximum value.
 \end{description}
-}
-The pair of scene lines having the best value is chosen. The estimated
-landmarks in the scene obtained by calculating the relatedness between
+}}
+The pair of scene lines having the best value is chosen. The presence of the reference point (of model) in the scene\cite{ashbrook1995robust} image is indicate by the respective information from the reference table. The estimated landmarks in the scene obtained by calculating the relatedness between
 the model's reference point and the model's landmarks are
 recorded. Besides, we also record the difference angle between model
 image and the scene image. Fig. \ref{fig:figure_12} shows an example
@@ -358,15 +357,15 @@ of result, the red points are estimated landmarks on the scene mandible
 \end{figure}
 \paragraph{Template matching}
 The template matching is process to verify the landmarks estimation
-provided in the PHG stage. Cross-correlation method is hired for this work. By sliding the template on image by each pixel, cross-correlation will detect the best similarity between model and scene image. The progress of template matching as follows:
-\small{
+provided in the PHG stage. Cross-correlation method\cite{knapp1976generalized} is hired for this work. By sliding the template on image by each pixel, cross-correlation will detect the best similarity between model and scene image. To save time during work, we should rotate the scene image to match with the model image (follows difference angle from PGH stage) and we just consider in a square around the landmarks (instead over image) when applying the cross-correlation. The progress of template matching as follows:
+{\small{
 \begin{description}
 \item[$\bullet$] Rotate the scene image (the angle has indicated by PHT),
 \item[$\bullet$] Create a bounding box around a model manual landmark (in model image),
-\item[$\bullet$] Create a bounding box around a estimated landmark (in scene image),
+\item[$\bullet$] Create a bounding box around a estimated landmark (in scene image) (the size of this box should larger than the size of box in model image),
 \item[$\bullet$] Apply cross-correlation between the two bounding boxes.
 \end{description}
-}
+}}
 The template matching finishes when all estimated landmarks are
 refined. Fig \ref{lm_hist} shows a complete result on one scene
 mandible with the segmentation (red lines), manual landmarks (yellow
@@ -401,11 +400,11 @@ landmarks}}
 
 In that way, we have compared the size computed from manual landmarks and this one from estimated
 landmarks. The percentage of errors has been evaluated as below: 
-\small{
+{\small{
 $$
 PercentOfErr = \frac{100 \star |(Original Size - Estimated Size)|}{ Original Size}
 $$
-}
+}}
 We can observe in fig. \ref{percentage} that for more than $150$ images, the error
 is less than $5\% $. Only $2$ mandibles could be considered as wrongly
 measured with the estimated landmarks and exhibit more than  $30\% $
@@ -422,7 +421,7 @@ landmarks.
 
 In our case, the landmark couples $1$ and $2$ or $1$ and $17$ (figure
 \ref{fig:segmentation}) are good candidates to play this role. Figure
-\ref{} shows for one mandible the results which have been obtained
+\ref{lm_hist} shows for one mandible the results which have been obtained
 for each landmark. What one can note is that for some of them, an
 offset appears. For example 
 \section{Conclusion}

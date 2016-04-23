@@ -17,6 +17,18 @@ Alun Evans, Neil~A Thacker, and John~EW Mayhew.
 \newblock The use of geometric histograms for model-based object recognition.
 \newblock In {\em BMVC}, volume~93, pages 429--438. Citeseer, 1993.
 
+\bibitem{knapp1976generalized}
+Charles~H Knapp and G~Clifford Carter.
+\newblock The generalized correlation method for estimation of time delay.
+\newblock {\em Acoustics, Speech and Signal Processing, IEEE Transactions on},
+  24(4):320--327, 1976.
+
+\bibitem{lowe1987three}
+David~G Lowe.
+\newblock Three-dimensional object recognition from single two-dimensional
+  images.
+\newblock {\em Artificial intelligence}, 31(3):355--395, 1987.
+
 \bibitem{palaniswamy2010automatic}
 Sasirekha Palaniswamy, Neil~A Thacker, and Christian~Peter Klingenberg.
 \newblock Automatic identification of landmarks in digital images.

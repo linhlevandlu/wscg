@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.2)  21 APR 2016 17:17
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.2)  23 APR 2016 20:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -676,68 +676,67 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 275.
 [2 <./images/rshape1.png> <./images/hist.png>]
-<./images/rshape.png, id=26, 437.635pt x 650.43pt>
+Underfull \hbox (badness 5817) in paragraph at lines 330--331
+[]\T1/ptm/m/n/9 Create the ta-ble to record rel-a-tive in-for-ma-tion (3
+ []
+
+<./images/rshape.png, id=21, 437.635pt x 650.43pt>
 File: ./images/rshape.png Graphic file (type png)
  <use ./images/rshape.png>
-Package pdftex.def Info: ./images/rshape.png used on input line 353.
+Package pdftex.def Info: ./images/rshape.png used on input line 352.
 (pdftex.def)             Requested size: 81.9406pt x 121.77667pt.
 
-<./images/training.png, id=27, 326.21875pt x 496.85625pt>
+<./images/training.png, id=22, 326.21875pt x 496.85625pt>
 File: ./images/training.png Graphic file (type png)
 
 <use ./images/training.png>
-Package pdftex.def Info: ./images/training.png used on input line 355.
+Package pdftex.def Info: ./images/training.png used on input line 354.
 (pdftex.def)             Requested size: 81.9406pt x 124.79752pt.
-
-<./images/Screenshot3.png, id=28, 462.72874pt x 621.32124pt>
+ [3 <./images/rshape.png> <./images/training.png>]
+<./images/Screenshot3.png, id=31, 462.72874pt x 621.32124pt>
 File: ./images/Screenshot3.png Graphic file (type png)
 
 <use ./images/Screenshot3.png>
-Package pdftex.def Info: ./images/Screenshot3.png used on input line 376.
+Package pdftex.def Info: ./images/Screenshot3.png used on input line 375.
 (pdftex.def)             Requested size: 199.16928pt x 267.42839pt.
 
-<./images/frequency.png, id=29, 803.0pt x 702.625pt>
+<./images/frequency.png, id=32, 803.0pt x 702.625pt>
 File: ./images/frequency.png Graphic file (type png)
 
 <use ./images/frequency.png>
-Package pdftex.def Info: ./images/frequency.png used on input line 396.
+Package pdftex.def Info: ./images/frequency.png used on input line 395.
 (pdftex.def)             Requested size: 199.16928pt x 174.27278pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3 <./images/rshape.png> <./images/training.png> <./images/Screenshot3.png>]
+[4 <./images/Screenshot3.png> <./images/frequency.png (PNG copy)>] (./main.bbl)
+[5
 
-LaTeX Warning: Reference `' on page 4 undefined on input line 425.
-
-(./main.bbl) [4 <./images/frequency.png (PNG copy)>] (./main.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 5595 strings out of 494765
- 83676 string characters out of 6175713
- 174319 words of memory out of 5000000
- 8780 multiletter control sequences out of 15000+600000
- 59681 words of font info for 90 fonts, out of 8000000 for 9000
+ 5597 strings out of 494765
+ 83718 string characters out of 6175713
+ 174325 words of memory out of 5000000
+ 8781 multiletter control sequences out of 15000+600000
+ 60691 words of font info for 91 fonts, out of 8000000 for 9000
  80 hyphenation exceptions out of 8191
- 44i,11n,47p,621b,383s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic
-/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/font
-s/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
-es/utmri8a.pfb>
-Output written on main.pdf (4 pages, 3415484 bytes).
+ 44i,11n,47p,621b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol
+/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (5 pages, 3417956 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 75 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
