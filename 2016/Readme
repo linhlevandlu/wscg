@@ -1,0 +1,16 @@
+pour prendre le texte
+
+
+git clone https://github.com/linhlevandlu/workshop
+
+prendre les mises a jour
+
+
+git pull
+
+- ajouter un fichier dans git
+git add nameoffile ou *
+git commit -m un message  mettre a jour la base (sans le -m ouverture
+d'une interface pour donner le message)git push
+ // donner son username (adresse mail)
+ // donner son passwd
