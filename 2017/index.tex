@@ -2,21 +2,27 @@
 \renewcommand{\familydefault}{\rmdefault}
 \usepackage[english]{babel}
 \usepackage{multicol}
-\usepackage[a4paper, top=0cm, bottom=3.5cm,left=0cm,right=0cm]{geometry}
+\usepackage{tabularx}
+\usepackage[a4paper, top=0cm, bottom=3.5cm,left=2.5cm,right=2.5cm]{geometry}
 
 \title{{\fontfamily{phv}\fontseries{b}\fontsize{18pt}{18pt}\selectfont Title of the article}}
-
-\author{
-LastName1, FirstName1\\      \texttt{first1.last1@xxxxx.com}
-  \and
-  LastName2, FirstName2\\      \texttt{first2.last2@xxxxx.com}
-  \and
-  LastName3, FirstName3\\      \texttt{first2.last2@xxxxx.com}
-  \and
-  LastName4, FirstName4\\      \texttt{first2.last2@xxxxx.com}
-  \and
-  LastName5, FirstName5\\      \texttt{first2.last2@xxxxx.com}
-}
 \begin{document}
+\author{{
+\fontfamily{phv}\fontsize{10pt}{10pt}\selectfont
+\begin{tabularx}{.8\textwidth}{ccccc}
+	LE Van Linh & BEURTON-AIMAR M. & JEAN-PIERRE S. & MARIE A. & PARISEY N. \\
+	ITDLU & LaBRI-CNRS 5800 & LaBRI-CNRS 5800 & IGEPP & IGEPP \\
+	Dalat University & Bordeaux University & Bordeaux University & INRA 1349 & INRA 1349 \\
+	Vietnam & 33400 Talence-F & 33400 Talence-F & 35653 Le Rheu-F & 35653 Le Rheu-F \\
+	linhlv@dlu.edu.vn & beurton@labri.fr & jean-pierre.salmon@labri.fr & alexia.marie@rennes.inra.fr & nparisey@rennes.inra.fr\\
+\end{tabularx}}
+}
+\date{}
 \maketitle
+\begin{abstract}
+abstract
+\end{abstract}
+\subsection*{Keywords}
+ Landmarks identification, probabilistic Hough transform, morphometry
+ of beetle mandible.
 \end{document}

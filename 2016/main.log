@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.2)  23 APR 2016 20:22
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.23)  24 JAN 2017 10:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 10 languages loaded.
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -471,6 +471,15 @@ Overfull \hbox (13.67885pt too wide) in paragraph at lines 190--190
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 190.
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+
+ []
+
+
+Underfull \vbox (badness 2253) has occurred while \output is active []
+
+
 <./images/md32.JPG, id=1, 3276.24pt x 2457.18pt>
 File: ./images/md32.JPG Graphic file (type jpg)
  <use ./images/md32.JPG>
@@ -593,13 +602,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 252--260
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--260
-\T1/ptm/m/n/10 old value for seg-men-ta-tion is to take a
+Underfull \hbox (badness 5133) in paragraph at lines 252--260
+\T1/ptm/m/n/10 old value for back-ground ex-trac-tion is to take
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 252--260
-\T1/ptm/m/n/10 look to the im-age's his-togram (fig-ure 5[]).
+\T1/ptm/m/n/10 a look to the im-age's his-togram (fig-ure 3[]).
  []
 
 
@@ -706,21 +715,17 @@ File: ./images/frequency.png Graphic file (type png)
 <use ./images/frequency.png>
 Package pdftex.def Info: ./images/frequency.png used on input line 395.
 (pdftex.def)             Requested size: 199.16928pt x 174.27278pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[4 <./images/Screenshot3.png> <./images/frequency.png (PNG copy)>] (./main.bbl)
-[5
+ [4 <./images/Screenshot3.png> <./images/frequency.png (PNG copy)>] (./main.bbl
+) [5
 
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 5597 strings out of 494765
- 83718 string characters out of 6175713
- 174325 words of memory out of 5000000
- 8781 multiletter control sequences out of 15000+600000
+ 5597 strings out of 493304
+ 83718 string characters out of 6139871
+ 178215 words of memory out of 5000000
+ 8899 multiletter control sequences out of 15000+600000
  60691 words of font info for 91 fonts, out of 8000000 for 9000
- 80 hyphenation exceptions out of 8191
+ 957 hyphenation exceptions out of 8191
  44i,11n,47p,621b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
@@ -733,7 +738,7 @@ t/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 3417956 bytes).
+Output written on main.pdf (5 pages, 3418024 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  47 compressed objects within 1 object stream
