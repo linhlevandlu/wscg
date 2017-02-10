@@ -125,12 +125,12 @@ nparisey@rennes.inra.fr
 
 \begin{abstract}
 \noindent
-Morphology is a important characteristics of the biological analysing. Knowing the morphology of an object do not only help us generate the information of the object or re-construct the object but we also classify the objects. Indicating the morphology in biological image is a large field and having many methods from manual methods to semi-automatic or automatically. In the content of this article, we proposed a method to automatic determine the morphology on biological, specify on beetle images. Through segmentation and image registration, our method is used to determine the landmarks on the images. The experiment is done with two datasets. The result is evaluated by the coordinates of automatic landmarks and the centroid size of all estimated landmarks.
+Morphology is a important characteristics of the biological analysing. Knowing the morphology of an object do not only help us generate the information of the object or re-construct the object but we also classify the objects. Indicating the morphology in biological image is a large field and having many methods from manual methods to semi-automatic or automatically. In the content of this article, we proposed a method to automatic determine the characteristics to define the morphology in biological, specify on beetle. Through segmentation and registration, our method is used to determine the landmarks on the images. The experiment is done with two datasets. The result is evaluated by the coordinates of automatic landmarks and the centroid size of all estimated landmarks.
 
 \end{abstract}
 
 \subsection*{Keywords}
-Automatic morphology, landmarks detection, image registration.
+Automatic morphology, landmarks identification, image registration.
 
 \vspace*{1.0\baselineskip}
 }]
@@ -144,7 +144,8 @@ Automatic morphology, landmarks detection, image registration.
 
 \copyrightspace
 
-We ask authors to follow this guideline and make paper look exactly like as this document. The easiest way to do this is simply to download a template from \cite{jou01a} and replace the content with your own.
+In biology, morphology analysis is widely used to keep the changing information of the organism or detecting the difference information between the organisms. From the result of morphology analysis, we can conclude the evolution of an organism family, or we may classify the organisms. Especially in agriculture, morphology is one of best ways to learn about the variations of the insect on crops. The morphology methods may be divided into the groups by the features which are used by the methods such as shape, structure, color, pattern or size of the object. In the aim to study the potential links between these variations and agricultual ecosystems, a set of 291 beetles has been collected with all the information about the sex, place where they are found and agricultural practices in each field were recorded. For each beetle, the morphometric landmarks has been defined on each part (each insect includes five parts) of the insect by the biologies. Morphometric landmarks are points that can be defined in all speciemns and located precisely. Landmarks are widely used in many biological studies and they are currently included into the classification procedures.\\[0.2cm]
+In this paper, we focus on a method that can automatic idenfication of landmarks on 2D images of beetle. The method mainly includes three stages: firstly, we extract the feature of the object in the image; secondly, the automatic landmarks are indentified by image registration; finally, a refinement of the estimated landmarks is done by cross-correlation.
 
 \section{Page size}
 Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. 
