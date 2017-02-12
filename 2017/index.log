@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.20)  10 FEB 2017 23:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.20)  12 FEB 2017 22:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -175,10 +175,77 @@ Package color Info: Driver file: pdftex.def on input line 143.
 (/usr/share/texlive/texmf-dist/tex/latex/nopageno/nopageno.sty
 Package: nopageno 1989/01/01 no page numbers (DPC)
 )
+(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen114
+\captionmargin@=\dimen115
+\captionwidth=\dimen116
+\caption@tempdima=\dimen117
+\caption@indent=\dimen118
+\caption@parindent=\dimen119
+\caption@hangindent=\dimen120
+)
+\c@ContinuedFloat=\count92
+)
+\c@KVtest=\count93
+\sf@farskip=\skip43
+\sf@captopadj=\dimen121
+\sf@capskip=\skip44
+\sf@nearskip=\skip45
+\c@subfigure=\count94
+\c@subfigure@save=\count95
+\c@lofdepth=\count96
+\c@subtable=\count97
+\c@subtable@save=\count98
+\c@lotdepth=\count99
+\sf@top=\skip46
+\sf@bottom=\skip47
+)
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (./index.aux)
+) (./index.aux
+
+LaTeX Warning: Label `figrbox1' multiply defined.
+
+
+LaTeX Warning: Label `sub@figrbox1' multiply defined.
+
+
+LaTeX Warning: Label `figrbox2' multiply defined.
+
+
+LaTeX Warning: Label `sub@figrbox2' multiply defined.
+
+
+LaTeX Warning: Label `figrbox1' multiply defined.
+
+
+LaTeX Warning: Label `sub@figrbox1' multiply defined.
+
+
+LaTeX Warning: Label `figrbox1' multiply defined.
+
+
+LaTeX Warning: Label `sub@figrbox1' multiply defined.
+
+
+LaTeX Warning: Label `figrbox2' multiply defined.
+
+
+LaTeX Warning: Label `sub@figrbox2' multiply defined.
+
+
+LaTeX Warning: Label `figparts' multiply defined.
+
+)
 \openout1 = `index.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
@@ -194,8 +261,7 @@ LaTeX Font Info:    ... okay on input line 119.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 119.
 LaTeX Font Info:    ... okay on input line 119.
 LaTeX Font Info:    Try loading font information for T1+ptm on input line 119.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 *geometry* detected driver: pdftex
@@ -231,19 +297,19 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\big@size=\dimen114
+\big@size=\dimen122
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count92
-\scratchdimen=\dimen115
+\scratchcounter=\count100
+\scratchdimen=\dimen123
 \scratchbox=\box26
-\nofMPsegments=\count93
-\nofMParguments=\count94
+\nofMPsegments=\count101
+\nofMParguments=\count102
 \everyMPshowfont=\toks19
-\MPscratchCnt=\count95
-\MPscratchDim=\dimen116
-\MPnumerator=\count96
-\makeMPintoPDFobject=\count97
+\MPscratchCnt=\count103
+\MPscratchDim=\dimen124
+\MPnumerator=\count104
+\makeMPintoPDFobject=\count105
 \everyMPtoPDFconversion=\toks20
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -289,6 +355,9 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Try loading font information for T1+phv on input line 136.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -338,45 +407,114 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 136.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 136.
+
+<./images/tete.JPG, id=1, 1310.496pt x 982.872pt>
+File: ./images/tete.JPG Graphic file (type jpg)
+ <use ./images/tete.JPG>
+Package pdftex.def Info: ./images/tete.JPG used on input line 150.
+(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
+
+<./images/pronotum.JPG, id=2, 1310.496pt x 982.872pt>
+File: ./images/pronotum.JPG Graphic file (type jpg)
+
+<use ./images/pronotum.JPG>
+Package pdftex.def Info: ./images/pronotum.JPG used on input line 151.
+(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
+ <./images/body.JPG, id=3, 655.248pt x 491.436pt>
+File: ./images/body.JPG Graphic file (type jpg)
+
+<use ./images/body.JPG>
+Package pdftex.def Info: ./images/body.JPG used on input line 152.
+(pdftex.def)             Requested size: 100.15425pt x 75.11447pt.
+ <./images/lm.JPG, id=4, 1310.496pt x 982.872pt>
+File: ./images/lm.JPG Graphic file (type jpg)
+
+<use ./images/lm.JPG>
+Package pdftex.def Info: ./images/lm.JPG used on input line 153.
+(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
+ <./images/rm.JPG, id=5, 1310.496pt x 982.872pt>
+File: ./images/rm.JPG Graphic file (type jpg)
+
+<use ./images/rm.JPG>
+Package pdftex.def Info: ./images/rm.JPG used on input line 154.
+(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 
-]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 160.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 160.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 160.
+ <./images/tete.JPG> <./images/pronotum.JPG> <./images/body.JPG> <./images/lm.J
+PG> <./images/rm.JPG>]
+File: ./images/tete.JPG Graphic file (type jpg)
 
-Underfull \hbox (badness 2119) in paragraph at lines 160--161
+<use ./images/tete.JPG>
+Package pdftex.def Info: ./images/tete.JPG used on input line 167.
+(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
+
+Underfull \hbox (badness 1540) in paragraph at lines 167--167
+[]\T1/ptm/m/n/8 (a) |Seg-men-ta-tion re-sult af-ter
+ []
+
+File: ./images/pronotum.JPG Graphic file (type jpg)
+<use ./images/pronotum.JPG>
+Package pdftex.def Info: ./images/pronotum.JPG used on input line 168.
+(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
+
+Underfull \hbox (badness 1320) in paragraph at lines 168--168
+[]\T1/ptm/m/n/8 (b) |Seg-men-ta-tion re-sult af-ter
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 180.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 180.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 180.
+
+Underfull \hbox (badness 2119) in paragraph at lines 180--181
 \T1/ptm/m/n/10 (Hel-vetica 10-point) and af-fil-i-a-tions (Hel-vetica 10
  []
 
+[2]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 168.
-[2] [3
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 188.
 
-] (./index.aux) ) 
+
+LaTeX Warning: Citation `con00a' on page 3 undefined on input line 192.
+
+[3] [4
+
+] (./index.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2722 strings out of 493029
- 38416 string characters out of 6136233
- 107854 words of memory out of 5000000
- 6184 multiletter control sequences out of 15000+600000
- 47269 words of font info for 70 fonts, out of 8000000 for 9000
+ 3978 strings out of 493029
+ 60722 string characters out of 6136233
+ 132818 words of memory out of 5000000
+ 7414 multiletter control sequences out of 15000+600000
+ 52839 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,10n,23p,1193b,253s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</u
-sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
-i8a.pfb>
-Output written on index.pdf (3 pages, 66855 bytes).
+ 44i,11n,49p,1534b,374s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
+8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on index.pdf (4 pages, 8766854 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
+ 43 PDF objects out of 1000 (max. 8388607)
+ 26 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
