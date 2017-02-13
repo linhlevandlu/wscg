@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.20)  12 FEB 2017 22:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.23)  13 FEB 2017 12:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **index.tex
 (./index.tex
-LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -24,19 +24,19 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 ) (./wscg.sty
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2015/03/17 v1.2c Input encoding file
+Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2015/03/17 v1.2c Input encoding file
+File: latin1.def 2008/03/30 v1.1d Input encoding file
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
@@ -46,7 +46,7 @@ Package ifpdf Info: pdfTeX in PDF mode is detected.
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks16
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
@@ -130,25 +130,22 @@ Package footmisc Info: Declaring symbol style lamport* on input line 903.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 ) (/usr/share/texlive/texmf-dist/tex/latex/fix2col/fix2col.sty
-Package: fix2col 2015/11/13 v0.04 Output Routine fixes for two column mode (DPC
+Package: fix2col 1998/08/17 v0.03 Output Routine fixes for two column mode (DPC
 ,FMi)
-
-
-Package fix2col Warning: Obsolete package: ignored.
-
-)) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 95.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
@@ -165,12 +162,12 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@width=\dimen113
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2016/01/03 v1.1b Standard LaTeX Color (DPC)
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: pdftex.def on input line 143.
+Package color Info: Driver file: pdftex.def on input line 130.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/nopageno/nopageno.sty
 Package: nopageno 1989/01/01 no page numbers (DPC)
@@ -179,11 +176,11 @@ Package: nopageno 1989/01/01 no page numbers (DPC)
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen114
 \captionmargin@=\dimen115
 \captionwidth=\dimen116
@@ -231,19 +228,7 @@ LaTeX Warning: Label `figrbox1' multiply defined.
 LaTeX Warning: Label `sub@figrbox1' multiply defined.
 
 
-LaTeX Warning: Label `figrbox1' multiply defined.
-
-
-LaTeX Warning: Label `sub@figrbox1' multiply defined.
-
-
-LaTeX Warning: Label `figrbox2' multiply defined.
-
-
-LaTeX Warning: Label `sub@figrbox2' multiply defined.
-
-
-LaTeX Warning: Label `figparts' multiply defined.
+LaTeX Warning: Label `fig:box' multiply defined.
 
 )
 \openout1 = `index.aux'.
@@ -408,36 +393,36 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 136.
 
-<./images/tete.JPG, id=1, 1310.496pt x 982.872pt>
+<./images/tete.JPG, id=1, 3276.24pt x 2457.18pt>
 File: ./images/tete.JPG Graphic file (type jpg)
  <use ./images/tete.JPG>
 Package pdftex.def Info: ./images/tete.JPG used on input line 150.
-(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
+(pdftex.def)             Requested size: 100.15425pt x 75.09947pt.
 
-<./images/pronotum.JPG, id=2, 1310.496pt x 982.872pt>
+<./images/pronotum.JPG, id=2, 3276.24pt x 2457.18pt>
 File: ./images/pronotum.JPG Graphic file (type jpg)
 
 <use ./images/pronotum.JPG>
 Package pdftex.def Info: ./images/pronotum.JPG used on input line 151.
-(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
+(pdftex.def)             Requested size: 100.15425pt x 75.09947pt.
  <./images/body.JPG, id=3, 655.248pt x 491.436pt>
 File: ./images/body.JPG Graphic file (type jpg)
 
 <use ./images/body.JPG>
 Package pdftex.def Info: ./images/body.JPG used on input line 152.
 (pdftex.def)             Requested size: 100.15425pt x 75.11447pt.
- <./images/lm.JPG, id=4, 1310.496pt x 982.872pt>
+ <./images/lm.JPG, id=4, 3276.24pt x 2457.18pt>
 File: ./images/lm.JPG Graphic file (type jpg)
 
 <use ./images/lm.JPG>
 Package pdftex.def Info: ./images/lm.JPG used on input line 153.
-(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
- <./images/rm.JPG, id=5, 1310.496pt x 982.872pt>
+(pdftex.def)             Requested size: 100.15425pt x 75.09947pt.
+ <./images/rm.JPG, id=5, 3276.24pt x 2457.18pt>
 File: ./images/rm.JPG Graphic file (type jpg)
 
 <use ./images/rm.JPG>
 Package pdftex.def Info: ./images/rm.JPG used on input line 154.
-(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
+(pdftex.def)             Requested size: 100.15425pt x 75.09947pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -451,70 +436,120 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  <./images/tete.JPG> <./images/pronotum.JPG> <./images/body.JPG> <./images/lm.J
 PG> <./images/rm.JPG>]
-File: ./images/tete.JPG Graphic file (type jpg)
+<./images/canny1.png, id=15, 512.91624pt x 750.805pt>
+File: ./images/canny1.png Graphic file (type png)
 
-<use ./images/tete.JPG>
-Package pdftex.def Info: ./images/tete.JPG used on input line 167.
-(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
+<use ./images/canny1.png>
+Package pdftex.def Info: ./images/canny1.png used on input line 167.
+(pdftex.def)             Requested size: 91.04742pt x 133.27168pt.
 
-Underfull \hbox (badness 1540) in paragraph at lines 167--167
-[]\T1/ptm/m/n/8 (a) |Seg-men-ta-tion re-sult af-ter
+<./images/canny2.png, id=16, 512.91624pt x 750.805pt>
+File: ./images/canny2.png Graphic file (type png)
+
+<use ./images/canny2.png>
+Package pdftex.def Info: ./images/canny2.png used on input line 168.
+(pdftex.def)             Requested size: 91.04742pt x 133.27168pt.
+
+Underfull \hbox (badness 2662) in paragraph at lines 168--168
+\T1/ptm/m/n/8 ap-ply-ing Canny al-go-rithm
  []
 
-File: ./images/pronotum.JPG Graphic file (type jpg)
-<use ./images/pronotum.JPG>
-Package pdftex.def Info: ./images/pronotum.JPG used on input line 168.
-(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
+<./images/ghtdiagram.png, id=18, 654.445pt x 221.82875pt>
+File: ./images/ghtdiagram.png Graphic file (type png)
 
-Underfull \hbox (badness 1320) in paragraph at lines 168--168
-[]\T1/ptm/m/n/8 (b) |Seg-men-ta-tion re-sult af-ter
+<use ./images/ghtdiagram.png>
+Package pdftex.def Info: ./images/ghtdiagram.png used on input line 177.
+(pdftex.def)             Requested size: 227.62206pt x 77.1538pt.
+
+Overfull \hbox (7.15225pt too wide) in paragraph at lines 177--178
+ [][] 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--200
+
+ []
+
+<./images/imreg.png, id=19, 503.8825pt x 820.06375pt>
+File: ./images/imreg.png Graphic file (type png)
+ <use ./images/imreg.png>
+Package pdftex.def Info: ./images/imreg.png used on input line 204.
+(pdftex.def)             Requested size: 91.04742pt x 148.1682pt.
+
+[2 <./images/canny1.png> <./images/canny2.png> <./images/ghtdiagram.png>]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 217.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 217.
+
+<./images/result.png, id=25, 386.44376pt x 558.085pt>
+File: ./images/result.png Graphic file (type png)
+
+<use ./images/result.png>
+Package pdftex.def Info: ./images/result.png used on input line 225.
+(pdftex.def)             Requested size: 136.57462pt x 197.23167pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 180.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 231.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 180.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 231.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 180.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 231.
 
-Underfull \hbox (badness 2119) in paragraph at lines 180--181
-\T1/ptm/m/n/10 (Hel-vetica 10-point) and af-fil-i-a-tions (Hel-vetica 10
+<./images/mdresult.jpg, id=26, 419.5675pt x 235.88126pt>
+File: ./images/mdresult.jpg Graphic file (type jpg)
+
+<use ./images/mdresult.jpg>
+Package pdftex.def Info: ./images/mdresult.jpg used on input line 235.
+(pdftex.def)             Requested size: 227.62206pt x 127.96785pt.
+
+Overfull \hbox (7.15225pt too wide) in paragraph at lines 235--236
+ [][] 
  []
 
-[2]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 188.
+<./images/mgresult.jpg, id=27, 464.73625pt x 260.975pt>
+File: ./images/mgresult.jpg Graphic file (type jpg)
 
+<use ./images/mgresult.jpg>
+Package pdftex.def Info: ./images/mgresult.jpg used on input line 241.
+(pdftex.def)             Requested size: 227.62206pt x 127.81914pt.
 
-LaTeX Warning: Citation `con00a' on page 3 undefined on input line 192.
+Overfull \hbox (7.15225pt too wide) in paragraph at lines 241--242
+ [][] 
+ []
 
-[3] [4
+[3 <./images/imreg.png> <./images/result.png>]
+Underfull \vbox (badness 6592) has occurred while \output is active []
 
-] (./index.aux)
-
-LaTeX Warning: There were undefined references.
-
+ [4 <./images/mdresult.jpg> <./images/mgresult.jpg>] (./index.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3978 strings out of 493029
- 60722 string characters out of 6136233
- 132818 words of memory out of 5000000
- 7414 multiletter control sequences out of 15000+600000
- 52839 words of font info for 74 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 44i,11n,49p,1534b,374s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 4033 strings out of 493304
+ 61629 string characters out of 6139871
+ 132472 words of memory out of 5000000
+ 7369 multiletter control sequences out of 15000+600000
+ 53187 words of font info for 85 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 44i,11n,47p,1232b,377s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
-8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on index.pdf (4 pages, 8766854 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/he
+lvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/urw/times/utmri8a.pfb>
+Output written on index.pdf (4 pages, 9348634 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
- 26 compressed objects within 1 object stream
+ 68 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

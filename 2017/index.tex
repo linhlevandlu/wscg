@@ -147,16 +147,16 @@ Automatic morphology, landmarks identification, image registration.
 In biology, morphology analysis is widely used to keep the changing information of the organism or detecting the difference information between the organisms. From the result of morphology analysis, we can conclude the evolution of an organism family, or we may classify the organisms. Especially in agriculture, morphology is one of best ways to learn about the variations of the insect on crops. The morphology methods may be divided into the groups by the features which are used by the methods such as shape, structure, color, pattern or size of the object. In the aim to study the potential links between these variations and agricultual ecosystems, a set of 291 beetles has been collected with all the information about the sex, place where they are found and agricultural practices in each field were recorded. For each beetle, the morphometric landmarks has been defined on each part (each insect includes five parts (see figure \ref{figparts})) of the insect by the biologies. Morphometric landmarks are points that can be defined in all speciemns and located precisely. Landmarks are widely used in many biological studies and they are currently included into the classification procedures.\\[0.2cm]
 \begin{figure}[h]
 \centering
-\subfloat[a]{\label{figrbox1}\includegraphics[width=0.22\textwidth]{./images/tete}}~~
-\subfloat[b]{\label{figrbox2}\includegraphics[width=0.22\textwidth]{./images/pronotum}}\\
-\subfloat[c]{\label{figrbox1}\includegraphics[width=0.22\textwidth]{./images/body}}~~
-\subfloat[d]{\label{figrbox2}\includegraphics[width=0.22\textwidth]{./images/lm}}\\
-\subfloat[e]{\label{figrbox1}\includegraphics[width=0.22\textwidth]{./images/rm}}
+\subfloat[]{\label{figrbox1}\includegraphics[width=0.22\textwidth]{./images/tete}}~~
+\subfloat[]{\label{figrbox2}\includegraphics[width=0.22\textwidth]{./images/pronotum}}\\
+\subfloat[]{\label{figrbox1}\includegraphics[width=0.22\textwidth]{./images/body}}~~
+\subfloat[]{\label{figrbox2}\includegraphics[width=0.22\textwidth]{./images/lm}}\\
+\subfloat[]{\label{figrbox1}\includegraphics[width=0.22\textwidth]{./images/rm}}
 \caption{The parts of beetle: (a) head, (b) pronotum, (c) body, (d,e) left and right mandible}
 \label{figparts}
 \end{figure}~\\[0.2cm]
-In this paper, we focus on a method that can automatic idenfication of landmarks on 2D images of beetle, specify the mandibles of beetle. The method mainly includes three stages: firstly, we extract the feature of the object in the image; secondly, the automatic landmarks are indentified by image registration and generalizing Hough transform; finally, a refinement of the estimated landmarks is done by cross-correlation.\\[0.2cm]
-In section 2, the steps of our methods will be discussed. All experiments and evaluation are described in section 3. Finally, we have some conclusion and discussion in the section 4.
+In this paper, we focus on a method that can automatic identification of landmarks on 2D images of beetle, specify the mandibles of beetle. The method mainly includes four stages: firstly, we extract the features of the object in the image; secondly, generalizing Hough transform is used to detect the presence between two images; thirdly, the translation and rotation is identified by applying image registration; finally, a refinement of the estimated landmarks is done by cross-correlation.\\[0.2cm]
+In section 2, the steps of our methods will be discussed. All experiments and evaluation are described in section 3. Finally, we have some conclusion in the section 4.
 
 \section{Method}
 For each image, a set of manual landmarks have been set by biologists corresponding to the morphological points of interest (18 landmarks for each right mandible and 16 landmarks for each left mandible). The automatic procedure to determine the landmarks is based on the segmentation of the image. The presence between two images are indicated by generalizing Hough transform, along with theirs translation and rotation are determine by applying registration. The last step is using cross-correlation to verify the location of estimated landmarks.
@@ -164,74 +164,88 @@ For each image, a set of manual landmarks have been set by biologists correspond
 In the methods of image processing, feature extraction is always a important stage. Besides, depending on the nature of the method, the methods are applied before (pre-processing) or after (post-process) extracting the features. In our method, the original Canny alogrithm\cite{canny} is ideal for detect the curves on the image. The ratio between lower threshold and upper threshold which are used in Canny algorithm is 1:3 (lower threshold approximated to 1 times \textit{threshold value} and upper threshold set to 3 times threshold value). This value is evaluated by the experiments. The \textit{threshold value} has been determined by analyzing the image histogram. During appling the Canny alogrithm to detect the curves of object, the gradient direction of each pixel which belongs to the curves is kept for the next step of the method. 
 \begin{figure}[h]
 \centering
-\subfloat[Segmentation result after applying Canny algorithm]{\label{figrbox1}\includegraphics[width=0.22\textwidth]{./images/tete}}~~
-\subfloat[Segmentation result after applying Canny algorithm and post-process]{\label{figrbox2}\includegraphics[width=0.22\textwidth]{./images/pronotum}}
+\subfloat[Segmentation result after applying Canny algorithm]{\label{canny1}\includegraphics[width=0.2\textwidth]{./images/canny1}}~~
+\subfloat[Segmentation result after applying Canny algorithm and post-process]{\label{canny2}\includegraphics[width=0.2\textwidth]{./images/canny2}}
 \caption{The segmentation results of the image}
-\label{figparts}
+\label{canny}
 \end{figure}~\\[0.2cm]
-In this study, the aim of segmentation stage is determined the outer border of the object which can be used to reconstruct the shape of the object as well as provide the best data for next step. The curves from Canny algorithm will be post-processed to remove the unnecessary curves i.e hole inside the border. 
+In this study, the aim of segmentation stage is determined the outer border of the object which can be used to reconstruct the shape of the object as well as provide the best data for next step. The curves from Canny algorithm will be post-processed to remove the unnecessary curves i.e hole inside the border (see figure \ref{canny}). 
 \subsection{Generalizing Hough transform}
-The generalizing Hought transform (GHT)\cite{Ballard} is a key of this study. With two input images, GHT is used to recognize the similar between two images and estimate the landmarks of an image based on the landmarks of other image. The GHT includes two phase learning and recognition process. In the learning phase of GHT, model image is used to construct R-table. This is table that contains the polar value of each point in model's curves. A polar coordinate system is initialized in the model image by fixing a reference point and using it as orgin. The R-table records the polar coordinate values of all boundary points. The rows of R-table are indexed by the gradient directons of the points on the curves. It means that with a gradient direction can be exists many polar coordinate values. During the recognition phase, a 2D accumulator is used, called Hough Space Voting (HSV). The axes of HSV express the information of polar coordinate system. For each curve points on scene image, we try to find a record in R-table that corresponding with the gradient direction of each scene point. The voting will be carried out at all location in HSV that found in R-table. At the end of voting process, if the scene image is identical to the model image, then the cell where have the highest number of votes corresponds to the reference point of the model in the scene image. Besides, the peak value would be equal to the number of curve points of the scene image when the model and scene image match perfectly.
-\section{Typeset text}
-\subsection*{Normal or Body Text}
-Please use a 10-point Times Roman font, or other Roman font with serifs, as close as possible in appearance to Times Roman in which these guidelines have been set. The goal is to have a 10-point text, as you see here. Please use sans-serif or non-proportional fonts only for special purposes, such as distinguishing source code text. If Times Roman is not available, try the font named Computer Modern Roman. On a Macintosh, use the font named Times.  Right margins should be justified, not ragged.
-
-\subsection*{Title and Authors}
-The title (Helvetica 18-point bold), authors' names (Helvetica 10-point) and affiliations (Helvetica 10 point) run across the full width of the page -- one column wide. We also recommend e-mail address (Helvetica 10 point). See the top of this page for three addresses. If only one address is needed, center all address text. For two addresses, use two centered tabs, and so on. For more than three authors, you may have to improvise.\footnote{If necessary, you may place some address information in a footnote, or in a named section at the end of your paper, but margins must remain empty.} 
-
-\subsection*{First Page Copyright Notice}
-Please include 3.8 cm (1.5") text box with the text shown at the bottom of the left column of the first page with the copyright notice.
-
-\subsection*{Others Pages}
-Others pages start at the top of the page (margin 2.5 cm) and continue in double-column format.  The two columns on the last even page should be as close to equal length as possible. 
-
-{\bfseries Total length of a paper is max. 8 pages.}
-
-Footnotes should be Times New Roman 9-point, and justified to the full width of the column.
-
-Please, use the standard Journal of WSCG format for references -- that is, a numbered list at the end of the article, ordered alphabetically by first author, and referenced by a name in brackets \cite{con00a}. See the examples of citations at the end of this document. Within this template file, use the style named references for the text of your citation.
-
-The references are also in 9 pt., but that section (see Section \ref{references}) is ragged right. References should be published materials accessible to the public. Internal technical reports may be cited only if they are easily accessible (i.e. you can give the address to obtain the report within your citation) and may be obtained by any reader. Proprietary information may not be cited. Private communications should be acknowledged, not referenced, e.g. "[Adam, personal communication]").
-
-\subsection*{Page Numbering, Headers and Footers}
-Do not include headers, footers or page numbers in your submission. These will be added when the publications are assembled.
-
+The generalizing Hought transform (GHT)\cite{Ballard} is a key of this study. With two input images, GHT is used to recognize the similar between two images and estimate the landmarks of an image based on the landmarks of other image. The GHT includes two phases: training and recognition.\\[0.2cm]
 \begin{figure}[htb]
     \centering
-    \rule{6cm}{3cm}
-    \caption{Insert caption to place caption below figure.}
+    \includegraphics[width=0.5\textwidth]{./images/ghtdiagram}
+    \caption{Block diagram of GHT}
     \label{fig:box}
-\end{figure}
-
+\end{figure}~\\
+In the training phase of GHT, model image is used to construct R-table. This is table that contains the polar value of each point in model's curves. A polar coordinate system is initialized in the model image by fixing a reference point and using it as origin. The R-table records the polar coordinate values of all boundary points. The rows of R-table are indexed by the gradient directions of the points on the curves. It means that with a gradient direction can be exists many polar coordinate values.
 \begin{table}[htb]
 	\centering
 	\begin{tabular}{|l|l|l|l|}
 	\hline
-	Graphics & Top & In-between & Bottom \\
+	Index & Polar values \\
 	\hline
-	Tables & End & Last & First \\
+	gradient 1 & (r1,l1), (r2,l2),(r3,l3) \\
 	\hline
-	Figures & Good & Similar & Very well \\
+	gradient 2 & (r2,l2),(r4,l4),(r1,l5),... \\
+	\hline
+	... & ...\\
+	\hline
+	gradient n & (r1,l1),(r4,l5),(r5,l5),... \\
 	\hline
 	\end{tabular}
-	\caption{Table captions should be placed below the table}
-\end{table}
-
-\section{Figures/Captions}
-Place Tables/Figures/Images in text as close to the reference as possible (see Fig.\ref{fig:box}). It may extend across both columns to a maximum width of 16 cm (6.3"). Captions should be Times New Roman 10-points.  They should be numbered (e.g., "Table 1" or "Figure 2"), please note that the word for Table and Figure are spelled out. Figure's and Table's captions should be centered beneath the image, picture or a table.
-
-\section{Sections}
-The heading of a section should be in Times New Roman 12-point bold in all-capitals flush left with an additional 6-points of white space above the section head.  Sections and subsequent sub- sections should be numbered and flush left. For a section head and a subsection head together (such as Section 3 and Subsection 3.1), use no additional space above the subsection head.
-
-\subsection{Subsections}
-The heading of subsections should be in Times New Roman 12-point bold with only the initial letters capitalized. (Note: For subsections and subsubsections, a word like the or a is not capitalized unless it is the first word of the header.)
-
-\subsubsection{Subsubsections}
-The heading for subsubsections should be in Times New Roman 11-point italic with initial letters capitalized and 6-points of white space above the subsubsection head.
-
-\section{Acknowledgments}
-Our thanks to ACM SIGCHI and SIGGRAPH for allowing us to modify templates they had developed.
-
+	\caption{An example of R-Table}
+\end{table}\\
+During the recognition phase, a 2D accumulator is used, called Hough Space Voting (HSV). The axes of HSV express for the information of polar coordinate system. For each curve points on scene image, we try to find a record in R-table that corresponding with the gradient direction of each scene point. The voting will be carried out at all location in HSV that found in R-table. At the end of voting process, if the scene image is identical to the model image, then the cell where have the highest number of votes corresponds to the reference point of the model in the scene image. Besides, the peak value would be equal to the number of curve points of the scene image when the model and scene image match perfectly.\\[0.2cm]
+\subsection{Image registration}
+Our study is working on 2D image, and the transformation between two images are inevitable. Though, GHT is just hired to detect the presence of model image in scene image. Translation and rotation are determined by applying an alignment method based on the set of boundary points of two images. Firstly, the centroid point of each image is defined by getting mean coordinate of all boundary points. Secondly, a principal axis is indicated for image. This is a connected line from centroid point to a point in list of curve points. For each point in curve, we create a line from centroid point to it, and assume it as an axis. The mean perpendicular distance from the remaining points to axis are calculated. This work is finished for all points on curve, and the principal axis is line that has minimum mean perpendicular distance to other points. The translation is indicated by translation between two centroid points. The rotation is the angle between the principal axis of two images. As well as, the rotation direction is determined by checking each direction.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.2\textwidth]{./images/imreg}
+    \caption{A registration result between two images.}
+    \label{fig:box}
+\end{figure}~\\
+At the end of step, the landmarks of scene image are estimated by the manual landmarks of model image. Hence, before estimating the landmarks, a translation and rotation are applied on scene image to match the pose between the scene and the model. The obtained landmarks is computed from the distance from the centroid point to each manual landmarks of the model image.
+\subsection{Refinement the estimated landmarks}
+The GHT and registration step gave us the estimated coordinate of scene's landmarks. But sometimes the landmarks can be stay at the incorrect location. For this reason, at the end of the method, we apply template matching to verify the location of estimated landmarks. The template matching is done based on the cross-correlation. The equation of cross-correlation is given by equation (\ref{eq:cross-correlation}).
+\begin{equation}
+\label{eq:cross-correlation}
+	R_{ccorr}(x,y) = \sum\limits_{x',y'}[T(x'.y').I(x + x', y + y')]
+\end{equation}
+Where:
+\begin{itemize}
+\item T is template which use to slide and find the exist in other image.
+\item I is image which we expect to find the template image
+\item $(x', y')$ are coordinates in template where we get the value to compute.
+\item $(x + x', y + y')$ are coordinates in image where we get the value to compute when template $T$ sliding.
+\end{itemize}
+For each manual landmark in model, a sub-image \textit{I} with the size \textit{$s_1$} is created; and the corresponding estimated landmark on scene, a template \textit{T} with the size \textit{$s_2$}is created (\textit{$s_1 > s_2$}). The last location of estimated landmarks is the location that has the largest correlation value. Finally, the automatic landmarks are inverted to match with the real location in the scene image (by inverting the transformation).
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{./images/result}
+    \caption{Automatic landmarks after refinement}
+    \label{figresult}
+\end{figure}~\\
+Figure \ref{figresult} show a complete result on one scene mandible with the manual landmarks (red points) and estimated landmarks (yellow points).
+\section{Experiments and result}
+All the steps in our method are implemented in MAELab\footnote{MAELab is a free software in C++. It can be directly obtained by request the authors.}. Two sets of beetle have been analyzed, right and left mandible. After verifying the quality of the image, it remains 288 usable images for right mandible and 285 images for left mandible. The removed images include the images that do not contain the mandible and the mandible is broken.\\
+In all valid images, a set of 18 manual landmarks of right mandible (16 landmarks for left mandible) are indicated by biologists. Along with choosing the centroid size to measure the mandible. This size is obtained by sum of all square distance from each landmarks to the centroid point (see \cite{Webster}).
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./images/mdresult}
+    \caption{The percentage of correct proportions on right mandibles }
+    \label{figmdresult}
+\end{figure}~\\
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./images/mgresult}
+    \caption{The percentage of correct proportions on left mandibles }
+    \label{figmgresult}
+\end{figure}~\\
+By this way, we have compared the centroid size between manual landmarks and estimated landmarks. We can see in figure \ref{figmdresult} and figure \ref{figmgresult} for all images. The correct proportions of estimated landmarks is 73,35\% for right mandible and 56,99\% for left mandible. In fact, this rate is evaluated by choosing an arbitrary image as model. The object in the image are presented with difference size (scale problem) that our method just consider on translation and rotation between two image. So, the error in computing is easy to understand. However, our method is success in indicating the all landmarks for each image; and the location of the landmarks is considered near with the manual landmarks in some asspect.\\
+In a different side, when comparing with our previous study (see in \cite{est}). This method has more advantages for implementation process. The memory to detecting the landmarks, along with the times to execute the process are decreased dramatically.
+\section{Conclusion}
+Morphometric analysis is a powerful tool in biology in classification the species. Automatic identification the characteristics biology of organism is difficult problem. In the content of this paper, we have begun to design a method to segment the beetle mandibles and to indicate automatically landmarks which have been determined by biologists. Each mandible is segmented by applying Canny algorithm. Using GHT and image registration to estimate the landmarks. Finally, cross-correlation will be applied to refine the location of the estimated landmarks. The first version of this method has been implemented. From now, a next stage of our method is to add the features to have the position of landmarks more precisely.
 %-------------------------------------------------------------------------
 % example of algorithm typesetting
 % to allow this, uncomment line 
@@ -266,16 +280,15 @@ Our thanks to ACM SIGCHI and SIGGRAPH for allowing us to modify templates they h
 \label{references}
 \bibitem[1]{canny} Canny, John. "A computational approach to edge detection." IEEE Transactions on pattern analysis and machine intelligence 6 (1986): 679-698.
 \bibitem[2]{Ballard} Ballard, Dana H. "Generalizing the Hough transform to detect arbitrary shapes." Pattern recognition 13.2 (1981): 111-122.
-\bibitem[Con00b]{con00b} Mackay, W.E. Ethics, lies and videotape, in Conf.proc. CHI'00, Denver CO, ACM Press, pp.138-145, 2000.
-\bibitem[Jou01a]{jou01a} Journal of WSCG \& WSCG templates: http://wscg.zcu.cz/jwscg/template.doc (MSWord)
-http://wscg.zcu.cz/jwscg/template.pdf (PDF)
+\bibitem[3]{Webster} Webster, M. A. R. K., and H. DAVID Sheets. "A practical introduction to landmark-based geometric morphometrics." Quantitative Methods in Paleobiology 16 (2010): 168-188.
+\bibitem[4]{est} Le Van, L., et al. "Estimating landmarks on 2D images of beetle mandibles."
 \end{thebibliography}
 
-{\bfseries
-Last page should be fully used by text, figures etc. Do not leave empty space, please. 
+%{\bfseries
+%Last page should be fully used by text, figures etc. Do not leave empty space, please. 
 
-Do not lock the PDF -- additional text and info will be inserted, i.e. ISSN/ISBN etc. 
-}
+%Do not lock the PDF -- additional text and info will be inserted, i.e. ISSN/ISBN etc. 
+%}
 
 
 \end{document}
