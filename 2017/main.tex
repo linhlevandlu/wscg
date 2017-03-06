@@ -52,24 +52,33 @@
 \title{Automatic morphology: Application on biological images}
 
 \author{
-\parbox{0.25\textwidth}{\centering
-LE Van Linh\\[1mm]
-ITDLU\\
-Dalat University\\
-Vietnam\\
+  \hspace{-0.1\textwidth}
+  \parbox{0.2\textwidth}{\centering
+    LE Van \\
+    Linh\\[1mm]
+LaBRI-CNRS 5800\\
+ITDLU, Dalat Univ-V
 linhlv@dlu.edu.vn/ van-linh.le@labri.fr
 }
-\hspace{0.05\textwidth}
-\parbox{0.25\textwidth}{\centering
+\hspace{0.02\textwidth}
+\parbox{0.2\textwidth}{\centering
 BEURTON-AIMAR Marie\\[1mm]
 LaBRI-CNRS 5800\\
 Bordeaux University\\
 33400 Talence-F\\
 beurton@labri.fr
 }
-\hspace{0.05\textwidth}
+\hspace{0.02\textwidth}
 \parbox{0.25\textwidth}{\centering
-PARISEY Nicolas\\[1mm]
+KRAHENBUHL \\Adrien\\[1mm]
+LaBRI-CNRS 5800\\
+Bordeaux University\\
+33400 Talence-F\\
+adrien.krahenbuhl@labri.fr
+}
+\hspace{0.02\textwidth}
+\parbox{0.18\textwidth}{\centering
+PARISEY\\ Nicolas\\[1mm]
 IGEPP\\
 INRA 1349\\
 35653 Le Rheu-F\\
@@ -125,8 +134,30 @@ nparisey@rennes.inra.fr
 
 \begin{abstract}
 \noindent
-Morphology is a important characteristics of the biological analysing. Knowing the morphology of an object do not only help us generate the information of the object or re-construct the object but also classifies the objects. Indicating the morphology in biological image is a large field and having many methods from manual methods to semi-automatic or automatically. In this article, we proposed a method to automatic determine the characteristics to define the morphology in biological, specify on beetle. Through segmentation and registration, our method is used to determine the landmarks on the images. The experiment is done on two datasets. The result is evaluated by the coordinates of automatic landmarks and the centroid size of all estimated landmarks.
-
+  Phenotype of species are characterized by several informations like,
+  age, sex, morphological measures and environment parameters. Biologists are
+  familar to manually getting morphological measures. In the case of
+  analysis at the macro level (tissues, small parts of animal \ldots)
+  that can be done directly by measuring the element geometry: length,
+  width, diameter, angles \ldots. Another way is to take pictures of
+  these elements and to run image processing algorithms. From a
+  collection of beetle pictures, we have initiated this work to test the
+  feasability of automatically positionning landmarks on biological
+  images. The set of images contains 293 beetles and for all an image of the left
+  and right mandibles. For each mandible, a set of 16 and 18
+  landmarks (resp. left and right) have been set manually. In a previous
+  work\cite{} based on Palanaswami article \cite{} we have shown that
+  if we consider the centroid measure of the mandible as the parameter
+  to obtain, the probabilistic Hough Transform can provide very
+  interesting results. But in the case of the main goal is to fix
+  landmarks to get property about specific area (defined by
+  biologists) the result is not as precised as we have expected. In this
+  next turn, we have kept the same method to segment and to register
+  scene images with model but we have change the way to set the
+  model landmarks on the scene. This new procedure uses a SIFT
+  algorithm as the last operation of our process. We will compare all
+  the obtained results in order to define the new workflow to label
+  the mandible images.
 \end{abstract}
 
 \subsection*{Keywords}
