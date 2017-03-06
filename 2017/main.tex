@@ -175,7 +175,27 @@ Automatic morphology, landmarks identification, image registration.
 
 \copyrightspace
 
-In biology, morphology analysis is widely used to keep the changing information of the organism or detecting the difference information between the organisms. From the result of morphology analysis, we can conclude the evolution of an organism family, or we may classify the organisms. Especially in agriculture, morphology is one of best ways to learn about the variations of the insect on crops. The morphology methods may be divided into the groups by the features which are used by the methods such as shape, structure, color, pattern or size of the object. In the aim to study the potential links between these variations and agricultual ecosystems, a set of 291 beetles has been collected with all the information about the sex, place where they are found and agricultural practices in each field were recorded. For each beetle, the morphometric landmarks has been defined on each part (each insect includes five parts: head, pronotum, body, left and right mandible) of the insect by the biologies. In this context, we try to indicate the landmarks on two parts of beetle (left and right mandible (see figure \ref{figparts})). Morphometric landmarks are points that can be defined in all speciemns and located precisely. Landmarks are widely used in many biological studies and they are currently included into the classification procedures.\\[0.2cm]
+In biology, morphology analysis is widely used to keep the changing
+information of the organism or detecting the difference information
+between the organisms. From the result of morphology analysis, we can
+conclude the evolution of an organism family, or we may classify the
+organisms. Especially in agriculture, morphology is one of best ways
+to learn about the variations of the insect on crops. The morphology
+methods may be divided into the groups by the features which are used
+by the methods such as shape, structure, color, pattern or size of the
+object. In the aim to study the potential links between these
+variations and agricultual ecosystems, a set of 291 beetles has been
+collected with all the information about the sex, place where they are
+found and agricultural practices in each field were recorded. For each
+beetle, the morphometric landmarks has been defined on each part (each
+insect includes five parts: head, pronotum, body, left and right
+mandible) of the insect by the biologies. In this context, we try to
+indicate the landmarks on two parts of beetle (left and right mandible
+(see figure \ref{figparts})). Morphometric landmarks are points that
+can be defined in all speciemns and located precisely. Landmarks are
+widely used in many biological studies and they are currently included
+into the classification procedures.\\[0.2cm]
+
 \begin{figure}[h]
 \centering
 \subfloat[Left mandible]{\label{figrbox2}\includegraphics[width=0.22\textwidth]{./images/lm}}~~
@@ -183,30 +203,85 @@ In biology, morphology analysis is widely used to keep the changing information 
 \caption{The mandibles of beetle}
 \label{figparts}
 \end{figure}~\\[0.2cm]
-In this paper, we focus on a method that can automatic identification of landmarks on 2D images of beetle, specify the mandibles of beetle. Through whole the article, we use two images to automatic extraction the landmarks: model image and scene image. The method mainly includes four stages: firstly, we extract the features of the object in the image; secondly, generalizing Hough transform is used to detect the presence between two images; thirdly, the translation and rotation is identified by image registration; finally, a refinement of the estimated landmarks is done by comparing the descriptors  between model landmarks and estimated landmarks.\\[0.2cm]
-In section 2, the steps of our methods will be discussed. All experiments and evaluation are described in section 3. Finally, we have some conclusion in the section 4.
+In this paper, we focus on a method that can automatic identification
+of landmarks on 2D images of beetle, specify the mandibles of
+beetle. Through whole the article, we use two images to automatic
+extraction the landmarks: model image and scene image. The method
+mainly includes four stages: firstly, we extract the features of the
+object in the image; secondly, generalizing Hough transform is used to
+detect the presence between two images; thirdly, the translation and
+rotation is identified by image registration; finally, a refinement of
+the estimated landmarks is done by comparing the descriptors  between
+model landmarks and estimated landmarks.\\[0.2cm]
+
+In section 2, the steps of our methods will be discussed. All
+experiments and evaluation are described in section 3. Finally, we
+have some conclusion in the section 4.
+
 
 \section{Method}
-For each image, a set of manual landmarks have been set by biologists corresponding to the morphological points of interest (18 landmarks for each right mandible and 16 landmarks for each left mandible). The automatic procedure to determine the landmarks is based on the segmentation of the image. The presence between two images are indicated by generalizing Hough transform, along with theirs translation and rotation are determine by applying registration. The last step is using descriptors measure (L2 distance) to verify the location of estimated landmarks.
+For each image, a set of manual landmarks have been set by biologists
+corresponding to the morphological points of interest (18 landmarks
+for each right mandible and 16 landmarks for each left mandible). The
+automatic procedure to determine the landmarks is based on the
+segmentation of the image. The presence between two images are
+indicated by generalizing Hough transform, along with theirs
+translation and rotation are determine by applying registration. The
+last step is using descriptors measure (L2 distance) to verify the
+location of estimated landmarks.
+
 \subsection{Image segmentation}
-In the methods of image processing, feature extraction is always a important stage. Besides, depending on the nature of the method, the methods are applied before (pre-processing) or after (post-process) extracting the features. In our method, the original Canny alogrithm\cite{canny} is ideal for detect the curves on the image. The ratio between lower threshold and upper threshold which are used in Canny algorithm is 1:3 (lower threshold approximated to 1 times \textit{threshold value} and upper threshold set to 3 times threshold value). This value is evaluated by the experiments. The \textit{threshold value} has been determined by analyzing the image histogram. During appling the Canny alogrithm to detect the curves of object, the gradient direction of each pixel which belongs to the curves is kept for the next step of the method. 
+In the methods of image processing, feature extraction is always a
+important stage. Besides, depending on the nature of the method, the
+methods are applied before (pre-processing) or after (post-process)
+extracting the features. In our method, the original Canny
+alogrithm\cite{canny} is ideal for detect the curves on the image. The
+ratio between lower threshold and upper threshold which are used in
+Canny algorithm is 1:3 (lower threshold approximated to 1 times
+\textit{threshold value} and upper threshold set to 3 times threshold
+value). This value is evaluated by the experiments. The
+\textit{threshold value} has been determined by analyzing the image
+histogram. During appling the Canny alogrithm to detect the curves of
+object, the gradient direction of each pixel which belongs to the
+curves is kept for the next step of the method.
+
 \begin{figure}[h]
 \centering
-\subfloat[Segmentation result after applying Canny algorithm]{\label{canny1}\includegraphics[width=0.2\textwidth]{./images/canny1}}~~
-\subfloat[Segmentation result after applying Canny algorithm and post-process]{\label{canny2}\includegraphics[width=0.2\textwidth]{./images/canny2}}
+\subfloat[Segmentation result after applying Canny
+  algorithm]{\label{canny1}\includegraphics[width=0.2\textwidth]{./images/canny1}}~~ 
+\subfloat[Segmentation result after applying Canny algorithm and
+  post-process]{\label{canny2}\includegraphics[width=0.2\textwidth]{./images/canny2}} 
 \caption{The segmentation results of the image}
 \label{canny}
 \end{figure}~\\[0.2cm]
-In this study, the aim of segmentation stage is determined the outer border of the object which can be used to reconstruct the shape of the object as well as provide the best data for next step. The curves from Canny algorithm will be post-processed to remove the unnecessary curves i.e hole inside the border (see figure \ref{canny}). 
+In this study, the aim of segmentation stage is determined the outer
+border of the object which can be used to reconstruct the shape of the
+object as well as provide the best data for next step. The curves from
+Canny algorithm will be post-processed to remove the unnecessary
+curves i.e hole inside the border (see figure \ref{canny}).
+
 \subsection{Generalizing Hough transform}
-The generalizing Hought transform (GHT)\cite{Ballard} is one of the keys of this study. With two input images, GHT is used to recognize the similar between two images and estimate the landmarks of an image based on the manual landmarks of other image. The GHT includes two phases: training and recognition.\\[0.2cm]
+The generalizing Hought transform (GHT)\cite{Ballard} is one of the
+keys of this study. With two input images, GHT is used to recognize
+the similar between two images and estimate the landmarks of an image
+based on the manual landmarks of other image. The GHT includes two
+phases: training and recognition.\\[0.2cm]
+
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.5\textwidth]{./images/ghtdiagram}
     \caption{Block diagram of GHT}
     \label{fig:box}
 \end{figure}~\\
-In the training phase of GHT, model image is used to construct R-table. This is table that contains the polar value of each point on model's curves (the result of segmentation). A polar coordinate system is initialized in the model image by fixing a reference point and using it as origin. The R-table records the polar coordinate values of all boundary points. The rows of R-table are indexed by the gradient directions of the points on the curves. It means that with a gradient direction can be exists many polar coordinate values.
+In the training phase of GHT, model image is used to construct
+R-table. This is table that contains the polar value of each point on
+model's curves (the result of segmentation). A polar coordinate system
+is initialized in the model image by fixing a reference point and
+using it as origin. The R-table records the polar coordinate values of
+all boundary points. The rows of R-table are indexed by the gradient
+directions of the points on the curves. It means that with a gradient
+direction can be exists many polar coordinate values.
+
 \begin{table}[htb]
 	\centering
 	\begin{tabular}{|l|l|l|l|}
@@ -224,24 +299,91 @@ In the training phase of GHT, model image is used to construct R-table. This is 
 	\end{tabular}
 	\caption{An example of R-Table}
 \end{table}\\
-During the recognition phase, a 2D accumulator is used, called Hough Space Voting (HSV). The axes of HSV express for the information of polar coordinate system. For each point on scene's curves, we try to find a record in R-table that corresponding with the gradient direction of each scene point. The voting will be carried out at all location in HSV that found in R-table. At the end of voting process, if the scene image is identical to the model image, then the cell where have the highest number of votes corresponds to the reference point of the model in the scene image. Besides, the peak value would be equal to the number of curve points of the scene image when the model and scene image match perfectly.
+During the recognition phase, a 2D accumulator is used, called Hough
+Space Voting (HSV). The axes of HSV express for the information of
+polar coordinate system. For each point on scene's curves, we try to
+find a record in R-table that corresponding with the gradient
+direction of each scene point. The voting will be carried out at all
+location in HSV that found in R-table. At the end of voting process,
+if the scene image is identical to the model image, then the cell
+where have the highest number of votes corresponds to the reference
+point of the model in the scene image. Besides, the peak value would
+be equal to the number of curve points of the scene image when the
+model and scene image match perfectly.
+
 \subsection{Image registration}
-Our study is working on the 2D image, and the transformation between two images are inevitable. Though, GHT is just hired to detect the presence of the model image in the scene image. Translation and rotation are determined by applying an alignment method based on the set of boundary points of two images. In this case, we use Principal Component Analysis Iteration (PCAI) to finish this work. This method is improved from PCA method\cite{pca}.Firstly, the centroid point of each image is defined by getting mean coordinate of all boundary points. Secondly, a principal axis is indicated for the images, this is a connected line from centroid point to a point in list of curve points. For each point in curve, we create a line from centroid point to it, and assume it as an axis. The mean perpendicular distance from the remaining points to axis are calculated. This work is finished for all points on curve, and the principal axis is line that has minimum mean perpendicular distance to other points. The translation is indicated by translation between two centroid points. The rotation is the angle between the principal axis of two images. As well as, the rotation direction is determined by checking each direction. HHowever, in some case, the translation and rotation between two images are wrong indicated. To make sure that we have obtained the best match between the images. We applied an iteration to get the best register of them. And instead consider all the points in the curve, we just need to consider a subset of it. The curve points are sorted by y-coordinate first. Then a half points are extracted to check. The PCAI is applied on two new subsets until obtaining best matching of two images.
+Our study is working on the 2D image, and the transformation between
+two images are inevitable. Though, GHT is just hired to detect the
+presence of the model image in the scene image. Translation and
+rotation are determined by applying an alignment method based on the
+set of boundary points of two images. In this case, we use Principal
+Component Analysis Iteration (PCAI) to finish this work. This method
+is improved from PCA method\cite{pca}.Firstly, the centroid point of
+each image is defined by getting mean coordinate of all boundary
+points. Secondly, a principal axis is indicated for the images, this
+is a connected line from centroid point to a point in list of curve
+points. For each point in curve, we create a line from centroid point
+to it, and assume it as an axis. The mean perpendicular distance from
+the remaining points to axis are calculated. This work is finished for
+all points on curve, and the principal axis is line that has minimum
+mean perpendicular distance to other points. The translation is
+indicated by translation between two centroid points. The rotation is
+the angle between the principal axis of two images. As well as, the
+rotation direction is determined by checking each direction. HHowever,
+in some case, the translation and rotation between two images are
+wrong indicated. To make sure that we have obtained the best match
+between the images. We applied an iteration to get the best register
+of them. And instead consider all the points in the curve, we just
+need to consider a subset of it. The curve points are sorted by
+y-coordinate first. Then a half points are extracted to check. The
+PCAI is applied on two new subsets until obtaining best matching of
+two images.
+
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.2\textwidth]{./images/imreg}
     \caption{A registration result between two images.}
     \label{fig:box}
 \end{figure}~\\
-At the end of step, the landmarks of scene image are estimated by the manual landmarks of model image. Hence, before estimating the landmarks, a translation and rotation are applied on scene image to match the pose between the scene and the model. The obtained landmarks is computed from the distance from the centroid point to each manual landmarks of the model image.
+At the end of step, the landmarks of scene image are estimated by the
+manual landmarks of model image. Hence, before estimating the
+landmarks, a translation and rotation are applied on scene image to
+match the pose between the scene and the model. The obtained landmarks
+is computed from the distance from the centroid point to each manual
+landmarks of the model image.
+
 \subsection{Refinement the estimated landmarks}
-The GHT and registration step gave us the estimated coordinate of scene's landmarks. But sometimes the landmarks can stay at the incorrect location. For this reason, at the end of the method, we apply descriptors measure\cite{sift} to verify the location of estimated landmarks. The location of manual and estimated landmarks are presented as the descriptors. And L2 distance is applied to measure the distance between them. The equation of L2-distance is given by equation (\ref{eq:cross-correlation}).
+The GHT and registration step gave us the estimated coordinate of
+scene's landmarks. But sometimes the landmarks can stay at the
+incorrect location. For this reason, at the end of the method, we
+apply descriptors measure\cite{sift} to verify the location of
+estimated landmarks. The location of manual and estimated landmarks
+are presented as the descriptors. And L2 distance is applied to
+measure the distance between them. The equation of L2-distance is
+given by equation (\ref{eq:cross-correlation}).
+
 \begin{equation}
 \label{eq:cross-correlation}
 	L(x,y) = \sum\limits_{x_i,y_i}\sqrt{(x_i-y_i)^2}
 \end{equation}
 Where $x_i, y_i $ are the corresponding location in the descriptors.\\[0.2cm]
-For each manual landmark in the model, a sub-image \textit{$I$} with the size \textit{$s_1$} is created; and the corresponding estimated landmark on the scene, a template \textit{$T$} with the size \textit{$s_2$}is created (\textit{$s_1 < s_2$}). For each pixel in \textit{$I$}, the orientation and gradient magnitude are calculated. The descriptor is created for image \textit{$I$}. This is a histogram with 8-bins of orientation and the length is the sum of the gradient magnitude. For each pixel in template \textit{$T$}, a sub-template \textit{$T^{'}$} is extracted with the same size with image \textit{$I$} and its descriptor is calculated with the same way with image \textit{$I$}. Then the distance between image \textit{$I$} and sub-template \textit{$T^{'}$} is calculated. The last location of estimated landmarks is the location that has the smallest measure distance value. Finally, the automatic landmarks are inverted to match with the real location in the scene image (by inverting the transformation).
+For each manual landmark in the model, a sub-image \textit{$I$} with
+the size \textit{$s_1$} is created; and the corresponding estimated
+landmark on the scene, a template \textit{$T$} with the size
+\textit{$s_2$}is created (\textit{$s_1 < s_2$}). For each pixel in
+\textit{$I$}, the orientation and gradient magnitude are
+calculated. The descriptor is created for image \textit{$I$}. This is
+a histogram with 8-bins of orientation and the length is the sum of
+the gradient magnitude. For each pixel in template \textit{$T$}, a
+sub-template \textit{$T^{'}$} is extracted with the same size with
+image \textit{$I$} and its descriptor is calculated with the same way
+with image \textit{$I$}. Then the distance between image \textit{$I$}
+and sub-template \textit{$T^{'}$} is calculated. The last location of
+estimated landmarks is the location that has the smallest measure
+distance value. Finally, the automatic landmarks are inverted to match
+with the real location in the scene image (by inverting the
+transformation).
+
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.3\textwidth]{./images/result}
@@ -250,8 +392,20 @@ For each manual landmark in the model, a sub-image \textit{$I$} with the size \t
 \end{figure}~\\
 Figure \ref{figresult} show a complete result on one scene mandible with the manual landmarks (red points) and estimated landmarks (yellow points).
 \section{Experiments and result}
-All the steps in our method are implemented in MAELab\footnote{MAELab is a free software in C++. It can be directly obtained by request the authors.}. Two sets of beetle have been analyzed, right and left mandible. After verifying the quality of the image, it remains 288 usable images for right mandible and 285 images for left mandible. The removed images include the images that do not contain the mandible and the mandible is broken.\\
-In all valid images, a set of 18 manual landmarks of right mandible (16 landmarks for left mandible) are indicated by biologists. Along with choosing the centroid size to measure the mandible. This size is obtained by sum of all square distance from each landmarks to the centroid point (see \cite{Webster}).
+All the steps in our method are implemented in MAELab\footnote{MAELab
+  is a free software in C++. It can be directly obtained by request
+  the authors.}. Two sets of beetle have been analyzed, right and left
+mandible. After verifying the quality of the image, it remains 288
+usable images for right mandible and 285 images for left mandible. The
+removed images include the images that do not contain the mandible and
+the mandible is broken.\\
+
+In all valid images, a set of 18 manual landmarks of right mandible
+(16 landmarks for left mandible) are indicated by biologists. Along
+with choosing the centroid size to measure the mandible. This size is
+obtained by sum of all square distance from each landmarks to the
+centroid point (see \cite{Webster}).
+
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.3\textwidth]{./images/mdresult}
@@ -264,12 +418,52 @@ In all valid images, a set of 18 manual landmarks of right mandible (16 landmark
     \caption{The percentage of correct proportions on left mandibles }
     \label{figmgresult}
 \end{figure}~\\
-By this way, we have compared the centroid size between manual landmarks and estimated landmarks. We can see in figure \ref{figmdresult} and figure \ref{figmgresult} for all images. The correct proportions of estimated landmarks are 94,48\% for the right mandible and 90,56\% for the left mandible. In fact, this rate is evaluated by choosing an arbitrary image as the model. The object in the image is presented with difference size (scale problem) that our method just consider on translation and rotation between two images. \\
-Besides, using the centroid size to evaluate the method. We also consider the position of the estimated landmarks. In this experiment way, we calculate the distance between each manual landmark and corresponding automatic landmark. The error rate of each landmarks are shown in the table.
-From two experiment ways, we can see that the method is success in indicating all landmarks for each image; and the location of the landmarks is considered near with the manual landmarks in some aspect.\\
-In a different side, when comparing with our previous study (see in \cite{est}). This method has more exactly about the position of automatic landmarks as well as the advantages for the implementation process. The memory to detecting the landmarks, along with the times to execute the process are decreased dramatically.
+By this way, we have compared the centroid size between manual
+landmarks and estimated landmarks. We can see in figure
+\ref{figmdresult} and figure \ref{figmgresult} for all images. The
+correct proportions of estimated landmarks are 94,48\% for the right
+mandible and 90,56\% for the left mandible. In fact, this rate is
+evaluated by choosing an arbitrary image as the model. The object in
+the image is presented with difference size (scale problem) that our
+method just consider on translation and rotation between two
+images. \\
+
+Besides, using the centroid size to evaluate the method. We also
+consider the position of the estimated landmarks. In this experiment
+way, we calculate the distance between each manual landmark and
+corresponding automatic landmark. The error rate of each landmarks are
+shown in the table.
+
+From two experiment ways, we can see that the method is success in
+indicating all landmarks for each image; and the location of the
+landmarks is considered near with the manual landmarks in some
+aspect.\\
+
+In a different side, when comparing with our previous study (see in
+\cite{est}). This method has more exactly about the position of
+automatic landmarks as well as the advantages for the implementation
+process. The memory to detecting the landmarks, along with the times
+to execute the process are decreased dramatically.
+
 \section{Conclusion}
-Morphometric analysis is a powerful tool in biology in classification the species. Automatic identification the characteristics biology of the organism is a difficult problem. In the content of this paper, we have begun to design a method to segment the beetle mandibles and to indicate automatically landmarks which have been determined by biologists. Each mandible is segmented by applying the Canny algorithm. Using GHT and image registration to estimate the landmarks. Finally, cross-correlation will be applied to refine the location of the estimated landmarks. The first version of this method has been implemented. From now, the next stage of our method is to add the features to have the position of landmarks more precisely.
+Morphometric analysis is a powerful tool in biology in classification
+the species. Automatic identification the characteristics biology of
+the organism is a difficult problem. In the content of this paper, we
+have begun to design a method to segment the beetle mandibles and to
+indicate automatically landmarks which have been determined by
+biologists. Each mandible is segmented by applying the Canny
+algorithm. Using GHT and image registration to estimate the
+landmarks. Finally, cross-correlation will be applied to refine the
+location of the estimated landmarks. The first version of this method
+has been implemented. From now, the next stage of our method is to add
+the features to have the position of landmarks more precisely.
+
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
+
 %-------------------------------------------------------------------------
 % example of algorithm typesetting
 % to allow this, uncomment line 
@@ -297,7 +491,6 @@ Morphometric analysis is a powerful tool in biology in classification the specie
 %\label{fg:code}
 %\end{algorithm}
 
-
 %-------------------------------------------------------------------------
 
 \begin{thebibliography}{99}
@@ -316,5 +509,3 @@ Morphometric analysis is a powerful tool in biology in classification the specie
 %Do not lock the PDF -- additional text and info will be inserted, i.e. ISSN/ISBN etc. 
 %}
 
-
-\end{document}
