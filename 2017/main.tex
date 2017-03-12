@@ -146,7 +146,7 @@ nparisey@rennes.inra.fr
   images. The set of images contains 293 beetles and for all an image of the left
   and right mandibles. For each mandible, a set of 16 and 18
   landmarks (resp. left and right) have been set manually. In a previous
-  work\cite{} based on Palanaswami article \cite{} we have shown that
+  work\cite{leestimating} based on Palanaswami article \cite{palaniswamy2010automatic} we have shown that
   if we consider the centroid measure of the mandible as the parameter
   to obtain, the probabilistic Hough Transform can provide very
   interesting results. But in the case of the main goal is to fix
@@ -194,7 +194,7 @@ indicate the landmarks on two parts of beetle (left and right mandible
 (see figure \ref{figparts})). Morphometric landmarks are points that
 can be defined in all speciemns and located precisely. Landmarks are
 widely used in many biological studies and they are currently included
-into the classification procedures.\\[0.2cm]
+into the classification procedures.\\[0.1cm]
 
 \begin{figure}[h]
 \centering
@@ -202,7 +202,7 @@ into the classification procedures.\\[0.2cm]
 \subfloat[Right mandible]{\label{figrbox1}\includegraphics[width=0.22\textwidth]{./images/rm}}
 \caption{The mandibles of beetle}
 \label{figparts}
-\end{figure}~\\[0.2cm]
+\end{figure}~\\[0.1cm]
 In this paper, we focus on a method that can automatic identification
 of landmarks on 2D images of beetle, specify the mandibles of
 beetle. Through whole the article, we use two images to automatic
@@ -212,12 +212,11 @@ object in the image; secondly, generalizing Hough transform is used to
 detect the presence between two images; thirdly, the translation and
 rotation is identified by image registration; finally, a refinement of
 the estimated landmarks is done by comparing the descriptors  between
-model landmarks and estimated landmarks.\\[0.2cm]
+model landmarks and estimated landmarks.\\[0.1cm]
 
 In section 2, the steps of our methods will be discussed. All
 experiments and evaluation are described in section 3. Finally, we
-have some conclusion in the section 4.
-
+have some conclusion in section 4.
 
 \section{Method}
 For each image, a set of manual landmarks have been set by biologists
@@ -235,7 +234,7 @@ In the methods of image processing, feature extraction is always a
 important stage. Besides, depending on the nature of the method, the
 methods are applied before (pre-processing) or after (post-process)
 extracting the features. In our method, the original Canny
-alogrithm\cite{canny} is ideal for detect the curves on the image. The
+alogrithm\cite{canny1986computational} is idea for detect the curves on the image. The
 ratio between lower threshold and upper threshold which are used in
 Canny algorithm is 1:3 (lower threshold approximated to 1 times
 \textit{threshold value} and upper threshold set to 3 times threshold
@@ -243,7 +242,7 @@ value). This value is evaluated by the experiments. The
 \textit{threshold value} has been determined by analyzing the image
 histogram. During appling the Canny alogrithm to detect the curves of
 object, the gradient direction of each pixel which belongs to the
-curves is kept for the next step of the method.
+curves is kept for the next steps of the method.
 
 \begin{figure}[h]
 \centering
@@ -253,7 +252,7 @@ curves is kept for the next step of the method.
   post-process]{\label{canny2}\includegraphics[width=0.2\textwidth]{./images/canny2}} 
 \caption{The segmentation results of the image}
 \label{canny}
-\end{figure}~\\[0.2cm]
+\end{figure}~\\
 In this study, the aim of segmentation stage is determined the outer
 border of the object which can be used to reconstruct the shape of the
 object as well as provide the best data for next step. The curves from
@@ -261,11 +260,10 @@ Canny algorithm will be post-processed to remove the unnecessary
 curves i.e hole inside the border (see figure \ref{canny}).
 
 \subsection{Generalizing Hough transform}
-The generalizing Hought transform (GHT)\cite{Ballard} is one of the
+The generalizing Hought transform (GHT)\cite{ballard1981generalizing} is one of the
 keys of this study. With two input images, GHT is used to recognize
-the similar between two images and estimate the landmarks of an image
-based on the manual landmarks of other image. The GHT includes two
-phases: training and recognition.\\[0.2cm]
+the presence between two images. The GHT includes two
+phases: training and recognition.\\[0.1cm]
 
 \begin{figure}[htb]
     \centering
@@ -273,6 +271,7 @@ phases: training and recognition.\\[0.2cm]
     \caption{Block diagram of GHT}
     \label{fig:box}
 \end{figure}~\\
+
 In the training phase of GHT, model image is used to construct
 R-table. This is table that contains the polar value of each point on
 model's curves (the result of segmentation). A polar coordinate system
@@ -298,7 +297,8 @@ direction can be exists many polar coordinate values.
 	\hline
 	\end{tabular}
 	\caption{An example of R-Table}
-\end{table}\\
+\end{table}~\\
+
 During the recognition phase, a 2D accumulator is used, called Hough
 Space Voting (HSV). The axes of HSV express for the information of
 polar coordinate system. For each point on scene's curves, we try to
@@ -318,47 +318,39 @@ presence of the model image in the scene image. Translation and
 rotation are determined by applying an alignment method based on the
 set of boundary points of two images. In this case, we use Principal
 Component Analysis Iteration (PCAI) to finish this work. This method
-is improved from PCA method\cite{pca}.Firstly, the centroid point of
-each image is defined by getting mean coordinate of all boundary
-points. Secondly, a principal axis is indicated for the images, this
-is a connected line from centroid point to a point in list of curve
-points. For each point in curve, we create a line from centroid point
-to it, and assume it as an axis. The mean perpendicular distance from
-the remaining points to axis are calculated. This work is finished for
-all points on curve, and the principal axis is line that has minimum
-mean perpendicular distance to other points. The translation is
+is improved from PCA method\cite{shlens2014tutorial}. Firstly, the centroid point of each image is defined by getting the mean coordinate of all boundary points. Secondly, a principal axis of the images are indicated, this is a connected line from centroid point to a point in the list of curve points. For each point in the curve, we create a line from centroid point to them and assume it as an axis. The mean perpendicular distance from the remaining points to the axis are calculated. This work is finished for all points on the curve, and the principal axis is the line that has the minimum mean perpendicular distance to other points. The translation is
 indicated by translation between two centroid points. The rotation is
 the angle between the principal axis of two images. As well as, the
-rotation direction is determined by checking each direction. HHowever,
+rotation direction is determined by checking each direction. However,
 in some case, the translation and rotation between two images are
 wrong indicated. To make sure that we have obtained the best match
 between the images. We applied an iteration to get the best register
 of them. And instead consider all the points in the curve, we just
-need to consider a subset of it. The curve points are sorted by
+need to consider a subset of it. For that, the curve points are sorted by
 y-coordinate first. Then a half points are extracted to check. The
 PCAI is applied on two new subsets until obtaining best matching of
-two images.
-
+two images. Figure \ref{fig:box} shows two curves after registration by PCAI. 
+The aquamarine curve and blue curve are segmentation of the model and the scene image, respectively.
+At the end of PCAI, a hypothesis is made to judge the scale between the images. For each image, the bounding boxes are indicated by the coordinates of the points on the curve. The scale of x and y-direction are determined by the ratio between the corresponding sides of the bounding boxes. Then, the scene curve is scaled to fit the model curve.
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.2\textwidth]{./images/imreg}
     \caption{A registration result between two images.}
     \label{fig:box}
 \end{figure}~\\
-At the end of step, the landmarks of scene image are estimated by the
-manual landmarks of model image. Hence, before estimating the
+
+At the result of PCAI, we have the fitting between model and scene. The landmarks of the scene
+image are estimated by the manual landmarks of model image. Hence, before estimating the
 landmarks, a translation and rotation are applied on scene image to
-match the pose between the scene and the model. The obtained landmarks
-is computed from the distance from the centroid point to each manual
-landmarks of the model image.
+match the pose between the scene and the model. 
 
 \subsection{Refinement the estimated landmarks}
 The GHT and registration step gave us the estimated coordinate of
 scene's landmarks. But sometimes the landmarks can stay at the
 incorrect location. For this reason, at the end of the method, we
-apply descriptors measure\cite{sift} to verify the location of
+apply descriptors measure\cite{lowe2004distinctive} to verify the location of
 estimated landmarks. The location of manual and estimated landmarks
-are presented as the descriptors. And L2 distance is applied to
+are presented as the descriptors. Then, the L2 distance is applied to
 measure the distance between them. The equation of L2-distance is
 given by equation (\ref{eq:cross-correlation}).
 
@@ -370,27 +362,27 @@ Where $x_i, y_i $ are the corresponding location in the descriptors.\\[0.2cm]
 For each manual landmark in the model, a sub-image \textit{$I$} with
 the size \textit{$s_1$} is created; and the corresponding estimated
 landmark on the scene, a template \textit{$T$} with the size
-\textit{$s_2$}is created (\textit{$s_1 < s_2$}). For each pixel in
+\textit{$s_2$} is created (\textit{$s_1 < s_2$}). For each pixel in
 \textit{$I$}, the orientation and gradient magnitude are
 calculated. The descriptor is created for image \textit{$I$}. This is
-a histogram with 8-bins of orientation and the length is the sum of
-the gradient magnitude. For each pixel in template \textit{$T$}, a
-sub-template \textit{$T^{'}$} is extracted with the same size with
+a histogram with 8-bins of orientation and the length of each bin in the histogram is the sum of
+the gradient magnitude of corresponding orientation. For each pixel in template \textit{$T$}, a
+sub-template \textit{$T^{'}$} is extracted with the same size of
 image \textit{$I$} and its descriptor is calculated with the same way
 with image \textit{$I$}. Then the distance between image \textit{$I$}
 and sub-template \textit{$T^{'}$} is calculated. The last location of
-estimated landmarks is the location that has the smallest measure
+estimated landmarks is the pixel in template \textit{$T$} that has the smallest measure
 distance value. Finally, the automatic landmarks are inverted to match
 with the real location in the scene image (by inverting the
-transformation).
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.3\textwidth]{./images/result}
-    \caption{Automatic landmarks after refinement}
-    \label{figresult}
+transformation and rotation).
+\begin{figure}[h]
+\centering
+\subfloat[Result on right mandible]{\label{figrsmd}\includegraphics[width=0.22\textwidth]{./images/md_rs}}~~
+\subfloat[Result on left mandible]{\label{figrsmg}\includegraphics[width=0.22\textwidth]{./images/mg_rs}}
+\caption{The automatic landmarks on mandibles}
+\label{figresult}
 \end{figure}~\\
-Figure \ref{figresult} show a complete result on one scene mandible with the manual landmarks (red points) and estimated landmarks (yellow points).
+Figure \ref{figresult} shows a complete result on one scene mandible with the manual landmarks (red points) and estimated landmarks (yellow points).
 \section{Experiments and result}
 All the steps in our method are implemented in MAELab\footnote{MAELab
   is a free software in C++. It can be directly obtained by request
@@ -404,7 +396,7 @@ In all valid images, a set of 18 manual landmarks of right mandible
 (16 landmarks for left mandible) are indicated by biologists. Along
 with choosing the centroid size to measure the mandible. This size is
 obtained by sum of all square distance from each landmarks to the
-centroid point (see \cite{Webster}).
+centroid point (see \cite{web2010}).
 
 \begin{figure}[htb]
     \centering
@@ -422,17 +414,26 @@ By this way, we have compared the centroid size between manual
 landmarks and estimated landmarks. We can see in figure
 \ref{figmdresult} and figure \ref{figmgresult} for all images. The
 correct proportions of estimated landmarks are 94,48\% for the right
-mandible and 90,56\% for the left mandible. In fact, this rate is
-evaluated by choosing an arbitrary image as the model. The object in
-the image is presented with difference size (scale problem) that our
-method just consider on translation and rotation between two
-images. \\
+mandible and 90,56\% for the left mandible. The experiment is done by choosing an arbitrary 
+image in the dataset as the model. The automatic landmarks are estimated on remaining images with the method that we have described. Then, the centroid size of each image is calculated and evaluated. And the results in figure \ref{figmdresult} and \ref{figmgresult} were a vindication of the propriety of the method.\\
 
 Besides, using the centroid size to evaluate the method. We also
-consider the position of the estimated landmarks. In this experiment
+consider the position of the estimated landmarks to verify the method. In this experiment
 way, we calculate the distance between each manual landmark and
-corresponding automatic landmark. The error rate of each landmarks are
-shown in the table.
+corresponding automatic landmark.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./images/md_chartlms}
+    \caption{The correct proportions on each landmark of right mandibles }
+    \label{figmdresultlm}
+\end{figure}~\\
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./images/mg_chartlms}
+    \caption{The correct proportions on each landmark of left mandibles }
+    \label{figmgresultlm}
+\end{figure}~\\
+Figure \ref{figmdresultlm} and \ref{figmgresultlm} show the correct proportion on each landmark of mandible. The blue column is presented for the success rate. The orange column is expressed as the incorrect rate. With 18 landmarks of right mandible, the position of the first automatic landmarks is reasonably accurate with 98.62\%, the lowest proportion is 73,1\% for fourteenth landmark. The remaining landmarks are also indicated with a high proportion (with the accuracy proportion greater than 80\%). For left mandible, the highest and lowest success rate are 94,41\% for the first landmark and 58,04\% for the eleventh landmark. As we see, the images in left mandible are having more type of size than on the right mandible. This explains why the success rate on right mandible is higher than left mandible.\\
 
 From two experiment ways, we can see that the method is success in
 indicating all landmarks for each image; and the location of the
@@ -440,7 +441,7 @@ landmarks is considered near with the manual landmarks in some
 aspect.\\
 
 In a different side, when comparing with our previous study (see in
-\cite{est}). This method has more exactly about the position of
+\cite{leestimating}). This method has more exactly about the position of
 automatic landmarks as well as the advantages for the implementation
 process. The memory to detecting the landmarks, along with the times
 to execute the process are decreased dramatically.
@@ -453,10 +454,10 @@ have begun to design a method to segment the beetle mandibles and to
 indicate automatically landmarks which have been determined by
 biologists. Each mandible is segmented by applying the Canny
 algorithm. Using GHT and image registration to estimate the
-landmarks. Finally, cross-correlation will be applied to refine the
+landmarks. Finally, a descriptor distance will be applied to refine the
 location of the estimated landmarks. The first version of this method
 has been implemented. From now, the next stage of our method is to add
-the features to have the position of landmarks more precisely.
+the features to have the position of landmarks more precisely, i.e diagnose on the scale of the image.
 
 
 \bibliographystyle{plain}
@@ -501,6 +502,7 @@ the features to have the position of landmarks more precisely.
 \bibitem[4]{est} Le Van, L., et al. "Estimating landmarks on 2D images of beetle mandibles."
 \bibitem[5]{pca} Shlens, Jonathon. "A tutorial on principal component analysis." arXiv preprint arXiv:1404.1100 (2014).
 \bibitem[6]{sift} Lowe, David G. "Distinctive image features from scale-invariant keypoints." International journal of computer vision 60.2 (2004): 91-110.
+\bibitem[7]{palaniswamy} Palaniswamy, Sasirekha, Neil A. Thacker, and Christian Peter Klingenberg. "Automatic identification of landmarks in digital images." IET Computer Vision 4.4 (2010): 247-260.
 \end{thebibliography}
 
 %{\bfseries

@@ -1,0 +1,40 @@
+\begin{thebibliography}{1}
+
+\bibitem{ballard1981generalizing}
+Dana~H Ballard.
+\newblock Generalizing the hough transform to detect arbitrary shapes.
+\newblock {\em Pattern recognition}, 13(2):111--122, 1981.
+
+\bibitem{canny1986computational}
+John Canny.
+\newblock A computational approach to edge detection.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, (6):679--698, 1986.
+
+\bibitem{leestimating}
+L~L{\^e}~V{\~a}nh, M~Beurton-Aimar, JP~Salmon, A~Marie, and N~Parisey.
+\newblock Estimating landmarks on 2d images of beetle mandibles.
+\newblock {\em WSCG}, 2016.
+
+\bibitem{lowe2004distinctive}
+David~G Lowe.
+\newblock Distinctive image features from scale-invariant keypoints.
+\newblock {\em International journal of computer vision}, 60(2):91--110, 2004.
+
+\bibitem{palaniswamy2010automatic}
+Sasirekha Palaniswamy, Neil~A Thacker, and Christian~Peter Klingenberg.
+\newblock Automatic identification of landmarks in digital images.
+\newblock {\em IET Computer Vision}, 4(4):247--260, 2010.
+
+\bibitem{shlens2014tutorial}
+Jonathon Shlens.
+\newblock A tutorial on principal component analysis.
+\newblock {\em arXiv preprint arXiv:1404.1100}, 2014.
+
+\bibitem{web2010}
+M.~Webster and H.D. Sheets.
+\newblock {\em Quantitative Methods in PaleoBiology}, chapter A Practical
+  Introduction to Landmark-based Geometric Morphometrics, pages 163--188.
+\newblock J.Alroy and G. Hunt, 2010.
+
+\end{thebibliography}
