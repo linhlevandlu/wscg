@@ -47,6 +47,7 @@
 \usepackage{subfig}
 \usepackage{graphicx}
 \usepackage[justification=centering]{caption}
+\usepackage{amsmath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                Title
 
@@ -346,36 +347,51 @@ landmarks, a translation and rotation are applied on scene image to
 match the pose between the scene and the model. 
 
 \subsection{Refinement the estimated landmarks}
-The GHT and registration step gave us the estimated coordinate of
-scene's landmarks. But sometimes the landmarks can stay at the
-incorrect location. For this reason, at the end of the method, we
-apply descriptors measure\cite{lowe2004distinctive} to verify the location of
-estimated landmarks. The location of manual and estimated landmarks
-are presented as the descriptors. Then, the L2 distance is applied to
-measure the distance between them. The equation of L2-distance is
-given by equation (\ref{eq:cross-correlation}).
-
+The GHT and registration provide to us the best presence between the model and the scene. The automatic landmarks can be estimated for the scene by the manual landmarks of the model. However, the estimated landmarks can be located at the incorrect location. So, we need a method to verify each position of the estimated landmarks. For this reason, in the last step of the method, we apply a step in the SIFT\cite{lowe2004distinctive} method to verify the location of automatic landmarks. Firstly, the region around each manual and corresponding automatic landmark are created. Then the orientation and gradient magnitude of each pixel in the region is calculated and presented into a descriptor. The comparing between the descriptors is done by using L2 distance which is given by the equation (1).
 \begin{equation}
 \label{eq:cross-correlation}
 	L(x,y) = \sum\limits_{x_i,y_i}\sqrt{(x_i-y_i)^2}
 \end{equation}
-Where $x_i, y_i $ are the corresponding location in the descriptors.\\[0.2cm]
-For each manual landmark in the model, a sub-image \textit{$I$} with
-the size \textit{$s_1$} is created; and the corresponding estimated
-landmark on the scene, a template \textit{$T$} with the size
-\textit{$s_2$} is created (\textit{$s_1 < s_2$}). For each pixel in
-\textit{$I$}, the orientation and gradient magnitude are
-calculated. The descriptor is created for image \textit{$I$}. This is
-a histogram with 8-bins of orientation and the length of each bin in the histogram is the sum of
-the gradient magnitude of corresponding orientation. For each pixel in template \textit{$T$}, a
-sub-template \textit{$T^{'}$} is extracted with the same size of
-image \textit{$I$} and its descriptor is calculated with the same way
-with image \textit{$I$}. Then the distance between image \textit{$I$}
-and sub-template \textit{$T^{'}$} is calculated. The last location of
-estimated landmarks is the pixel in template \textit{$T$} that has the smallest measure
-distance value. Finally, the automatic landmarks are inverted to match
-with the real location in the scene image (by inverting the
-transformation and rotation).
+Where $x_i, y_i $ are the corresponding location in the descriptors.\\
+
+For each manual landmark on the model and corresponding estimated landmark on the scene, the small patches \textit{$I$}, \textit{$T$} are created with the size $s_1$, $s_2$ respectively ($s_1 < s_2$). Then, for each pixel in the patch \textit{$T$}, a sub-patch \textit{$T^{'}$} is extracted with the same size of the patch \textit{$I$}. Then their descriptor and measure distance are determined(between \textit{$I$} and \textit{$T^{'}$}). This step is finish when all the pixels on the patch \textit{$T$} are considered. The figure \ref{Illustrate} is the illustration of this process.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{./images/illustration_SIFT}
+    \caption{Illustrate the steps of descriptors comparing.}
+    \label{fig:Illustrate}
+\end{figure}
+
+During the descriptor creation (for \textit{$I$} and \textit{$T^{'}$}), the orientation and gradient magnitude are calculated for each their pixel by the equation:
+\begin{equation}
+\label{eq:sift}
+\resizebox{.4 \textwidth}{!} 
+{$
+\begin{aligned}
+	m(x,y) = \sqrt{(L(x+1,y) - L(x-1,y))^2 + (L(x,y+1) - L(x,y-1))^2} \\
+	\theta(x,y) = tan^{-1}((L(x,y+1) - L(x,y-1))/(L(x+1,y) - L(x-1,y)))
+	\end{aligned}
+$}
+\end{equation}
+Where:
+\begin{itemize}
+	\item $m(x,y)$ is the gradient magnitude
+	\item $\theta(x,y)$ is the orientation
+	\item $L(x,y)$ is the value at position (x,y) in the image
+\end{itemize}
+Then, the descriptor is created for the patch. This is a histogram with eight direction for orientation, with the length of each bin corresponding to the magnitude of that histogram (sum of the gradient magnitude for corresponding orientation). The descriptor is formed from a vector containing the value of all the bins in the histogram. Finally, the vector feature is modified to reduce the effects of illumination change by normalization.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.4\textwidth]{./images/keypoint_descriptor}
+    \caption{A landmarks descriptor is created by computing the orientation and gradient magnitude}
+    \label{fig:kpdescriptor}
+\end{figure}
+
+In the example at figure \ref{fig:kpdescriptor}, a patch with the size 16x16 is created around the landmark. For each pixel in the region, the orientation and gradient magnitude are calculated (the orientation and length of the arrows). Then, the patch is divided into 4 sub-blocks 4x4. The descriptor of each sub-block is determined by using 8-orientation histogram and the length of each arrow corresponding to the sum of the gradient magnitudes near that direction within the region.\\
+
+As we mentioned before, the last location of
+estimated landmarks is the pixel in template \textit{$T$} that has the smallest measure distance value. Finally, the automatic landmarks are inverted to match with the real location in the scene image (by inverting the transformation and rotation).\\
 \begin{figure}[h]
 \centering
 \subfloat[Result on right mandible]{\label{figrsmd}\includegraphics[width=0.22\textwidth]{./images/md_rs}}~~

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.23)  13 MAR 2017 08:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.23)  14 MAR 2017 10:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -205,8 +205,66 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \sf@top=\skip46
 \sf@bottom=\skip47
 )
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip48
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks19
+\ex@=\dimen122
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen123
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count100
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count101
+\leftroot@=\count102
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count103
+\DOTSCASE@=\count104
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen124
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count105
+\c@MaxMatrixCols=\count106
+\dotsspace@=\muskip10
+\c@parentequation=\count107
+\dspbrk@lvl=\count108
+\tag@help=\toks20
+\row@=\count109
+\column@=\count110
+\maxfields@=\count111
+\andhelp@=\toks21
+\eqnshift@=\dimen125
+\alignsep@=\dimen126
+\tagshift@=\dimen127
+\tagwidth@=\dimen128
+\totwidth@=\dimen129
+\lineht@=\dimen130
+\@envbody=\toks22
+\multlinegap=\skip49
+\multlinetaggap=\skip50
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip10
+\Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 ) (./main.aux
 
@@ -215,19 +273,19 @@ LaTeX Warning: Label `fig:box' multiply defined.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 129.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 130.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
@@ -264,20 +322,19 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\big@size=\dimen122
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count100
-\scratchdimen=\dimen123
-\scratchbox=\box26
-\nofMPsegments=\count101
-\nofMParguments=\count102
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count103
-\MPscratchDim=\dimen124
-\MPnumerator=\count104
-\makeMPintoPDFobject=\count105
-\everyMPtoPDFconversion=\toks20
+\scratchcounter=\count112
+\scratchdimen=\dimen131
+\scratchbox=\box28
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen132
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks25
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -325,93 +382,93 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 168.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 169.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 10.0pt on input line 168.
+(Font)              scaled to size 10.0pt on input line 169.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <16> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 168.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 169.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 16.0pt on input line 168.
+(Font)              scaled to size 16.0pt on input line 169.
 LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 16
-8.
+9.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 16
-8.
+9.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 16
-8.
+9.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 16
-8.
+9.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 168.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 169.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 169.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 169.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 169.
 
-Overfull \hbox (4.15726pt too wide) in paragraph at lines 168--168
+Overfull \hbox (4.15726pt too wide) in paragraph at lines 169--169
  []\T1/phv/m/n/10 adrien.krahenbuhl@labri.fr 
  []
 
 
-Overfull \hbox (24.60814pt too wide) in paragraph at lines 168--168
+Overfull \hbox (24.60814pt too wide) in paragraph at lines 169--169
  []\T1/phv/m/n/10 nparisey@rennes.inra.fr 
  []
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 168.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 169.
 
-Underfull \hbox (badness 1708) in paragraph at lines 179--199
+Underfull \hbox (badness 1708) in paragraph at lines 180--200
 \T1/ptm/m/n/10 the dif-fer-ence in-for-ma-tion be-tween the or-gan-isms.
  []
 
 
-Underfull \hbox (badness 1968) in paragraph at lines 179--199
+Underfull \hbox (badness 1968) in paragraph at lines 180--200
 \T1/ptm/m/n/10 From the re-sult of mor-phol-ogy anal-y-sis, we can
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 179--199
+Underfull \hbox (badness 10000) in paragraph at lines 180--200
 
  []
 
 <./images/lm.JPG, id=1, 3276.24pt x 2457.18pt>
 File: ./images/lm.JPG Graphic file (type jpg)
  <use ./images/lm.JPG>
-Package pdftex.def Info: ./images/lm.JPG used on input line 202.
+Package pdftex.def Info: ./images/lm.JPG used on input line 203.
 (pdftex.def)             Requested size: 100.15425pt x 75.09947pt.
 
 <./images/rm.JPG, id=2, 3276.24pt x 2457.18pt>
 File: ./images/rm.JPG Graphic file (type jpg)
  <use ./images/rm.JPG>
-Package pdftex.def Info: ./images/rm.JPG used on input line 203.
+Package pdftex.def Info: ./images/rm.JPG used on input line 204.
 (pdftex.def)             Requested size: 100.15425pt x 75.09947pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--217
+Underfull \hbox (badness 10000) in paragraph at lines 207--218
 
  []
 
@@ -424,20 +481,20 @@ x 754.82pt>
 File: ./images/canny1.png Graphic file (type png)
 
 <use ./images/canny1.png>
-Package pdftex.def Info: ./images/canny1.png used on input line 251.
+Package pdftex.def Info: ./images/canny1.png used on input line 252.
 (pdftex.def)             Requested size: 91.04742pt x 132.93626pt.
  <./images/canny2.png, id=14, 516.93124pt x 754.82pt>
 File: ./images/canny2.png Graphic file (type png)
 
 <use ./images/canny2.png>
-Package pdftex.def Info: ./images/canny2.png used on input line 253.
+Package pdftex.def Info: ./images/canny2.png used on input line 254.
 (pdftex.def)             Requested size: 91.04742pt x 132.93626pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--268
+Underfull \hbox (badness 10000) in paragraph at lines 265--269
 
  []
 
@@ -445,20 +502,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 264--268
 File: ./images/ghtdiagram.png Graphic file (type png)
 
 <use ./images/ghtdiagram.png>
-Package pdftex.def Info: ./images/ghtdiagram.png used on input line 271.
+Package pdftex.def Info: ./images/ghtdiagram.png used on input line 272.
 (pdftex.def)             Requested size: 227.62206pt x 77.1538pt.
 
-Overfull \hbox (7.15225pt too wide) in paragraph at lines 271--272
+Overfull \hbox (7.15225pt too wide) in paragraph at lines 272--273
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--275
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--302
+Underfull \hbox (badness 10000) in paragraph at lines 302--303
 
  []
 
@@ -466,105 +523,160 @@ Underfull \hbox (badness 10000) in paragraph at lines 301--302
 <./images/imreg.png, id=22, 507.8975pt x 824.07875pt>
 File: ./images/imreg.png Graphic file (type png)
  <use ./images/imreg.png>
-Package pdftex.def Info: ./images/imreg.png used on input line 338.
+Package pdftex.def Info: ./images/imreg.png used on input line 339.
 (pdftex.def)             Requested size: 91.04742pt x 147.7242pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--342
+Underfull \hbox (badness 10000) in paragraph at lines 317--343
 
  []
 
-<./images/md_rs.png, id=23, 461.725pt x 692.5875pt>
+
+Underfull \hbox (badness 1281) in paragraph at lines 354--356
+\T1/ptm/m/n/10 Where $\OML/ztmcm/m/it/10 x[]; y[]$ \T1/ptm/m/n/10 are the cor-r
+e-spond-ing lo-ca-tion in the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--356
+
+ []
+
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 357.
+
+LaTeX Warning: Reference `Illustrate' on page 3 undefined on input line 357.
+
+<./images/illustration_SIFT.png, id=23, 408.52625pt x 154.5775pt>
+File: ./images/illustration_SIFT.png Graphic file (type png)
+
+<use ./images/illustration_SIFT.png>
+Package pdftex.def Info: ./images/illustration_SIFT.png used on input line 360.
+
+(pdftex.def)             Requested size: 204.85846pt x 77.51497pt.
+ [3 <./images/imreg.png>]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 378.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 378.
+
+<./images/keypoint_descriptor.png, id=33, 422.57875pt x 177.66376pt>
+File: ./images/keypoint_descriptor.png Graphic file (type png)
+
+<use ./images/keypoint_descriptor.png>
+Package pdftex.def Info: ./images/keypoint_descriptor.png used on input line 38
+6.
+(pdftex.def)             Requested size: 182.09486pt x 76.55928pt.
+
+Underfull \hbox (badness 1024) in paragraph at lines 391--392
+\T1/ptm/m/n/10 re-gion, the ori-en-ta-tion and gra-di-ent mag-ni-tude are
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 391--392
+
+ []
+
+<./images/md_rs.png, id=34, 461.725pt x 692.5875pt>
 File: ./images/md_rs.png Graphic file (type png)
  <use ./images/md_rs.png>
-Package pdftex.def Info: ./images/md_rs.png used on input line 381.
+Package pdftex.def Info: ./images/md_rs.png used on input line 397.
 (pdftex.def)             Requested size: 100.15425pt x 150.22441pt.
 
-<./images/mg_rs.png, id=24, 461.725pt x 692.5875pt>
+<./images/mg_rs.png, id=35, 461.725pt x 692.5875pt>
 File: ./images/mg_rs.png Graphic file (type png)
  <use ./images/mg_rs.png>
-Package pdftex.def Info: ./images/mg_rs.png used on input line 382.
+Package pdftex.def Info: ./images/mg_rs.png used on input line 398.
 (pdftex.def)             Requested size: 100.15425pt x 150.22441pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[3 <./images/imreg.png>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 390.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 406.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 390.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 406.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 390.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 406.
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--395
+Underfull \hbox (badness 10000) in paragraph at lines 404--411
 
  []
 
-<./images/mdresult.png, id=34, 296.10625pt x 274.02374pt>
+<./images/mdresult.png, id=36, 296.10625pt x 274.02374pt>
 File: ./images/mdresult.png Graphic file (type png)
 
 <use ./images/mdresult.png>
-Package pdftex.def Info: ./images/mdresult.png used on input line 404.
+Package pdftex.def Info: ./images/mdresult.png used on input line 420.
 (pdftex.def)             Requested size: 136.57462pt x 126.39113pt.
 
-<./images/mgresult.png, id=35, 291.0875pt x 287.0725pt>
+<./images/mgresult.png, id=37, 291.0875pt x 287.0725pt>
 File: ./images/mgresult.png Graphic file (type png)
 
 <use ./images/mgresult.png>
-Package pdftex.def Info: ./images/mgresult.png used on input line 410.
+Package pdftex.def Info: ./images/mgresult.png used on input line 426.
 (pdftex.def)             Requested size: 136.57462pt x 134.69193pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--420
+Underfull \hbox (badness 10000) in paragraph at lines 423--436
 
  []
 
-<./images/md_chartlms.jpg, id=36, 992.20688pt x 371.13657pt>
+[4 <./images/illustration_SIFT.png> <./images/keypoint_descriptor.png> <./image
+s/md_rs.png> <./images/mg_rs.png> <./images/mdresult.png>]
+<./images/md_chartlms.jpg, id=44, 992.20688pt x 371.13657pt>
 File: ./images/md_chartlms.jpg Graphic file (type jpg)
 
 <use ./images/md_chartlms.jpg>
-Package pdftex.def Info: ./images/md_chartlms.jpg used on input line 427.
+Package pdftex.def Info: ./images/md_chartlms.jpg used on input line 443.
 (pdftex.def)             Requested size: 227.62206pt x 85.13875pt.
 
-Overfull \hbox (7.15225pt too wide) in paragraph at lines 427--428
+Overfull \hbox (7.15225pt too wide) in paragraph at lines 443--444
  [][] 
  []
 
-<./images/mg_chartlms.jpg, id=37, 934.24031pt x 366.67516pt>
+<./images/mg_chartlms.jpg, id=45, 934.24031pt x 366.67516pt>
 File: ./images/mg_chartlms.jpg Graphic file (type jpg)
 
 <use ./images/mg_chartlms.jpg>
-Package pdftex.def Info: ./images/mg_chartlms.jpg used on input line 433.
+Package pdftex.def Info: ./images/mg_chartlms.jpg used on input line 449.
 (pdftex.def)             Requested size: 227.62206pt x 89.33543pt.
 
-Overfull \hbox (7.15225pt too wide) in paragraph at lines 433--434
+Overfull \hbox (7.15225pt too wide) in paragraph at lines 449--450
  [][] 
  []
 
 
-Underfull \hbox (badness 1009) in paragraph at lines 421--438
-\T1/ptm/m/n/10 left mandible, the high-est and low-est suc-cess rate
+Underfull \hbox (badness 1117) in paragraph at lines 437--454
+\T1/ptm/m/n/10 Figure 10[] and 11[] show the cor-rect pro-por-tion on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--438
+Underfull \hbox (badness 10000) in paragraph at lines 437--454
 
  []
 
-[4 <./images/md_rs.png> <./images/mg_rs.png> <./images/mdresult.png> <./images/
-mgresult.png> <./images/md_chartlms.jpg> <./images/mg_chartlms.jpg>]
-(./main.bbl) [5] (./main.aux)
+(./main.bbl [5 <./images/mgresult.png> <./images/md_chartlms.jpg> <./images/mg_
+chartlms.jpg>]) [6
+
+] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4031 strings out of 493304
- 61604 string characters out of 6139871
- 131647 words of memory out of 5000000
- 7364 multiletter control sequences out of 15000+600000
- 54794 words of font info for 87 fonts, out of 8000000 for 9000
+ 4647 strings out of 493304
+ 68927 string characters out of 6139871
+ 142006 words of memory out of 5000000
+ 7956 multiletter control sequences out of 15000+600000
+ 58019 words of font info for 91 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 44i,11n,47p,858b,371s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,11n,47p,858b,379s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -572,13 +684,14 @@ f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
 type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic
 /uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 4185489 bytes).
+r/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/font
+s/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
+es/utmri8a.pfb>
+Output written on main.pdf (6 pages, 4245420 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
+ 88 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 
