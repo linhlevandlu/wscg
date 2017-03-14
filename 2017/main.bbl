@@ -1,10 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{ballard1981generalizing}
-Dana~H Ballard.
-\newblock Generalizing the hough transform to detect arbitrary shapes.
-\newblock {\em Pattern recognition}, 13(2):111--122, 1981.
-
 \bibitem{canny1986computational}
 John Canny.
 \newblock A computational approach to edge detection.

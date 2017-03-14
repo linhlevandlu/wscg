@@ -2,12 +2,12 @@ The registration provides to us the best presence between the model and the scen
 
 === equation of L2 distance
 
-For each manual landmark on the model and corresponding estimated landmark on the scene, the small patches \textit{I}, \textit{T} are created with the size $s_1$, $s_2$ respectively ($s_1 < s_2$). Then, for each pixel in the patch \textit{T}, a sub-patch \textit{T^{'}} is extracted with the same size of the patch \texit{I}. Then their descriptor and measure distance are determined(between \textit{I} and \textit{T^{'}}). This step is finish when all the pixels on the patch \textit{T} are considered. The figure \ref{sift} is illustration of this process.
+For each manual landmark on the model and corresponding estimated landmark on the scene, the small patches \textit{$I$}, \textit{$T$} are created with the size $s_1$, $s_2$ respectively ($s_1 < s_2$). Then, for each pixel in the patch \textit{$T$}, a sub-patch \textit{$T^{'}$} is extracted with the same size of the patch \textit{$I$}. Then their descriptor and measure distance are determined(between \textit{$I$} and \textit{$T^{'}$}). This step is finish when all the pixels on the patch \textit{$T$} are considered. The figure \ref{sift} is illustration of this process.
 
 
 === insert the image "illustration_SIFT"
 
-During the descriptor creation (for \textit{I} and \text{T^{'}}), the orientation and gradient magnitude are calculated for each their pixel by the equation:
+During the descriptor creation (for \textit{$I$} and \textit{$T^{'}$}), the orientation and gradient magnitude are calculated for each their pixel by the equation:
 \begin{equation}
 \label{eq:sift}
 	m(x,y) = \sqrt{(L(x+1,y) - L(x-1,y))^2 + (L(x,y+1) - L(x,y-1))^2}\\
@@ -19,3 +19,10 @@ Where:
 	\item $\theta(x,y)$ is the orientation
 	\item $L(x,y)$ is the value at position (x,y) in the image
 \end{itemize}
+Then, the descriptor is created for the patch. This is a histogram with eight direction for orientation, with the length of each bin corresponding to the magnitude of that histogram (sum of the gradient magnitude for corresponding orienation). The descriptor is formed from a vector containing the value of all the bins in the histogram. Finally, the vector feature is modified to reduce the effects of illumination change by normalization.
+
+== insert image keypoint_descriptor
+
+In the example at figure xxx, a patch with the size 16x16 is created around the landmark. For each pixel in the region, the orientation and gradient magnitude are calculated (the orientation and length of the arrows). Then, the patch is divided into 4 sub-blocks 4x4. The descriptor of each sub-block is determined by using 8-orientation histogram and the length of each arrow corresponding to the sum of the gradient magnitudes near that direction within the region.\\
+
+As we mentioned before, the last location of estimated landmarks is the pixel in
