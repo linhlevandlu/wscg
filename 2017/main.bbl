@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}
 
+\bibitem{bland1996statistics}
+J~Martin Bland and Douglas~G Altman.
+\newblock Statistics notes: measurement error.
+\newblock {\em Bmj}, 313(7059):744, 1996.
+
 \bibitem{canny1986computational}
 John Canny.
 \newblock A computational approach to edge detection.
@@ -26,6 +31,11 @@ David~G Lowe.
 Sasirekha Palaniswamy, Neil~A Thacker, and Christian~Peter Klingenberg.
 \newblock Automatic identification of landmarks in digital images.
 \newblock {\em IET Computer Vision}, 4(4):247--260, 2010.
+
+\bibitem{bsspca}
+K.~Pearson.
+\newblock {On lines and planes of closest fit to systems of points in space}.
+\newblock {\em Philosophical Magazine}, 2(6):559--572, 1901.
 
 \bibitem{shlens2014tutorial}
 Jonathon Shlens.

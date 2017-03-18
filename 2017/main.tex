@@ -30,6 +30,7 @@
 \usepackage[justification=centering]{caption}
 \usepackage{amsmath}
 \usepackage{algorithm2e}
+\usepackage[english]{babel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                Title
 
@@ -214,7 +215,7 @@ chains. The main well-known algorithms are often classified as contours
 or regions based segmentation. We have chosen a contours one, the
 Canny alogrithm\cite{canny1986computational}, which allows determining the list of edges around the shape in the image. To use this method, two threshold values have been set. As it is after mentioned, fix the right values for these thresholds is often a drawback of Canny algorithm\cite{adaptiveCanny}. The mandatory \textit{threshold
   value} used by Canny algorithm has been determined by analyzing the image
-histogram (see \cite{leestimating} for detail and we assume (after experiments) that the
+histogram (see \cite{leestimating} for detail) and we assume (after experiments) that the
 upper threshold equals 3 times the value of the lower one. For
 optimisation purpose of the computing time, during the computing of Canny algorithm the gradient direction of each pixel which belongs to the
 curves is kept for the next steps of the method. From the histogram, the mean(\textit{meanHist}) and median(\textit{medianHist}) of the intensity value in the image can be extracted. The lower threshold is set following this rule: Firstly, the minimum and maximum value between the mean and median value are calculated.
@@ -239,43 +240,34 @@ The curves from
 Canny algorithm will be post-processed to remove the unnecessary
 curves. As it is shown in figure \ref{canny}, the final result of Canny generate some contours which do not belong to the shape of the mandible. With a simple algorithm, we browse the image and suppress the edges inside the shape.
 \subsection{Image registration}
-As we have mentioned, all images have been captured following the same protocol. But it remains differences in size of the mandibles (cause of size of the animals), or orientation, position the mandible under the camera. At this step, we will try to align the segmentations of two images before estimating the landmarks. Besides, the translation and rotation between the images are determined by Principal
-Component Analysis Iteration (PCAI). PCAI is the method that is improved from PCA method\cite{shlens2014tutorial}. The work flows of PCAI are illustrated in figure \ref{fig:pcai}
+As we have mentioned, all images have been captured following the same protocol. But it remains differences in size between the mandibles (cause of size of the beetles), or orientation and position because of the mandible position under the camera. So this step concerns registration of model and scene before estimating the landmarks. Principal Component Analysis Iteration (PCAI) is a well-known method to find the rotation and translation parameter values. In our work flow, we have based on the steps on the method of \cite{bsspca} and  \cite{shlens2014tutorial}.\\
+
+As input values, we use the list of points which selected by the segmentation step. Firstly, the centroid point and principal axis of each image are defined: the centroid point is the point which has the coordinate by getting the mean coordinate of all boundary points; the principal axis is a connected line from the centroid point to a point in the list of curve points. The second endpoint on curve points are determined as described: For each point in the curve, we assume that it is the second endpoint of the principal axis. Then, the mean of the perpendicular distance from the remaining points to the axis is calculated. This work is finished for all points on the curve, and the principal axis is the line that has the minimum mean perpendicular distance to other points. The translation is indicated by the difference coordinate between the centroid points. The rotation angle is the angle between the principal axes. As well as, the rotation direction is determined by checking on each direction. Then, the scene is moved to matching with the position of the model. However,
+in some case, the translation and rotation between two images are
+wrong indicated because the result of the segmentation may be not perfect. To improve registration, we consider some specificity of our images. As it can be observed in figure \ref{canny}, the tip part of the mandible is less noisy than the base. So, we sort the points according to their y-value. We build a subset of points which contains half part of points, these ones which belong to the upper part of the image. PCAI is again completed for this subset to refine the rotation and translation values. This operation is iterated until the new computing angle is less than 1.5 degree (see figure \ref{fig:pcai}).
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.4\textwidth]{./images/pcadiagram}
     \caption{The flows in PCAI}
     \label{fig:pcai}
 \end{figure}~\\
-PCAI received the result from segmentation step as the input. Firstly, the centroid point and principal axis of each image are defined: the centroid point is the point which has the coordinate by getting the mean coordinate of all boundary points; the principal axis is a connected line from the centroid point to a point in the list of curve points. The second endpoint on curve points are determined as described: For each point in the curve, we assume that it is the second endpoint of the principal axis. Then, the mean of the perpendicular distance from the remaining points to the axis is calculated. This work is finished for all points on the curve, and the principal axis is the line that has the minimum mean perpendicular distance to other points. The translation is
-indicated by the difference coordinate between the centroid points. The rotation angle is the angle between the principal axes. As well as, the
-rotation direction is determined by checking on each direction. Then, the scene is moved to matching with the position of the model. However,
-in some case, the translation and rotation between two images are
-wrong indicated because the result of the segmentation may be not perfect. To make sure that we have obtained the best match
-between the images. We extract a sub-set of segmentation points to re-calculate the PCA. Before extracting, the points have been sorted by y-coordinate to suppress the unnecessary points. The iteration is continual until we get the best register of the segmentation.\\
+Figure \ref{fig:box} shows an example obtained results from the different steps of PCAI. In this figure, the red curve is presented for the segmentation of the model. The black curve is the scene segmentation after one iteration of PCA, and the blue curve is the last result after finished PCAI .\\
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.2\textwidth]{./images/imreg}
+    \includegraphics[width=0.25\textwidth]{./images/imreg}
     \caption{A registration result between two images.}
     \label{fig:box}
-\end{figure}~\\
-
-Figure \ref{fig:box} shows an example of PCAI. In this figure, the aquamarine curve and blue curve are presented for the segmentation of the model and the scene image, respectively.\\
-
-At the end of PCAI, a hypothesis is made to estimated the scale between the images. For each image, the bounding boxes are indicated by the coordinates of the points on the curve. The scale of x and y-direction are determined by the ratio between the corresponding sides of the bounding boxes. Then, the scene curve is scaled to fit the model curve.\\
-
-As the result of PCAI, we have fitted between the model and the scene. So, by using the landmarks of the model image, we can also estimate the location of the scene image. Hence, before estimating their location, the translation and rotation are applied on scene image to match the pose between the scene and the model. 
-
+\end{figure}
 \subsection{Fixing the estimated landmarks}
-The last step provides the best matching between manual landmarks and estimated landmarks. Now we are focus soon the determination of the landmarks position on the scene. The first information is given by the manual landmarks of the model which manually set by the biologist. This has to be done by using SIFT\cite{lowe2004distinctive} method. Firstly, the regions around each manual and corresponding automatic landmark are created. Then, the orientation and gradient magnitude of each pixel in the region are calculated and presented into a descriptor. At the end, the comparing between the descriptors is done by using $L2$ distance which is given by the equation (1).
+The last of the workflows tries to set the estimated landmarks on the scene from the manual ones of the model. This has to be done by using SIFT\cite{lowe2004distinctive} method but it is not usual i.e we are not considering all points of the image but only on the area around the landmarks. Firstly, the regions around each manual in the model image and corresponding position in the scene image are created. Then, the orientation and gradient magnitude of each pixel in the region are calculated and presented into a descriptor. At the end, the comparing between the descriptors is done by using $L2$ distance which is given by the equation (1).
 \begin{equation}
 \label{eq:cross-correlation}
 	L(x,y) = \sum\limits_{x_i,y_i}\sqrt{(x_i-y_i)^2}
 \end{equation}
 Where $x_i, y_i $ are the corresponding location in the descriptors.\\
 
-The figure \ref{fig:Illustrate} is the illustration of this process. For each manual landmark on the model and corresponding estimated landmark on the scene, the small patches \textit{$I$}, \textit{$T$} are created with the size $s_1$, $s_2$, respectively ($s_1 < s_2$). Next, for each pixel in the patch \textit{$T$}, a sub-patch \textit{$T^{'}$} is extracted with the same size of the patch \textit{$I$}. Then, their descriptor and measure distance are determined(between \textit{$I$} and \textit{$T^{'}$}). This process is finished when all the pixels on the patch \textit{$T$} are considered.
+The figure \ref{fig:Illustrate} is the illustration of this process. For each manual landmark on the model and corresponding estimated landmark on the scene, the small patches \textit{$I$}, \textit{$T$} are created with the size $s_1$, $s_2$, respectively ($s_1 < s_2$). Next, for each pixel in the patch \textit{$T$}, a sub-patch \textit{$T^{'}$} is extracted with the same size of \textit{$I$}. Then, their descriptor and measure distance are calculated (between \textit{$I$} and \textit{$T^{'}$}). This process is finished when all the pixels on the patch \textit{$T$} are considered. The coordinates of estimated landmark is the location in \textit{$T$} that has the smallest measure distance value with \textit{$I$}. Finally, the estimated landmarks are inverted to match with the original location in the scene image (by inverting the translation and rotation).
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.48\textwidth]{./images/illustration_SIFT}
@@ -311,31 +303,26 @@ Then, the descriptor is created for the patch. This is a histogram with eight di
 
 In the example at figure \ref{fig:kpdescriptor}, a patch with the size 16x16 is created around the landmark. For each pixel in the region, the orientation and gradient magnitude are calculated (the orientation and length of the arrows). Then, the patch is divided into 4 sub-blocks 4x4. The descriptor of each sub-block is determined by using 8-orientation histogram and the length of each arrow corresponding to the sum of the gradient magnitudes near that direction within the region.\\
 
-As we mentioned before, the last location of
-estimated landmarks is the pixel in template \textit{$T$} that has the smallest measure distance value (by $L2$ distance). Finally, the automatic landmarks are inverted to match with the real location in the scene image (by inverting the transformation and rotation).\\
-\begin{figure}[h]
-\centering
-\subfloat[Result on right mandible]{\label{figrsmd}\includegraphics[width=0.22\textwidth]{./images/md_rs}}~~
-\subfloat[Result on left mandible]{\label{figrsmg}\includegraphics[width=0.22\textwidth]{./images/mg_rs}}
-\caption{The automatic landmarks on mandibles}
-\label{figresult}
-\end{figure}~\\
-Figure \ref{figresult} shows a complete result on one scene mandible with the manual landmarks (red points) and estimated landmarks (yellow points). 
 \section{Experiments and result}
 All the steps in our method are implemented in MAELab\footnote{MAELab
   is a free software in C++. It can be directly obtained by request
   the authors.}. Two sets of beetle have been analyzed, right and left
 mandible. After verifying the quality of the image, it remains 290
-usable images for right mandible and 286 images for left mandible. The
+usable images for right mandible and 286 images for the left mandible. The
 removed images include the images that do not contain the mandible and
-the mandible is broken.\\
+the mandible is broken. Then, each dataset is divided into two sub-sets followed the size of the mandible. For each subset, an image is chosen as the model of the experiment process. In all valid images, a set of 18 manual landmarks of right mandible (16 landmarks for left mandible) are indicated by biologists. Along with choosing the centroid size to measure the mandible. This size is obtained by sum of all square distance from each landmarks to the
+centroid point (see \cite{web2010}).\\
 
-In all valid images, a set of 18 manual landmarks of right mandible
-(16 landmarks for left mandible) are indicated by biologists. Along
-with choosing the centroid size to measure the mandible. This size is
-obtained by sum of all square distance from each landmarks to the
-centroid point (see \cite{web2010}).
+At the end of PCAI, a hypothesis is made to estimated the scale between the images. For each image, the bounding boxes are indicated by the coordinates of the points on the curve. The scale of x and y-direction are determined by the ratio between the corresponding sides of the bounding boxes. Then, the scene curve is scaled to fit the model curve. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{./images/md_rs}
+\caption{The automatic landmarks on right mandible}
+\label{figresult}
+\end{figure}~\\
+Figure \ref{figresult} shows a complete result on one right mandible with the manual landmarks (red points) and estimated landmarks (yellow points). As we can see in the image, almost the estimated landmarks are quite near with the manual landmarks. This shows that our method is worked well for indicating the landmarks on the mandibles.\\
 
+In next experiment, we want focus soon on two kinds of evaluation: centroid size of the image and the accuracy position of each landmark.
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.3\textwidth]{./images/mdresult}
@@ -352,12 +339,12 @@ Firstly, our evaluation is done on comparing the centroid size of the estimated 
 image in the dataset as the model. The automatic landmarks are estimated on remaining images with the method that we have described. Then, the centroid size of each image is calculated and evaluated. We can see in figure
 \ref{figmdresult} and figure \ref{figmgresult} for all images, the
 correct proportions of centroid size which based on the estimated landmarks are 93,45\% for the right
-mandible and 90,21\% for the left mandible. And the results in figure \ref{figmdresult} and \ref{figmgresult} were a vindication of the propriety of the method.\\
+mandible and 90,21\% for the left mandible with the standard deviation\cite{bland1996statistics}. And the results in figure \ref{figmdresult} and \ref{figmgresult} were a vindication of the propriety of the method.\\
 
-Besides, using the centroid size to evaluate the method. We are also
-interested in the position of the estimated landmarks. In this experiment
+Besides using the centroid size to evaluate the method. We are also
+interested in the accuracy on the position of the estimated landmarks. In this experiment
 way, we calculate the distance between each manual landmark and
-corresponding automatic landmark. Through, we want to examine replacing the manual landmarks by corresponding automatic landmarks.
+corresponding automatic landmark. Through, we want to examine replacing the manual landmarks by corresponding estimated landmarks.
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.5\textwidth]{./images/md_chartlms}
@@ -370,7 +357,7 @@ corresponding automatic landmark. Through, we want to examine replacing the manu
     \caption{The correct proportions on each landmark of left mandibles }
     \label{figmgresultlm}
 \end{figure}~\\
-Figure \ref{figmdresultlm} and \ref{figmgresultlm} show the correct proportion on each landmark of mandible. The blue column is presented for the success rate. The orange column is expressed as the incorrect rate. With 18 landmarks of right mandible, the position of the first automatic landmarks is reasonably accurate with 98.62\%, the lowest proportion is 74,48\% for fourteenth landmark. The remaining landmarks are also indicated with a high proportion (with the accuracy proportion greater than 75\%). For left mandible, the highest and lowest success rate are 93,01\% for the first landmark and 60,14\% for the sixteenth landmark. The statistic is done on each automatic landmarks of all the images.\\
+Figure \ref{figmdresultlm} and \ref{figmgresultlm} show the correct proportion on each landmark of mandible. The blue column is presented for the success rate. The orange column is expressed as the incorrect rate. With 18 landmarks of right mandible, the position of the first estimated landmarks is reasonably accurate with 98.62\%, the lowest proportion is 74,48\% for fourteenth landmark. The remaining landmarks are also indicated with a high proportion (with the accuracy proportion greater than 75\%). For left mandible, the highest and lowest success rate are 93,01\% for the first landmark and 60,14\% for the sixteenth landmark. The statistic is done on each automatic landmarks of all the images with a standard deviation\cite{bland1996statistics}. \\
 
 In both of experiments, the success rate on right mandible is always greater than left mandible. So, when we reconsider the datasets, the images in left mandible are having more type of size than on the right mandible (scale problem). This explains why the success rate on right mandible is always higher than left mandible.\\
 
