@@ -29,6 +29,7 @@
 \usepackage{graphicx}
 \usepackage[justification=centering]{caption}
 \usepackage{amsmath}
+\usepackage{algorithm2e}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                Title
 
@@ -211,13 +212,19 @@ camera and same resolution.
 Segmentation is often the first and the bootleneck of image processing
 chains. The main well-known algorithms are often classified as contours
 or regions based segmentation. We have chosen a contours one, the
-Canny alogrithm\cite{canny1986computational}. 
-to detect curves into the image. The mandatory \textit{threshold
+Canny alogrithm\cite{canny1986computational}, which allows determining the list of edges around the shape in the image. To use this method, two threshold values have been set. As it is after mentioned, fix the right values for these thresholds is often a drawback of Canny algorithm\cite{adaptiveCanny}. The mandatory \textit{threshold
   value} used by Canny algorithm has been determined by analyzing the image
 histogram (see \cite{leestimating} for detail and we assume (after experiments) that the
 upper threshold equals 3 times the value of the lower one. For
 optimisation purpose of the computing time, during the computing of Canny algorithm the gradient direction of each pixel which belongs to the
-curves is kept for the next steps of the method.
+curves is kept for the next steps of the method. From the histogram, the mean(\textit{meanHist}) and median(\textit{medianHist}) of the intensity value in the image can be extracted. The lower threshold is set following this rule: Firstly, the minimum and maximum value between the mean and median value are calculated.
+\begin{equation}
+\begin{aligned}
+	minValue = min(meanHist, medianHist), \\
+	maxValue = max(meanHist, medianHist)
+	\end{aligned}
+\end{equation}
+Secondly, we calculate the peaks and the valley in the histogram. The first peak in the histogram is the bin that has the maximum value from the beginning of the histogram to the \textit{$minValue$} value. Then, the valley is determined which is the lowest value from the location of the first peak to the \textit{$maxValue$}. The second peak in the histogram is the location that has the maximum value from the location of the valley to the end of the histogram. Finally, the average values between two peaks and the valley are calculated. The final threshold value is mean of two average values minus to 5\% of it.
 
 \begin{figure}[h]
 \centering
@@ -228,15 +235,11 @@ curves is kept for the next steps of the method.
 \caption{The segmentation results of the image}
 \label{canny}
 \end{figure}~\\
-In this study, the aim of segmentation stage is determined the outer
-border of the object which can be used to reconstruct the shape of the
-object as well as provide the best data for next step. The curves from
+The curves from
 Canny algorithm will be post-processed to remove the unnecessary
-curves i.e hole inside the border (see figure \ref{canny}).
-
+curves. As it is shown in figure \ref{canny}, the final result of Canny generate some contours which do not belong to the shape of the mandible. With a simple algorithm, we browse the image and suppress the edges inside the shape.
 \subsection{Image registration}
-Our study is working on the 2D image, and the transformation between
-two images are inevitable. At this step, we will try to align the segmentations of two images before estimating the landmarks. Besides, the translation and rotation between the images are determined by Principal
+As we have mentioned, all images have been captured following the same protocol. But it remains differences in size of the mandibles (cause of size of the animals), or orientation, position the mandible under the camera. At this step, we will try to align the segmentations of two images before estimating the landmarks. Besides, the translation and rotation between the images are determined by Principal
 Component Analysis Iteration (PCAI). PCAI is the method that is improved from PCA method\cite{shlens2014tutorial}. The work flows of PCAI are illustrated in figure \ref{fig:pcai}
 \begin{figure}[htb]
     \centering
@@ -260,12 +263,12 @@ between the images. We extract a sub-set of segmentation points to re-calculate 
 
 Figure \ref{fig:box} shows an example of PCAI. In this figure, the aquamarine curve and blue curve are presented for the segmentation of the model and the scene image, respectively.\\
 
-At the end of PCAI, a hypothesis is made to judge the scale between the images. For each image, the bounding boxes are indicated by the coordinates of the points on the curve. The scale of x and y-direction are determined by the ratio between the corresponding sides of the bounding boxes. Then, the scene curve is scaled to fit the model curve.\\
+At the end of PCAI, a hypothesis is made to estimated the scale between the images. For each image, the bounding boxes are indicated by the coordinates of the points on the curve. The scale of x and y-direction are determined by the ratio between the corresponding sides of the bounding boxes. Then, the scene curve is scaled to fit the model curve.\\
 
 As the result of PCAI, we have fitted between the model and the scene. So, by using the landmarks of the model image, we can also estimate the location of the scene image. Hence, before estimating their location, the translation and rotation are applied on scene image to match the pose between the scene and the model. 
 
-\subsection{Refinement the estimated landmarks}
-The registration step provides to us the best presence between the model and the scene. The automatic landmarks can be estimated for the scene by the manual landmarks of the model. However, the estimated landmarks can be located at the incorrect location. So, we need a method to verify each position of the estimated landmarks. For this reason, in the last step of the method, we apply a step in the SIFT\cite{lowe2004distinctive} method to verify the location of automatic landmarks. Firstly, the regions around each manual and corresponding automatic landmark are created. Then, the orientation and gradient magnitude of each pixel in the region are calculated and presented into a descriptor. At the end, the comparing between the descriptors is done by using $L2$ distance which is given by the equation (1).
+\subsection{Fixing the estimated landmarks}
+The last step provides the best matching between manual landmarks and estimated landmarks. Now we are focus soon the determination of the landmarks position on the scene. The first information is given by the manual landmarks of the model which manually set by the biologist. This has to be done by using SIFT\cite{lowe2004distinctive} method. Firstly, the regions around each manual and corresponding automatic landmark are created. Then, the orientation and gradient magnitude of each pixel in the region are calculated and presented into a descriptor. At the end, the comparing between the descriptors is done by using $L2$ distance which is given by the equation (1).
 \begin{equation}
 \label{eq:cross-correlation}
 	L(x,y) = \sum\limits_{x_i,y_i}\sqrt{(x_i-y_i)^2}

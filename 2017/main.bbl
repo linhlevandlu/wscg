@@ -6,6 +6,12 @@ John Canny.
 \newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, (6):679--698, 1986.
 
+\bibitem{adaptiveCanny}
+Dehua~Li Jun~Zeng.
+\newblock An adaptive canny edge detector using histogram concavity analysis.
+\newblock {\em International Journal of Digital Content Technology and its
+  Applications}, 5, 2011.
+
 \bibitem{leestimating}
 L~L{\^e}~V{\~a}nh, M~Beurton-Aimar, JP~Salmon, A~Marie, and N~Parisey.
 \newblock Estimating landmarks on 2d images of beetle mandibles.
