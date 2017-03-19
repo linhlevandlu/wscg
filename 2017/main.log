@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.23)  18 MAR 2017 21:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.2.14)  19 MAR 2017 01:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
-LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -24,19 +24,19 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 ) (./wscg.sty
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2008/03/30 v1.1d Input encoding file
+Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
+File: latin1.def 2015/03/17 v1.2c Input encoding file
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
@@ -46,7 +46,7 @@ Package ifpdf Info: pdfTeX in PDF mode is detected.
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
@@ -130,22 +130,25 @@ Package footmisc Info: Declaring symbol style lamport* on input line 903.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 ) (/usr/share/texlive/texmf-dist/tex/latex/fix2col/fix2col.sty
-Package: fix2col 1998/08/17 v0.03 Output Routine fixes for two column mode (DPC
+Package: fix2col 2015/11/13 v0.04 Output Routine fixes for two column mode (DPC
 ,FMi)
-))
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+
+Package fix2col Warning: Obsolete package: ignored.
+
+)) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
@@ -162,12 +165,12 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@width=\dimen113
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+Package: color 2016/01/03 v1.1b Standard LaTeX Color (DPC)
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: pdftex.def on input line 130.
+Package color Info: Driver file: pdftex.def on input line 143.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/nopageno/nopageno.sty
 Package: nopageno 1989/01/01 no page numbers (DPC)
@@ -176,11 +179,11 @@ Package: nopageno 1989/01/01 no page numbers (DPC)
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 57.
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen114
 \captionmargin@=\dimen115
 \captionwidth=\dimen116
@@ -206,40 +209,40 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \sf@bottom=\skip47
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2013/01/14 v2.14 AMS math features
+Package: amsmath 2016/03/03 v2.15a AMS math features
 \@mathmargin=\skip48
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01
+Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0
+File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks19
 \ex@=\dimen122
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen123
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count100
-LaTeX Info: Redefining \frac on input line 210.
+LaTeX Info: Redefining \frac on input line 199.
 \uproot@=\count101
 \leftroot@=\count102
-LaTeX Info: Redefining \overline on input line 306.
+LaTeX Info: Redefining \overline on input line 297.
 \classnum@=\count103
 \DOTSCASE@=\count104
-LaTeX Info: Redefining \ldots on input line 378.
-LaTeX Info: Redefining \dots on input line 381.
-LaTeX Info: Redefining \cdots on input line 466.
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
 \big@size=\dimen124
-LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \macc@depth=\count105
 \c@MaxMatrixCols=\count106
 \dotsspace@=\muskip10
@@ -260,70 +263,73 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \multlinegap=\skip49
 \multlinetaggap=\skip50
 \mathdisplay@stack=\toks23
-LaTeX Info: Redefining \[ on input line 2665.
-LaTeX Info: Redefining \] on input line 2666.
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2013/01/06 v5.00 algorithms environments
 \c@AlgoLine=\count112
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
+\algocf@hangindent=\skip51
+
 (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
-Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/relsize/relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
 ********************************************************
-Package `algorithm2e' Release 5.0 -- january 06 2013 --
+Package `algorithm2e' Release 5.1 -- october 19 2015 --
 - algorithm2e-announce@lirmm.fr mailing list for announcement about releases
 - algorithm2e-discussion@lirmm.fr mailing list for discussion about package
 subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
-- Author: Christophe Fiorio (cfiorio@um2.fr)
+- Author: Christophe Fiorio (christophe.fiorio@umontpellier.fr)
 ********************************************************
-\skiptotal=\skip51
-\skiplinenumber=\skip52
-\skiprule=\skip53
-\skiphlne=\skip54
-\skiptext=\skip55
-\skiplength=\skip56
-\algomargin=\skip57
-\skipalgocfslide=\skip58
+\skiptotal=\skip52
+\skiplinenumber=\skip53
+\skiprule=\skip54
+\skiphlne=\skip55
+\skiptext=\skip56
+\skiplength=\skip57
+\algomargin=\skip58
+\skipalgocfslide=\skip59
 \algowidth=\dimen131
 \inoutsize=\dimen132
 \inoutindent=\dimen133
 \interspacetitleruled=\dimen134
 \interspacealgoruled=\dimen135
 \interspacetitleboxruled=\dimen136
+\algocf@ruledwidth=\skip60
 \algocf@inoutbox=\box28
 \algocf@inputbox=\box29
-\AlCapSkip=\skip59
-\AlCapHSkip=\skip60
-\algoskipindent=\skip61
+\AlCapSkip=\skip61
+\AlCapHSkip=\skip62
+\algoskipindent=\skip63
 \algocf@nlbox=\box30
 \algocf@hangingbox=\box31
 \algocf@untilbox=\box32
-\algocf@skipuntil=\skip62
+\algocf@skipuntil=\skip64
 \algocf@capbox=\box33
-\algoheightruledefault=\skip63
-\algoheightrule=\skip64
-\algotitleheightruledefault=\skip65
-\algotitleheightrule=\skip66
+\algoheightruledefault=\skip65
+\algoheightrule=\skip66
+\algotitleheightruledefault=\skip67
+\algotitleheightrule=\skip68
 \c@algocfline=\count113
 \c@algocfproc=\count114
 \c@algocf=\count115
 \algocf@algoframe=\box34
 \algocf@algobox=\box35
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2013/12/03 3.9h The Babel package
+Package: babel 2016/02/24 3.9q The Babel package
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2012/08/20 v3.3p English support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2013/12/03 3.9h Babel common definitions
+File: babel.def 2016/02/24 3.9q Babel common definitions
 \babel@savecnt=\count116
 \U@D=\dimen137
 )
@@ -521,17 +527,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--170
 
  []
 
-<./images/lm.JPG, id=1, 3276.24pt x 2457.18pt>
+<./images/lm.JPG, id=1, 1310.496pt x 982.872pt>
 File: ./images/lm.JPG Graphic file (type jpg)
  <use ./images/lm.JPG>
 Package pdftex.def Info: ./images/lm.JPG used on input line 174.
-(pdftex.def)             Requested size: 100.15425pt x 75.09947pt.
+(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
 
-<./images/rm.JPG, id=2, 3276.24pt x 2457.18pt>
+<./images/rm.JPG, id=2, 1310.496pt x 982.872pt>
 File: ./images/rm.JPG Graphic file (type jpg)
  <use ./images/rm.JPG>
 Package pdftex.def Info: ./images/rm.JPG used on input line 175.
-(pdftex.def)             Requested size: 100.15425pt x 75.09947pt.
+(pdftex.def)             Requested size: 100.15425pt x 75.10696pt.
 
 Underfull \hbox (badness 2237) in paragraph at lines 178--188
 \T1/ptm/m/n/10 im-ages, the trans-la-tion and ro-ta-tion be-tween two
@@ -561,151 +567,147 @@ Overfull \hbox (7.15225pt too wide) in paragraph at lines 202--203
  [][] 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--206
+
+ []
+
 <./images/canny1.png, id=13, 516.93124pt x 754.82pt>
 File: ./images/canny1.png Graphic file (type png)
  <use ./images/canny1.png>
-Package pdftex.def Info: ./images/canny1.png used on input line 233.
+Package pdftex.def Info: ./images/canny1.png used on input line 225.
 (pdftex.def)             Requested size: 91.04742pt x 132.93626pt.
 
 <./images/canny2.png, id=15, 516.93124pt x 754.82pt>
 File: ./images/canny2.png Graphic file (type png)
  <use ./images/canny2.png>
-Package pdftex.def Info: ./images/canny2.png used on input line 235.
+Package pdftex.def Info: ./images/canny2.png used on input line 227.
 (pdftex.def)             Requested size: 91.04742pt x 132.93626pt.
 
-Underfull \hbox (badness 2875) in paragraph at lines 238--242
-\T1/ptm/m/n/10 The curves from Canny al-go-rithm will be post-
+Underfull \hbox (badness 1540) in paragraph at lines 234--235
+\T1/ptm/m/n/10 (cause of size of the bee-tles), or ori-en-ta-tion and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 243--244
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
+
+ []
+
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 236.
+<./images/pcadiagram.jpg, id=16, 467.7475pt x 391.4625pt>
+File: ./images/pcadiagram.jpg Graphic file (type jpg)
+
+<use ./images/pcadiagram.jpg>
+Package pdftex.def Info: ./images/pcadiagram.jpg used on input line 241.
+(pdftex.def)             Requested size: 182.09486pt x 152.39499pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--246
 
  []
 
 [2 <./images/method.jpg> <./images/canny1.png> <./images/canny2.png>]
-<./images/pcadiagram.jpg, id=24, 467.7475pt x 391.4625pt>
-File: ./images/pcadiagram.jpg Graphic file (type jpg)
-
-<use ./images/pcadiagram.jpg>
-Package pdftex.def Info: ./images/pcadiagram.jpg used on input line 250.
-(pdftex.def)             Requested size: 182.09486pt x 152.39499pt.
-
-Underfull \hbox (badness 1953) in paragraph at lines 245--255
-\T1/ptm/m/n/10 dif-fer-ence co-or-di-nate be-tween the cen-troid points.
- []
-
-
-Underfull \hbox (badness 1024) in paragraph at lines 245--255
-\T1/ptm/m/n/10 PCAI is again com-pleted for this sub-set to re-fine
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 245--255
-
- []
-
-<./images/imreg.png, id=25, 530.98375pt x 809.0225pt>
+<./images/imreg.png, id=26, 530.98375pt x 809.0225pt>
 File: ./images/imreg.png Graphic file (type png)
  <use ./images/imreg.png>
-Package pdftex.def Info: ./images/imreg.png used on input line 258.
+Package pdftex.def Info: ./images/imreg.png used on input line 249.
 (pdftex.def)             Requested size: 113.81102pt x 173.40562pt.
 
-Underfull \hbox (badness 1281) in paragraph at lines 267--269
-\T1/ptm/m/n/10 Where $\OML/ztmcm/m/it/10 x[]; y[]$ \T1/ptm/m/n/10 are the cor-r
-e-spond-ing lo-ca-tion in the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 267--269
+Underfull \hbox (badness 10000) in paragraph at lines 260--262
 
  []
 
-<./images/illustration_SIFT.png, id=26, 408.52625pt x 154.5775pt>
+<./images/illustration_SIFT.png, id=27, 408.52625pt x 154.5775pt>
 File: ./images/illustration_SIFT.png Graphic file (type png)
 
 <use ./images/illustration_SIFT.png>
-Package pdftex.def Info: ./images/illustration_SIFT.png used on input line 273.
+Package pdftex.def Info: ./images/illustration_SIFT.png used on input line 266.
 
 (pdftex.def)             Requested size: 218.51521pt x 82.6828pt.
- [3 <./images/pcadiagram.jpg> <./images/imreg.png>]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 291.
 
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+Underfull \vbox (badness 3240) has occurred while \output is active []
+
+ [3 <./images/pcadiagram.jpg> <./images/imreg.png> <./images/illustration_SIFT.
+png>]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 284.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 291.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 284.
 
 <./images/keypoint_descriptor.png, id=34, 422.57875pt x 177.66376pt>
 File: ./images/keypoint_descriptor.png Graphic file (type png)
 
 <use ./images/keypoint_descriptor.png>
 Package pdftex.def Info: ./images/keypoint_descriptor.png used on input line 29
-9.
+2.
 (pdftex.def)             Requested size: 182.09486pt x 76.55928pt.
 
-Underfull \hbox (badness 1024) in paragraph at lines 304--305
+Underfull \hbox (badness 1024) in paragraph at lines 297--298
 \T1/ptm/m/n/10 re-gion, the ori-en-ta-tion and gra-di-ent mag-ni-tude are
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 297--298
 
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 309.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 302.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 309.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 302.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 309.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 302.
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--315
+Underfull \hbox (badness 10000) in paragraph at lines 300--308
 
  []
 
 <./images/md_rs.png, id=35, 461.725pt x 692.5875pt>
 File: ./images/md_rs.png Graphic file (type png)
  <use ./images/md_rs.png>
-Package pdftex.def Info: ./images/md_rs.png used on input line 319.
+Package pdftex.def Info: ./images/md_rs.png used on input line 312.
 (pdftex.def)             Requested size: 182.09486pt x 273.14105pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--324
+Underfull \hbox (badness 10000) in paragraph at lines 309--317
 
  []
 
-[4 <./images/illustration_SIFT.png> <./images/keypoint_descriptor.png> <./image
-s/md_rs.png>] <./images/mdresult.jpg, id=41, 341.275pt x 298.11375pt>
+<./images/mdresult.jpg, id=36, 341.275pt x 298.11375pt>
 File: ./images/mdresult.jpg Graphic file (type jpg)
 
 <use ./images/mdresult.jpg>
-Package pdftex.def Info: ./images/mdresult.jpg used on input line 328.
+Package pdftex.def Info: ./images/mdresult.jpg used on input line 321.
 (pdftex.def)             Requested size: 136.57462pt x 119.30252pt.
 
-<./images/mgresult.jpg, id=42, 337.26pt x 308.15125pt>
+<./images/mgresult.jpg, id=37, 337.26pt x 308.15125pt>
 File: ./images/mgresult.jpg Graphic file (type jpg)
 
 <use ./images/mgresult.jpg>
-Package pdftex.def Info: ./images/mgresult.jpg used on input line 334.
+Package pdftex.def Info: ./images/mgresult.jpg used on input line 327.
 (pdftex.def)             Requested size: 136.57462pt x 124.78645pt.
 
-Underfull \hbox (badness 1975) in paragraph at lines 325--343
+Underfull \hbox (badness 1975) in paragraph at lines 318--336
 \T1/ptm/m/n/10 Firstly, our eval-u-a-tion is done on com-par-ing the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 325--343
+Underfull \hbox (badness 10000) in paragraph at lines 318--336
 
  []
 
+[4 <./images/keypoint_descriptor.png> <./images/md_rs.png>]
 <./images/md_chartlms.jpg, id=43, 1120.185pt x 460.72125pt>
 File: ./images/md_chartlms.jpg Graphic file (type jpg)
 
 <use ./images/md_chartlms.jpg>
-Package pdftex.def Info: ./images/md_chartlms.jpg used on input line 350.
+Package pdftex.def Info: ./images/md_chartlms.jpg used on input line 343.
 (pdftex.def)             Requested size: 227.62206pt x 93.61891pt.
 
-Overfull \hbox (7.15225pt too wide) in paragraph at lines 350--351
+Overfull \hbox (7.15225pt too wide) in paragraph at lines 343--344
  [][] 
  []
 
@@ -713,30 +715,30 @@ Overfull \hbox (7.15225pt too wide) in paragraph at lines 350--351
 File: ./images/mg_chartlms.jpg Graphic file (type jpg)
 
 <use ./images/mg_chartlms.jpg>
-Package pdftex.def Info: ./images/mg_chartlms.jpg used on input line 356.
+Package pdftex.def Info: ./images/mg_chartlms.jpg used on input line 349.
 (pdftex.def)             Requested size: 227.62206pt x 94.13492pt.
 
-Overfull \hbox (7.15225pt too wide) in paragraph at lines 356--357
+Overfull \hbox (7.15225pt too wide) in paragraph at lines 349--350
  [][] 
  []
 
 
-Underfull \hbox (badness 1117) in paragraph at lines 344--361
+Underfull \hbox (badness 1117) in paragraph at lines 337--354
 \T1/ptm/m/n/10 Figure 11[] and 12[] show the cor-rect pro-por-tion on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 344--361
+Underfull \hbox (badness 10000) in paragraph at lines 337--354
 
  []
 
 
-Underfull \hbox (badness 1248) in paragraph at lines 362--363
+Underfull \hbox (badness 1248) in paragraph at lines 355--356
 []\T1/ptm/m/n/10 In both of ex-per-i-ments, the suc-cess rate on right
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--363
+Underfull \hbox (badness 10000) in paragraph at lines 355--356
 
  []
 
@@ -745,13 +747,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 362--363
 
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 6423 strings out of 493304
- 93413 string characters out of 6139871
- 193731 words of memory out of 5000000
- 9706 multiletter control sequences out of 15000+600000
- 55216 words of font info for 89 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
- 44i,10n,47p,1096b,377s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 6028 strings out of 493029
+ 89673 string characters out of 6136234
+ 181725 words of memory out of 5000000
+ 9387 multiletter control sequences out of 15000+600000
+ 58019 words of font info for 91 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 44i,11n,49p,1169b,377s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -763,7 +765,7 @@ t/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (6 pages, 3746308 bytes).
+Output written on main.pdf (6 pages, 3755251 bytes).
 PDF statistics:
  87 PDF objects out of 1000 (max. 8388607)
  49 compressed objects within 1 object stream
