@@ -255,9 +255,10 @@ As input values, we use the lists of points which has been defined by the segmen
 	The principal axis is the line between $centroid$ and point $i$ which is chosen.
 	\caption{The algorithm for finding the principal axis of a list of contour points}
 	\label{alg1}
-\end{algorithm}
-\textbf{
-for all point \textit{$i$} in the contours, draw a line \textit{$l$} between \textit{$i$} and \textit{$centroid$}; for all points \textit{$j$} in the contours (\textit{$i \neq j$}), compute the perpendicular distance between line \textit{$l$} and point \textit{$j$}; compute the average perpendicular distance of all points $j$ to $l$. When the computing is finished, the principal axis is the line that has the minimum mean perpendicular distance to all points of the contours.} The translation is indicated by the coordinate difference between the centroid points of the scene and the model. The rotation angle is the angle between the principal axes of these two images. As the rotation direction is determined by checking coordinate of the endpoints on the principal axes of the model and the scene. Then, the scene is moved to matching with the position of the model. However,
+\end{algorithm}\\
+%\textbf{
+%for all point \textit{$i$} in the contours, draw a line \textit{$l$} between \textit{$i$} and \textit{$centroid$}; for all points \textit{$j$} in the contours (\textit{$i \neq j$}), compute the perpendicular distance between line \textit{$l$} and point \textit{$j$}; compute the average perpendicular distance of all points $j$ to $l$. When the computing is finished, the principal axis is the line that has the minimum mean perpendicular distance to all points of the contours.} 
+The translation is indicated by the coordinate difference between the centroid points of the scene and the model. The rotation angle is the angle between the principal axes of these two images. As the rotation direction is determined by checking coordinate of the endpoints on the principal axes of the model and the scene. Then, the scene is moved to matching with the position of the model. However,
 in some case, the translation and rotation between two images are
 not enough right because the result of the segmentation may be not perfect. To improve registration, we have enhanced the PCA by an iteration state (PCAI). We have considered some specificity of our images and observed that the tip part of the mandible is less noisy than the base. So, we sort the points according to their y-value. We build a subset of points which contains half part of points, these ones which belong to the upper part of the image. PCA is again completed for this subset to refine the rotation and translation values. This operation is iterated until the new computing angle is less than 1.5 degree (see figure \ref{fig:pcai}).
 \begin{figure}[htb]
@@ -275,7 +276,7 @@ Figure \ref{fig:box} shows an example obtained results from the different steps 
     \label{fig:box}
 \end{figure}
 \subsection{Fixing the estimated landmarks}
-The last task in the workflows concerns how to estimate landmarks of the scene from the manual ones of the model. This has to be done by using SIFT\cite{lowe2004distinctive} method but as usually we do not consider all points of the image but only the area around the landmarks. Firstly, the region around each manual landmark (called patch) in the model is created and its corresponding position in the scene image is defined. Then, the SIFT descriptor is computed: the orientation and gradient magnitude are calculated for each their pixel by the equation:
+The last task in the workflows concerns how to estimate landmarks of the scene from the manual ones of the model. This has to be done by using SIFT\cite{lowe2004distinctive} method but as usually we do not consider all points of the image but only the area around the landmarks. Firstly, the region around each manual landmark (called patch) in the model is created and its corresponding position in the scene image is defined. Then, the SIFT descriptor is computed: firstly, the orientation and gradient magnitude are calculated for each their pixel by the equation:
 \begin{equation}
 \label{eq:sift}
 \resizebox{.41 \textwidth}{!} 
@@ -343,7 +344,7 @@ At the end of PCAI, a hypothesis is made to estimated the scale between the imag
 \caption{The manual and estimated landmarks on left mandible}
 \label{figresult2}
 \end{figure}~\\
-Figure \ref{figresult} and \ref{figresult2} show a complete result on one right mandible with the manual landmarks (red points) and estimated landmarks (yellow points). As we can see in the image, almost the estimated landmarks are quite near with the manual landmarks. This shows that our method is worked well for indicating the landmarks on the mandibles.\\
+Figure \ref{figresult} and \ref{figresult2} show a complete result on one right mandible and one left mandible with the manual landmarks (red points) and estimated landmarks (yellow points). As we can see in the image, almost the estimated landmarks are quite near with the manual landmarks. This shows that our method is worked well for indicating the landmarks on the mandibles.\\
 
 In next experiment, we want focus on two kinds of evaluation: centroid size of the image and the accuracy position of each landmark.\\
 \begin{figure}[h]
@@ -374,7 +375,7 @@ corresponding automatic landmark. Through, we want to examine replacing the manu
     \caption{The correct proportions on each landmark of left mandibles }
     \label{figmgresultlm}
 \end{figure}~\\
-Figure \ref{figmdresultlm} and \ref{figmgresultlm} show the correct proportion on each landmark of mandible. With 18 landmarks of right mandible, the position of the first estimated landmarks is reasonably accurate with 98.62\%, the lowest proportion is 74,48\% for fourteenth landmark. The remaining landmarks are also indicated with a high proportion (with the accuracy proportion greater than 75\%). For left mandible, the highest and lowest success rate are 93,01\% for the first landmark and 60,14\% for the sixteenth landmark. The statistic is done on each automatic landmarks of all the images with a standard deviation\cite{bland1996statistics}. As we can see in figure \ref{canny}, the noisy of the base in segmentation is higher than the tip. This explains why the correct proportion on $11^{th}$, $12^{th}$ landmark of the left mandible or $13^{th}$, $14^{th}$ landmark of the left mandible are less than other landmarks. Moreover, when we reconsider the datasets, the images in left mandible are having more type of size than on the right mandible (scale problem). This is shows the reason that the success rate on right mandible is always greater than left mandible in both of the experiments.\\
+Figure \ref{figmdresultlm} and \ref{figmgresultlm} show the correct proportion on each landmark of the mandibles. With 18 landmarks of right mandible, the position of the first estimated landmarks is reasonably accurate with 98.62\%, the lowest proportion is 74,48\% for fourteenth landmark. The remaining landmarks are also indicated with a high proportion (with the accuracy proportion greater than 75\%). For left mandible, the highest and lowest success rate are 93,01\% for the first landmark and 60,14\% for the sixteenth landmark. The statistic is done on each automatic landmarks of all the images with a standard deviation\cite{bland1996statistics}. As we can see in figure \ref{canny}, the noisy of the base in segmentation is higher than the tip. This explains why the correct proportion on $11^{th}$, $12^{th}$ landmark of the left mandible or $13^{th}$, $14^{th}$ landmark of the left mandible are less than other landmarks. Moreover, when we reconsider the datasets, the images in left mandible are having more type of size than on the right mandible (scale problem). This is shows the reason that the success rate on right mandible is always greater than left mandible in both of the experiments.\\
 
 From two experiment ways, we can see that the method is success in
 indicating all landmarks for each image; and the location of the
@@ -392,9 +393,7 @@ the organism is a difficult problem. In the content of this paper, we
 have begun to design a method to segment the beetle mandibles and to
 indicate automatically landmarks which have been determined by
 biologists. Each mandible is segmented by applying the Canny
-algorithm. Using PCAI to align the images and estimate the
-landmarks. Finally, a descriptor distance will be applied to refine the
-location of the estimated landmarks. The first version of this method
+algorithm. Using PCAI to align the images. Finally, the estimated landmarks are indicated by applied SIFT descriptor. The first version of this method
 has been implemented. From now, the next stage of our method is to add
 the features to have the position of landmarks more precisely, i.e diagnose on the scale of the image.
 
