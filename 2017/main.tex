@@ -250,7 +250,7 @@ As input values, we use the lists of points which has been defined by the segmen
 			Store $i$ as $i_{min}$;\\
 		}
 	}
-	The principal axis is the line between $centroid$ and $i_min$.
+	The principal axis is the line between $centroid$ and $i_{min}$.
 	\caption{The algorithm for finding the principal axis of a list of contour points}
 	\label{alg1}
 \end{algorithm}\\
@@ -311,7 +311,7 @@ Where:
 	\item $D1$ and $D2$ are two descriptors with size $n$,
 	\item  $D1_i$, $D2_i $ are the value at the location $i$ in each descriptor.
 \end{itemize}
-To fix model landmarks on the scene, the patches \textit{$P_m$, $P_s$} are created with size($P_m$) $<$ size($P_s$). After experiments, we keep 36 as the size of \textit{$P_s$}. For each pixel in the patch \textit{$P_s$}, a sub-patch \textit{$P^{'}_s$} is extracted with the same size than \textit{$P_m$}. When the \textit{$P^{'}_s$} is not possible to get from \textit{$P_s$} (border limits), the pixels outside \textit{$P_s$}more considered. Then, the distance \textit{$L(P_m,P^{'}_s)$} is computed by \ref{eq:L2distance}. This process is finished when all the pixels on the patch \textit{$P_s$} are considered. The coordinates of estimated landmark is the location in \textit{$P_s$} that has the smallest measure distance value with \textit{$P_m$}. Finally, the coordinates of the estimated landmarks is set to the original location of the scene image by applying the reverse operation of rotation and translation.
+To fix model landmarks on the scene, the patches \textit{$P_m$, $P_s$} are created with size($P_m$) $<$ size($P_s$). After experiments, we keep 36 (pixels) as the size of \textit{$P_s$}. For each pixel in the patch \textit{$P_s$}, a sub-patch \textit{$P^{'}_s$} is extracted with the same size than \textit{$P_m$}. When the \textit{$P^{'}_s$} is not possible to get from \textit{$P_s$} (border limits), the pixels outside \textit{$P_s$} are more considered. Then, the distance \textit{$L(P_m,P^{'}_s)$} is computed by (\ref{eq:L2distance}). This process is finished when all the pixels on the patch \textit{$P_s$} are considered. The coordinates of estimated landmark is the location in \textit{$P_s$} that has the smallest measure distance value with \textit{$P_m$}. Finally, the coordinates of the estimated landmarks is set to the original location of the scene image by applying the reverse operation of rotation and translation.
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.48\textwidth]{./images/illustration_SIFT}
@@ -325,7 +325,9 @@ All the steps in our method are implemented in MAELab\footnote{MAELab
 mandibles. After verifying the quality of the image, it remains 290
 usable images for right mandible and 286 images for the left mandible. The
 removed images include the images that do not contain the mandible or
-the broken mandibles. In all valid images, a set of 18 manual landmarks of right mandible (16 landmarks for left mandible) are indicated by biologists. We have run the full workflow on all images. The preliminary results shown differences in algorithm performances, estimated landmarks on some scenes are well positioned and some another ones the precision is not satisfying. As we mentioned before, mandibles can exhibit different sizes because beetles have also. It seems that our method is sensible to this parameter. To improve our results, we have insert a step before computing SIFT descriptor to estimate the scale between one scene image and the model. The bounding boxes of the mandible of the model image and this one of the scene image are computed and the scales of x and y-direction are determined by the ratio between the corresponding sides of the bounding boxes. Then, the scene contours is scaled to fit the model curve. 
+the broken mandibles. In all valid images, a set of 18 manual landmarks of right mandible (16 landmarks for left mandible) are indicated by biologists.\\
+
+We have run the full workflow on all images. The preliminary results showed differences in algorithm performances, estimated landmarks on some scenes are well positioned and some other ones the precision is not satisfying. As we mentioned before, mandibles can exhibit different sizes because beetles have also. It seems that our method is sensible to this parameter. To improve our results, we have inserted a step before computing SIFT descriptor to estimate the scale between one scene image and the model. The bounding boxes of the mandible of the model image and this one of the scene image are computed and the scales of x and y-direction are determined by the ratio between the corresponding sides of the bounding boxes. Then, the scene contours is scaled to fit the model contours. 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.4\textwidth]{./images/md_rs}
