@@ -31,10 +31,11 @@
 \usepackage{amsmath}
 \usepackage[linesnumbered,ruled]{algorithm2e}
 \usepackage[english]{babel}
+\usepackage{enumitem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                Title
 
-\title{MAELab: a framework to automatize landmarks setting}
+\title{MAELab: a framework to automatize landmark estimation}
 
 \author{
   \hspace{-0.1\textwidth}
@@ -102,36 +103,34 @@ nparisey@rennes.inra.fr
 
 
 \begin{abstract}
-\noindent  Phenotype of insect species are characterized by several informations like
-  age, sex, morphological measures or environmental parameters. Biologists are
-  familiar to manually get morphological measures and in the case of
-  analysis at the macro level (tissues, small parts of the animal \ldots)
-  they can do directly by measuring the element geometry: length,
-  width, diameter, angles, \ldots. Another way to obtain morphological
+\noindent  Phenotype of beetle species are characterized by informations like
+  age, sex, morphological criteria or environmental parameters. Biologists are
+  used to proceed to manual measurements in case of
+  analysis at macro level as for example tissues or animal members.
+  They can directly measure the geometrical characteristic of elements on the body of the animal: length,
+  width, diameter, angles, \ldots Another way to obtain morphological
   measures is to take pictures of
-  these elements and to run image processing algorithms. In order to
-  evaluate a population of beetles into Brittany lands, a collection of
-  293 beetles has been built. For each beetle, the images of the left
-  and right mandibles are available and a set of 16 and 18
-  landmarks (resp. left and right) have been manually set, given 
-  the ground truth to compare to the estimated landmarks. In a previous
-  work \cite{leestimating} based on Palaniswamy article \cite{palaniswamy2010automatic}, we have shown that the probabilistic Hough Transform (PHT) can provide very
-  interesting results if we consider the centroid measure of the mandible as the parameter
-  to obtain. But if the goal is to consider more precisely
-  the position or the geometry of landmark areas, the results are not
-   accurate enough to consider the estimated landmarks instead of manual landmarks. In this
-   paper, we have improved the previous algorithms
-   of segmentation based on Canny algorithm, and we have preferred a registration
-   procedure based on an iteration of the Principal Component Analysis
-   calculus. To achieve the estimated landmarks setting we have
-   computed a SIFT descriptor limited to the landmarks area in the
-   model and correlated it to the scene image. A workflow, MAELab, has been
-   written, containing all the operations; it is freely available as library functions on a GitHub website.
+  the members and to apply image processing algorithms. In order to
+  evaluate a population of beetles from Brittany lands, a collection of
+  293 beetles has been built. For each beetle, biologists took images of the left
+  and right mandibles. A set of landmarks has been manually located: 16 for the left mandibles and and 18 for the right ones.
+  They constitute
+  the ground truth to evaluate the automatically estimated landmarks. In a previous
+  work \cite{leestimating}, we have shown that the Probabilistic Hough Transform (PHT)
+  is efficient to compute the centroid position of the mandible.
+  If the goal is to consider more precisely
+  the position or the geometry of the landmark areas, the results are not
+   accurate enough to consider the replacement of manual landmarks by the automatically estimated landmarks. In this
+   paper, we propose a method to improve the previous
+   segmentation algorithm using the Canny algorithm. Moreover, we propose a registration
+   procedure based on an Iterative Principal Component Analysis.
+   Finally, the landmarks are located using
+   a SIFT descriptor computed in the landmarks area of the model image.
+   The complete workflow is implemented in MAELab, freely available as library on a GitHub website.
 \end{abstract}
 
 \subsection*{Keywords}
-Automatic morphology, landmarks identification, image registration.
-
+Morphology, image registration, detector/descriptor, SIFT, beetle, mandible
 \vspace*{1.0\baselineskip}
 }]
 
@@ -143,123 +142,148 @@ Automatic morphology, landmarks identification, image registration.
 \section{Introduction}
 
 \copyrightspace
-In biology, morphology analysis is widely used to keep the changing
-information of the organism or detecting the difference information
-between the organisms. From the result of morphology analysis, we can
-determine the evolution of an organism family, or we may classify the
-organisms. Especially in agriculture, morphology is one of best ways
-to learn about the variations of the insect on crops. The morphology
-methods may be divided into groups by features which are used
-by the methods. The features can be such as shape, structure, color, pattern or size of the
-object. In the aim to study the potential links between these
-variations and agricultural ecosystems, a set of beetles has been
-collected with all informations about the sex, place where they were
-found and agricultural practices in each field were recorded. For each
-beetle, morphometric landmarks has been manually set on the images of
-the left and right mandibles. The morphometric landmarks are points precisely defined by biologists. Landmarks are
-widely used in many biological studies and they are currently included
-into the classification procedures.\\[0.1cm]
+In biology, the morphological analysis is widely used to detect the inter-organisms variations.
+It allows to determine the evolution of an organism family and to classify these
+organisms. Especially in agriculture, morphology is one of the best ways
+to learn about the evolution of the beetle on crops (see Fig. \ref{figparts}).
 
+The morphology methods may be divided into groups considering the features used
+such as shape, structure, color, pattern or size of the
+object. In order to study the potential links between these
+characteristics and agricultural ecosystems, a set of beetles has been
+analyze to collect a lot of informations. Their sex, place where they were
+found and agricultural practices in each field were recorded. For each
+beetle, the morphometric landmarks has been manually identified on the mandible images.
+The morphometric landmarks are precise points defined by biologists. Landmarks are
+used in many biological studies and are currently included
+into the classification procedures.
 
 \begin{figure}[h]
 \centering
 \subfloat[Left mandible]{\label{figrbox2}\includegraphics[width=0.22\textwidth]{./images/lm}}~~
 \subfloat[Right mandible]{\label{figrbox1}\includegraphics[width=0.22\textwidth]{./images/rm}}
-\caption{The mandibles of beetle}
+\caption{Sample of pictures of beetle mandibles took by biologists.}
 \label{figparts}
-\end{figure}~\\[0.1cm]
-In this paper, we focus on a chain of algorithms to automatically identify  landmarks on our 2D images. The method
-mainly includes three stages: firstly, we segment the shape of the
-mandible, then principal component analysis iteration is 
-used to register one model image with a scene, the translation and
-rotation between the two images are also determined; finally, the
-landmarks are estimated by a method using a SIFT descriptor.\\
+\end{figure}
 
-In section 2, we present the steps of our method. All
-experiments and evaluations are then described in section 3. 
+In this paper, we focus on a chain of algorithms to automatically identify  landmarks in 2D images. The method
+mainly includes three steps: firstly, a segmentation of the mandible shape,
+then an iterative principal component analysis
+to register a query image on a model image, and finally a
+landmark estimation using the SIFT descriptor.\\
 
+The section 2 presents the complete workflow then the section 3 details the experiments and expose the results. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Method}
-The problem to solve is to suppress the manual operation of setting
-landmarks on each image. To do that, we propose a workflow, including the segmentation of each image and a registration
-with a model image. The model image is chosen randomly from the images without broken mandibles. The figure \ref{fig:method} shows the steps of the workflow: \\
-%%we need to change the drawing a little bit
+
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.5\textwidth]{./images/method}
     \caption{Overview of the proposed method}
     \label{fig:method}
-\end{figure}~\\
-In this section, we will describe the different algorithms that we have
-used. It is worth to note that all pictures of mandibles have
-been taken in the same conditions with the same camera at the same resolution.
+\end{figure}
+The addressed problem is the automatic detection of landmarks on mandible photographies to replace the manual operation by an operator.
+We propose hereafter a workflow including (1) the segmentation of each image, (2) a registration step on a model image then (3) the detection of landmark positions.
+The Fig. \ref{fig:method} shows the summarize the workflow.
+It is worth to note that the model image is chosen randomly from the set of images without broken mandibles.
+Moreover, all pictures of mandibles have been taken in the same conditions with the same camera and at the same resolution.
+
+
 \subsection{Image segmentation}
-Segmentation is often the first major task of an image processing
-chain. The most well-known algorithms are classified as contour
-or region based approaches. We have chosen a contours one, the
+
+The segmentation step is the first major task of a large number of image processing
+chain. We have chosen a contour-based algorithm, the
 Canny alogrithm \cite{canny1986computational}, allowing to determine the 
-list of edges belonging to the shape of the image.
-To use this method, two threshold values have to be set. As it is often mentioned, determine the right values for these thresholds could be difficult\cite{adaptiveCanny}. The mandatory \textit{threshold
-  value} used by Canny algorithm has been determined by analyzing the image
-histogram (see \cite{leestimating} for detail). Most often authors define from this threshold, a lower and an upper one. The usual ratio of these two thresholds is $T_{lower} = (1/2) * T_{upper}$. In order to consider a larger range of values, we have prefer to set $T_{lower}$ to $1/3$ of $T_{upper}$. For optimization the computing time, the gradient direction of each pixel which belongs to the contours is computed during the Canny algorithm to be used later.\\
-\begin{figure}[h]
+contour belonging to the shape of the mandible.
+To use this method, two threshold values have to be set.
+As it is mentioned in \cite{adaptiveCanny}, determine the right thresholds could be difficult.
+The mandatory \textit{threshold value} used by Canny algorithm is determined by analyzing the image
+histogram (see \cite{leestimating} for detail). Most often authors define these thresholds as a lower and an upper one with a usual ratio of $T_{lower} = (1/2) \times T_{upper}$.
+In order to consider a larger range of values, we prefer set $T_{lower} = 1/3 \times T_{upper}$.
+We can note that to optimize the computing time, the direction of the gradient of each pixel belonging to the mandible contour is computed during the Canny algorithm and will be used later.
+To obtain the segmentation of the mandible, the contours obtained with Canny are discriminated to only keep the mandible contours.
+As shown in Fig. \ref{canny}, the Canny algorithm generates some contours which do not belong to the mandible shape.
+With a simple algorithm, the contour image is parsed to suppress the edges inside the bigger contour.
+\begin{figure}[htb]
 \centering
-\subfloat[Segmentation result after applying Canny
-  algorithm]{\label{canny1}\includegraphics[width=0.2\textwidth]{./images/canny1}}~~ 
-\subfloat[Segmentation result after applying Canny algorithm and
-  post-process]{\label{canny2}\includegraphics[width=0.2\textwidth]{./images/canny2}} 
-\caption{The segmentation results of the image}
+\subfloat[Contours identifying by the Canny algorithm]
+  {\label{canny1}\includegraphics[width=0.2\textwidth]{./images/canny1}}~~ 
+\subfloat[Contour selection by post-processing]
+  {\label{canny2}\includegraphics[width=0.2\textwidth]{./images/canny2}}
+\caption{Step of the mandible contour detection.}
 \label{canny}
-\end{figure}~\\
-To achieve the segmentation, the obtained contours are post-processed to remove unnecessary
-ones. As it is shown in figure \ref{canny}, the final result of Canny generates some contours which do not belong to the shape of the mandible. With a simple algorithm, we browse the image and suppress the edges inside the main shape.
+\end{figure}
+
+
 \subsection{Image registration}
-As mentioned, all images have been captured following the same protocol at the same scale. But it remains differences in size between the mandibles cause of size of the beetles, or orientation and position because of the mandible position under the camera. The next step concerns registration of model and scene before estimating the landmarks. Principal Component Analysis (PCA) is a well-known method to find the rotation and translation parameter values between two images. In our workflow, we have first used a classical PCA computing \cite{bsspca}, \cite{shlens2014tutorial}.\\
-As input values, we use the lists of points which have been defined by the segmentation step. Firstly, the centroid point and principal axis of each image are defined: the centroid point is the point which has the coordinate equal to the mean coordinate of all boundary points; the principal axis is a connected line from the centroid point to a point in the list of contours points which is determined as detailed in algorithm \ref{alg1}:
+
+As noted in introduction, all images have been captured with the same scale.
+But the size of mandible can vary from a beetle to another one and/or the orientation and position can be different from a photography to another one.
+The next step concerns the registration of an image on a reference image.
+
+We have chosen to use a Principal Component Analysis (PCA) \cite{bsspca}, \cite{shlens2014tutorial} to determine the rotation and translation parameter values between the two images.
+As input values, we use the lists of contour points defined at the segmentation step.
+Firstly, the centroid point and principal axis of each image are defined.
+The centroid point coordinates are computed like the mean coordinate of all contour points.
+The principal axis is a line connecting the centroid point to a contour point, determined as detailed in algorithm \ref{alg1}.
+
 \begin{algorithm}
 	\SetKwInOut{Input}{Input}
 	\SetKwInOut{Output}{Output}
-	\Input{Centroid point, list points of contours}
-	\Output{The principal axis}
-	\For{ all points $i$ in the list of contour points}
+	\Input{Centroid point $c$, list of contour points $l$}
+	\Output{The principal axis $a$}
+	\For{ all points $p_i$ in $l$ }
 	{
-		Draw line $l$ between $i$ and $centroid$ point;\\
-		\For{ all points $j$ in the list of contour points}
+		\For{ all points $p_j$ in $l$}
 		{
-			\If{$i \neq j$}
+			\If{$p_i \neq p_j$}
 			{
-				Compute the perpendicular distance $P_d$ between line $l$ and point $j$;\\
+				Compute the perpendicular distance $d_{ij}$ between line $(c,p_i)$ and $p_j$.
 			}		
 		}
-		Compute the average ($P_{mi}$) of all $P_d$;\\
-		\If{$P_{mi}$ is minimal}
+		Compute the average distance ($d_{mean}$) of all distances $d_{ij}$;\\
+
+		\If{$d_{mean}$ is minimal}
 		{
-			Store $i$ as $i_{min}$;\\
+			$p_{min} = p_i$;\\
 		}
 	}
-	The principal axis is the line between $centroid$ and $i_{min}$.
+	The principal axis is: $a = (c,p_{min})$.
 	\caption{The algorithm for finding the principal axis of a list of contour points}
 	\label{alg1}
-\end{algorithm}\\
+\end{algorithm}
 
-The translation is calculated by the distance of the centroid point of the scene and the model. The rotation angle is the angle between the principal axes of these two images. Then, the scene is moved to be register with the model. However,
-in some cases, the translation and rotation between two images are
-not enough precise because the result of the segmentation could be not perfect. To improve registration, we have enhanced the PCA by iteration steps (PCAI). We have considered some specificity of our images and observed that the tip of mandible is less noisy than the base. So, we sort the points according to their y-value. We build a subset of points which contains half part of points, these ones belonging to the upper part of the image. PCA is again completed for this subset to refine the rotation and translation values. This operation is iterated until the new computing angle is less than 1.5 degree (see figure \ref{fig:pcai}).
+The translation is calculated like the distance between the centroid points of the scene and the model.
+The rotation angle is the angle between the principal axes of these two images. Translation then rotation are applied to register the scene one the model. However, in some cases, the translation and rotation between two images are
+not enough precise because the result of the segmentation could contain some noise.
+To improve registration, we have enhanced the PCA by iterating until stabilization (PCAI).
+We have considered some specificity of our images and observed that the tip of mandible is less noisy than its base on images.
+So, we sort the contour points according to their y-value to build the subset containing the half upper part of contour points.
+PCA is again completed for this subset to refine the rotation and translation values. This operation is iterated until the new computing angle is lower than 1.5 degrees (see Fig. \ref{fig:pcai}).
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.45\textwidth]{./images/pcadiagram}
-    \caption{The flows in PCAI}
+    \caption{The workflow of the PCAI, allowing to refine the translation and rotation values.}
     \label{fig:pcai}
 \end{figure}~\\
-Figure \ref{fig:box} shows an example of obtained results from the different steps of PCAI. In this figure, the red contours is the model segmentation, the black contours is the scene segmentation after one iteration, and the blue contours is the last result of PCAI .\\
+The Fig. \ref{fig:box} shows an example of the successive results obtained with PCAI. The red contours belong to the model, the black ones are the scene contours after one iteration, and the blue ones are the resulting contours.\\
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.3\textwidth]{./images/imreg}
-    \caption{Different registration steps between two images}
+    \caption{Iterations of the registration step between the model contour (in red) and the contours of the scene image.}
     \label{fig:box}
 \end{figure}
-\subsection{Localising the estimated landmarks}
-The last task of the workflow consists to estimate the landmarks of the scene from the manual ones of the model. We use SIFT \cite{lowe2004distinctive} method. But we do not consider all points of the image as usually, only the area around the landmarks. Firstly, the region around each manual landmark (called patch) in the model is extracted and its corresponding position in the scene image is defined. Then, the SIFT descriptor is computed: the orientation and gradient magnitude are calculated for each pixel by using the gradient values computed at the Canny step and applying the equations (\ref{eq:sift}):
+
+
+\subsection{Landmark detection using SIFT}
+
+The last task of the workflow consists in estimating the landmarks of the scene from the manual ones of the model.
+We use the SIFT method \cite{lowe2004distinctive} but we do not consider all points of the image as usually, only the area around each landmark of the model.
+Firstly, the region (called patch) around each landmark of the model is computed then extracted in the scene image at the same position.
+Then, the SIFT descriptor is computed: the orientation and gradient magnitude are calculated for each pixel by using the gradient values computed during the Canny step by applying the following equations (\ref{eq:sift}):
 %\begin{equation}
 %\label{eq:sift}
 %\resizebox{.5 \textwidth}{!} 
@@ -273,107 +297,142 @@ The last task of the workflow consists to estimate the landmarks of the scene fr
 \begin{equation}
 \label{eq:sift}
 \begin{split}
-	m(x,y) &= \sqrt{P_x^2 + P_y^2} \\
-	\theta(x,y)& = tan^{-1}(P_y/P_x) \\
-	(P_x &= P(x+1,y) - P(x-1,y) \text{ and } \\
-	P_y &= P(x,y+1) - P(x,y-1) )
+	m(x,y) &= \sqrt{v_x^2 + v_y^2} \\
+	\theta(x,y)& = tan^{-1}(v_y/v_x) \\
 \end{split}
 \end{equation}
 Where:
-\begin{itemize}
-	\item $P(x,y)$ is the gray value at position (x,y) in the patch,
-	\item $m(x,y)$ is the gradient magnitude of the pixel at position (x,y),
-	\item $\theta(x,y)$ is the orientation of the pixel at position (x,y).
+\begin{itemize}[nosep,label=\footnotesize$\bullet$]
+	\item $v_x = I(x+1,y) - I(x-1,y)$
+	\item $v_y = I(x,y+1) - I(x,y-1)$
+	\item $I(x,y)$ is the gray value at position $(x,y)$ in the image,
+	\item $m(x,y)$ is the gradient magnitude of the pixel at position $(x,y)$,
+	\item $\theta(x,y)$ is the orientation of the pixel at position $(x,y)$.
 \end{itemize}
-The SIFT descriptor for each patch is an histogram which contains the sum of pixels gradient for each considering direction. As usually, eight directions are take into account ($0^o - 45^o$, $46^o - 90^o$, $91^o - 135^o$, $136^o - 180^o$, $181^o - 225^o$, $226^o - 270^o$, $271^o - 315^o$, $316^o - 360^o$). Finally, the feature vector is normalized to reduce the effects of illumination changes.
+The SIFT descriptor for each patch is an histogram containing the sum of pixel gradients for each considered direction.
+As usually, eight directions are taking into account ($0^o - 45^o$, $46^o - 90^o$, $91^o - 135^o$, $136^o - 180^o$, $181^o - 225^o$, $226^o - 270^o$, $271^o - 315^o$, $316^o - 360^o$). Finally, the feature vector is normalized to reduce the effects of illumination changes.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.4\textwidth]{./images/keypoint_descriptor}
-    \caption{Calculus of the global descriptor for a patch. Gradient value is arrow length in the right figure}
+    \caption{Calculus of the SIFT descriptor for a patch. The arrow length corresponds to the gradient value in the right figure.}
     \label{fig:kpdescriptor}
 \end{figure}
-The figure \ref{fig:kpdescriptor} shows sample of a patch of 9x9 pixels created around each landmark on the model. The landmark of the model is located in the center of the patch. The size of 9x9 has been retained after several tests. Patch sizes: 18x18, 36x36, 54x54 have been also computed and gave us results statistically worst. From the histogram of the patch, we obtained the global gradient value for each direction.\\
+The Fig. \ref{fig:kpdescriptor} shows a patch sample of 9x9 pixels centered in each landmark on the model.
+The size of 9x9 has been retained after several tests.
+Patch sizes 18x18, 36x36 and 54x54 have been also computed but gave unsatisfactory results.
+From the patch histogram, we obtain the global gradient value for each direction.\\
 
-The comparison between two SIFT descriptors is done by using $L2$ distance, equation (\ref{eq:L2distance}).
+The comparison between two SIFT descriptors is done by using the $L2$-distance with the following equation (\ref{eq:L2distance}):
 \begin{equation}
 \label{eq:L2distance}
 	L(D1,D2) = \sum\limits_{i = 0}^{n}\sqrt{(D1_i-D2_i)^2}
 \end{equation}
 Where:
-\begin{itemize}
+\begin{itemize}[nosep,label=\footnotesize$\bullet$]
 	\item $n$ is the number of directions
-	\item $D1$ and $D2$ are two descriptors with size $n$,
-	\item  $D1_i$, $D2_i $ are the value at the location $i$ in each descriptor.
+	\item $D1$ and $D2$ are two descriptors of size $n$,
+	\item $D1_i$ and $D2_i $ are the $i^{th}$ descriptor values.
 \end{itemize}
-Figure \ref{fig:Illustrate} illustrates how we apply SIFT into our work. To fix model landmarks on the scene, the patches \textit{$P_m$, $P_s$} are created with size($P_m$) $<$ size($P_s$). After experiments, we keep 36 (pixels) as the size of \textit{$P_s$}. For each pixel in the patch \textit{$P_s$}, a sub-patch \textit{$P^{'}_s$} is extracted with the same size than \textit{$P_m$}. When the \textit{$P^{'}_s$} is not possible to get from \textit{$P_s$} (border limits), the pixels outside \textit{$P_s$} are more considered. Then, the distance \textit{$L(P_m,P^{'}_s)$} is computed by (\ref{eq:L2distance}). This process is finished when all the pixels on the patch \textit{$P_s$} are considered. The coordinates of an estimated landmark is the location in \textit{$P_s$} that has the smallest measure distance value with \textit{$P_m$}. Finally, the coordinates of the estimated landmarks are set to the original location of the scene by applying the reverse operation of rotation and translation.
+The Fig. \ref{fig:Illustrate} illustrates how we apply SIFT into our workflow.
+To detect the scene landmarks, the patches \textit{$P_m$} of the model and \textit{$P_s$} of the scene are created with the size of $P_m$ smaller than the size of $P_s$.
+After experiments, we have kept 36 pixels as the size of \textit{$P_s$}.
+For each pixel in the patch \textit{$P_s$}, a sub-patch \textit{$P'_s$} is extracted with the same size than \textit{$P_m$}.
+When the \textit{$P'_s$} have a part outside \textit{$P_s$}, the outside pixels are also considered.
+Then, the distance \textit{$L(P_m,P'_s)$} is computed using equation (\ref{eq:L2distance}).
+The position of the estimated landmark corresponds to the position of the sub-patch \textit{$P'_s$} with the smallest distance $L$ to \textit{$P_m$}.
+Finally, the position of the estimated landmarks are set in the original location of the original scene image by applying the reverse operation of rotation and translation.
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.48\textwidth]{./images/illustration_SIFT}
-    \caption{Illustrate the steps of descriptors comparison.}
+    \caption{Steps of descriptors comparisons between the patch $P_m$ of the model image and the patches $P'_s$ of the scene image.}
     \label{fig:Illustrate}
 \end{figure}
-\section{Experiments and result}
-All the steps of our method are implemented in MAELab\footnote{MAELab
-  is a free software in C++. It can be directly obtained by request
-  the authors.}. The set of beetles has been analyzed, right and left
-mandibles. After verifying the quality of the image, it remains 290
-usable images of right mandible and 286 images of the left mandible. The
-removed images include the images that do not contain the mandible or
-the broken mandibles. In all valid images, a set of manual landmarks are indicated by 
-biologists: 18 for right mandibles, 16 for left mandibles.\\
 
-We have run the full workflow on all images. The preliminary results have shown differences in algorithm accuracy: estimated landmarks are well positioned on some scenes but not satisfying on others. As we mentioned before, mandibles can exhibit different sizes because beetles have also. It seems that our method is sensible to this parameter. To improve our results, we have inserted a step before computing SIFT descriptor to estimate the scale between one scene image and the model. The bounding boxes of the mandible of the model image and the scene image are computed and the scales of x and y-direction are determined by the ratio between the corresponding sides of the bounding boxes. Then, the scene contours are scaled to fit the model contours. \\
+
+\section{Experiments and result}
+
+The complete method is implemented in MAELab\footnote{MAELab
+  is a free software written in C++. It can be directly and freely obtained by request
+  at the authors.}.
+The beetles has been analyzed after a split in right and left mandible sets.
+After verifying the quality of the image, it remains 290 usable images of right mandibles and 286 images of left mandibles.
+The removed images include the images without mandible or with broken mandibles.
+In all valid images, a set of manual landmarks is indicated by biologists: 18 for right mandibles, 16 for left mandibles.
+
+We have run the full workflow on all the usable images.
+The results have shown differences in algorithm accuracy: estimated landmarks are well positioned on some scene images but not satisfying on others.
+As we mentioned before, mandibles images can exhibit different sizes because beetles have also different sizes of mandible.
+We detected that our method is sensible to this parameter.
+To improve the results, we have inserted a pre-processing step before the computing of the SIFT descriptors to estimate the scale between a scene image and the model.
+The bounding boxes of the mandible of the model image and the scene image are computed and the scales in the x- and y-directions are determined by the ratio between the corresponding sides of the bounding boxes.
+Then, the scene contours are rescaled to fit the model contours. \\
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.35\textwidth]{./images/md_rs}
-\caption{The manual and estimated landmarks on right mandible}
+\caption{The manual (in red) and estimated (in yellow) landmarks on a right mandible.}
 \label{figresult}
 \end{figure}~\\
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.35\textwidth]{./images/mg_rs}
-\caption{The manual and estimated landmarks on left mandible}
+\caption{The manual (in red) and estimated (in yellow) landmarks of a left mandible.}
 \label{figresult2}
-\end{figure}~\\
+\end{figure}
 
-Figure \ref{figresult} and \ref{figresult2} show complete results on one right mandible and one left mandible with the manual landmarks (red points) and estimated landmarks (yellow points). The estimated landmarks are quite near with the manual landmarks. This shows that our method works well for indicating the landmarks on the mandibles.\\
+The Figs. \ref{figresult} and \ref{figresult2} show the final results for a right and a left mandible with the manual and estimated landmarks.
+The estimated landmarks are quite near with the manual landmarks, as you can see with the following statistical evaluation.
 
-In the evaluation, the statistic is done on all landmarks of the images. We have compared the coordinates between the manual and estimated landmarks and accept the error in the range between 1\% to 2\% of the bounding box's size. According to this way, a global statistic compares all pairs of landmarks (manual and corresponding estimated landmarks) on all images.
+The statistic are obtained for all landmarks of the scene images.
+We have compared the positions between the manual and estimated landmarks by accepting an error from 1\% to 2\% of the bounding box's size.
+According to this way, a global statistic compares all pairs of corresponding landmarks on all images as presented in Fig. \ref{figctresult}.
+It shows the global results with a score of well positioned landmarks equal to \textbf{87.03}\% for right mandibles and \textbf{78.82}\% for left mandibles.
 \begin{figure}[h]
 \centering
-\subfloat[Right mandibles]{\label{figmdresult}\includegraphics[width=0.22\textwidth]{./images/mdresult}}~~
-\subfloat[Left mandibles]{\label{figmgresult}\includegraphics[width=0.22\textwidth]{./images/mgresult}}
-\caption{The global proportions of well and bad landmark locations on the mandibles}
+\subfloat[Set of right mandibles.]{\label{figmdresult}\includegraphics[width=0.22\textwidth]{./images/mdresult}}~~
+\subfloat[Set of left mandibles.]{\label{figmgresult}\includegraphics[width=0.22\textwidth]{./images/mgresult}}
+\caption{The mean proportion of well and bad landmark locations of the two sets of left and right mandibles.}
 \label{figctresult}
-\end{figure}~\\
-Figure \ref{figctresult} shows the global results: we have obtained \textbf{87.03}\% for right mandibles and \textbf{78.82}\% for left mandibles of well positioned estimated landmarks.\\
+\end{figure}
 
-Besides the global results, we are also
-interested in the accuracy of the individual position of the estimated landmarks. We have computed the distance between the manual and corresponding estimated landmarks in order to examine the correct proportion on each landmark and think about replacing the manual landmarks by corresponding estimated landmarks.
+Besides the global results, we are also interested by the accuracy of the individual positions of the estimated landmarks.
+We have computed the distance between the manual landmarks and their corresponding estimated landmarks in order to examine the proportion of well positioned landmarks.
+The Fig. \ref{figmdresultlm} and \ref{figmgresultlm} show the proportion of well estimated landmarks for each landmark of the model.
+With 18 landmarks of right mandible, the position of the $1^{st}$ estimated landmarks is very accurate with \textbf{98.62}\%.
+The lowest proportion is \textbf{74,48}\% for the $14^{th}$ landmark.
+The remaining landmarks are also estimated with a accuracy greater than 75\%.
+For left mandibles, the highest and lowest success rates are \textbf{93,01}\% for the $1^{st}$ landmark and \textbf{60,14}\% for the $16^{th}$ landmark.
+The statistic is done on each estimated landmark of all the images with a standard deviation error \cite{bland1996statistics}.
+As we can see in Fig. \ref{canny}, the noise of the contour part located at the base of a mandible is higher than the noise located at the tip of the mandible.
+This explains why the correct proportion on $11^{th}$ and $12^{th}$ landmark of the left mandible and $13^{th}$ and $14^{th}$ landmark of the right mandible are less accurate than other landmarks.
+Moreover, when we reconsider the datasets, the left mandible images have bigger scale values than the right mandible images.
+This explains than the success rate on the right mandibles is always greater than on the left mandibles in all experiments.
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.5\textwidth]{./images/md_chartlms}
-    \caption{The correct proportions on each landmark of right mandibles }
+    \caption{The proportions of well estimated landmark for each model landmark of right mandibles.}
     \label{figmdresultlm}
-\end{figure}~\\
+\end{figure}
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.5\textwidth]{./images/mg_chartlms}
-    \caption{The correct proportions on each landmark of left mandibles }
+    \caption{The proportions of well estimated landmark for each model landmark of left mandibles.}
     \label{figmgresultlm}
-\end{figure}~\\
-Figure \ref{figmdresultlm} and \ref{figmgresultlm} show the correct proportion on each landmark of the mandibles. With 18 landmarks of right mandible, the position of the first estimated landmarks is reasonably accurate with \textbf{98.62}\%, the lowest proportion is \textbf{74,48}\% for fourteenth landmark. The remaining landmarks are also indicated with a high proportion (with the accuracy proportion greater than 75\%). For left mandible, the highest and lowest success rate are \textbf{93,01}\% for the first landmark and \textbf{60,14}\% for the sixteenth landmark. The statistic is done on each estimated landmarks of all the images with a standard deviation error \cite{bland1996statistics}. As we can see in figure \ref{canny}, the noise of the contour part located at the base of mandible is higher than the noise located at the tip of the mandible. This explains why the correct proportion on $11^{th}$, $12^{th}$ landmark of the left mandible or $13^{th}$, $14^{th}$ landmark of the right mandible are less than other landmarks. Moreover, when we reconsider the datasets, the images in left mandible have a higher number of scales than on the right mandible. This explains the success rate on the right mandible is always greater than the left mandible in both of the experiments.\\
-
-From two experiment ways, we can see that the method succeeded in locating 
-all landmarks for each image; and the found location of the
-landmarks can be considered as ground-truth like the manual ones. Moreover, considering the previous work in \cite{leestimating}, this method reduces the drastically the number of outlier landmarks. In MAELab implementation, we also reduce the computing time and memory cost.
+\end{figure}
 
 \section{Conclusion}
-Morphometric analysis is a powerful tool in biology for the species  classification. In the content of this paper, we
-have begun to design a method to segment the beetle mandibles and automatically locate landmarks which have been determined by
-biologists. Each mandible is segmented by applying the Canny
-algorithm. Using PCAI to align the images. Finally, the estimated landmarks are indicated by applied SIFT descriptor. The results show that in order to replace the manual landmarks, the estimated landmarks are accuracy enough. MAELAb library proposes a efficient implementation of this method. From now, the next stage consists in improving the registration step in order to increase the matching step accuracy. By example, we would investigate the isomorphic of registration methods.
+
+The morphometric analysis is a powerful tool in biology for the beetle species classification.
+In this paper, we have design a method to segment their mandibles and automatically locate landmarks which have been determined on a model by biologists.
+Each mandible has been segmented by using the Canny algorithm before to be registered using PCAI to align the images.
+The estimation step of the landmark position use the SIFT descriptor to find the best matching position.
+The results show that the method succeed in locating the landmarks for all images.
+The accuracy of the method is sufficient to be proposed to biologists as a replacement of the manual measures, but with a manual check for the bottom landmark.
+Moreover, considering the previous work in \cite{leestimating}, this method reduces the drastically the number of outlier landmarks and the MAELab implementation also reduce the global computing times and memory cost.
+From now, the next stage consists in improving the registration step in order to increase the matching step accuracy and completely remove manual interventions.
+By example, we could investigate the isomorphic registration methods to be more robust to the inter-species variations of mandible shapes.
+
+
 
 
 \bibliographystyle{plain}
