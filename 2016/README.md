@@ -1,2 +1,0 @@
-# wscg
-WSCG repository
