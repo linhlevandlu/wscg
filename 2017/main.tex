@@ -29,7 +29,7 @@
 \usepackage{amsmath}
 \usepackage[linesnumbered,ruled]{algorithm2e}
 \usepackage[english]{babel}
-\usepackage[utf8]{inputenc}     
+%\usepackage[utf8]{inputenc}     
 \usepackage{enumitem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                Title
@@ -487,24 +487,27 @@ in all experiments.
 \section{Conclusion}
 
 The morphometric analysis is a powerful tool to analyze and to
-classify species. 
-In this paper, we have designed a method to segment the beetle mandibles
-and to automatically locate landmarks which have been determined
-manually on an model image, by biologists.
-Each mandible has been segmented by using the Canny algorithm before to be registered using PCAI to align the images.
-The estimation step of the landmark position use the SIFT descriptor to find the best matching position.
+classify species. In this paper, we have designed a method to segment
+the beetle mandibles and to automatically locate landmarks which have
+been determined manually on an model image, by biologists. Each
+mandible has been segmented by using the Canny algorithm before to be
+registered using PCAI to align the images. The estimation step of the
+landmark position use the SIFT descriptor to find the best matching
+position. 
 The results show that the method succeed in locating the landmarks for all images.
 The accuracy of the method is sufficient to be proposed to biologists
-as a replacement of the manual measures, but with a manual check for
-the bottom landmark. Moreover, considering the previous work in
+as an alternative to the manual measures. Moreover, considering the previous work in
 \cite{leestimating}, this method reduces the drastically the number of
 outlier landmarks and the MAELab implementation also reduce the global
 computing times and memory cost. From now, the next stage consists in
 improving the registration step in order to increase the matching step
 accuracy and completely remove manual interventions. For example, we
-could investigate the isomorphic registration methods to be more
-robust to the inter-species variations of mandible shapes.
-
+could investigate deep learning methods, more precisely Convolutional
+Neural Networks computing,  which have rised up in
+image processing recently. Biologists are interested in large scale
+analysis of their species collections, automatic classification is one of the
+bottlenecks to solve towards a better integration of informatic procedures in
+their current way to work. 
 
 
 

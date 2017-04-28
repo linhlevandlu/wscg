@@ -7,24 +7,24 @@ Warning--there's a number but no volume in canny1986computational
 Warning--empty booktitle in li09
 You've used 13 entries,
             2118 wiz_defined-function locations,
-            582 strings with 6123 characters,
-and the built_in function-call counts, 4498 in all, are:
-= -- 451
+            582 strings with 6126 characters,
+and the built_in function-call counts, 4528 in all, are:
+= -- 455
 > -- 194
 < -- 3
 + -- 80
 - -- 64
-* -- 309
-:= -- 745
+* -- 312
+:= -- 748
 add.period$ -- 42
 call.type$ -- 13
 change.case$ -- 71
 chr.to.int$ -- 0
 cite$ -- 15
 duplicate$ -- 177
-empty$ -- 352
+empty$ -- 355
 format.name$ -- 64
-if$ -- 949
+if$ -- 957
 int.to.chr$ -- 0
 int.to.str$ -- 13
 missing$ -- 13
@@ -36,7 +36,7 @@ purify$ -- 58
 quote$ -- 0
 skip$ -- 128
 stack$ -- 0
-substring$ -- 291
+substring$ -- 300
 swap$ -- 44
 text.length$ -- 3
 text.prefix$ -- 0
