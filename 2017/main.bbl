@@ -65,4 +65,10 @@ Jonathon Shlens.
 \newblock A tutorial on principal component analysis.
 \newblock {\em arXiv preprint arXiv:1404.1100}, 2014.
 
+\bibitem{zhang2014facial}
+Zhanpeng Zhang, Ping Luo, Chen~Change Loy, and Xiaoou Tang.
+\newblock Facial landmark detection by deep multi-task learning.
+\newblock In {\em European Conference on Computer Vision}, pages 94--108.
+  Springer, 2014.
+
 \end{thebibliography}

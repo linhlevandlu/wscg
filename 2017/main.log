@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.6)  27 APR 2017 17:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.6)  28 APR 2017 09:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -528,13 +528,13 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 <./images/lm.JPG, id=1, 3276.24pt x 2457.18pt>
 File: ./images/lm.JPG Graphic file (type jpg)
  <use ./images/lm.JPG>
-Package pdftex.def Info: ./images/lm.JPG used on input line 169.
+Package pdftex.def Info: ./images/lm.JPG used on input line 170.
 (pdftex.def)             Requested size: 100.15425pt x 75.09947pt.
 
 <./images/rm.JPG, id=2, 3276.24pt x 2457.18pt>
 File: ./images/rm.JPG Graphic file (type jpg)
  <use ./images/rm.JPG>
-Package pdftex.def Info: ./images/rm.JPG used on input line 170.
+Package pdftex.def Info: ./images/rm.JPG used on input line 171.
 (pdftex.def)             Requested size: 100.15425pt x 75.09947pt.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -545,118 +545,116 @@ x 602.25pt>
 File: ./images/method.png Graphic file (type png)
 
 <use ./images/method.png>
-Package pdftex.def Info: ./images/method.png used on input line 188.
+Package pdftex.def Info: ./images/method.png used on input line 189.
 (pdftex.def)             Requested size: 227.62206pt x 132.08186pt.
 
-Overfull \hbox (7.15225pt too wide) in paragraph at lines 188--189
+Overfull \hbox (7.15225pt too wide) in paragraph at lines 189--190
  [][] 
  []
 
 <./images/canny1.png, id=13, 516.93124pt x 754.82pt>
 File: ./images/canny1.png Graphic file (type png)
  <use ./images/canny1.png>
-Package pdftex.def Info: ./images/canny1.png used on input line 216.
+Package pdftex.def Info: ./images/canny1.png used on input line 220.
 (pdftex.def)             Requested size: 91.04742pt x 132.93626pt.
 
 <./images/canny2.png, id=15, 516.93124pt x 754.82pt>
 File: ./images/canny2.png Graphic file (type png)
  <use ./images/canny2.png>
-Package pdftex.def Info: ./images/canny2.png used on input line 218.
+Package pdftex.def Info: ./images/canny2.png used on input line 222.
 (pdftex.def)             Requested size: 91.04742pt x 132.93626pt.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 238.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 245.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 257.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 264.
 
-<./images/pcadiagram.jpg, id=16, 467.7475pt x 391.4625pt>
+Underfull \vbox (badness 2359) has occurred while \output is active []
+
+ [2 <./images/method.png> <./images/canny1.png> <./images/canny2.png>]
+<./images/pcadiagram.jpg, id=25, 467.7475pt x 391.4625pt>
 File: ./images/pcadiagram.jpg Graphic file (type jpg)
 
 <use ./images/pcadiagram.jpg>
-Package pdftex.def Info: ./images/pcadiagram.jpg used on input line 274.
+Package pdftex.def Info: ./images/pcadiagram.jpg used on input line 287.
 (pdftex.def)             Requested size: 204.85846pt x 171.44958pt.
 
-Underfull \hbox (badness 1590) in paragraph at lines 263--279
-\T1/ptm/m/n/10 and ro-ta-tion be-tween two im-ages are not enough
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 263--279
+Underfull \hbox (badness 10000) in paragraph at lines 291--297
 
  []
 
-[2 <./images/method.png> <./images/canny1.png> <./images/canny2.png>]
 <./images/imreg.png, id=26, 530.98375pt x 809.0225pt>
 File: ./images/imreg.png Graphic file (type png)
  <use ./images/imreg.png>
-Package pdftex.def Info: ./images/imreg.png used on input line 282.
+Package pdftex.def Info: ./images/imreg.png used on input line 301.
 (pdftex.def)             Requested size: 136.57462pt x 208.09416pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 308.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 327.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 308.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 327.
 
 <./images/keypoint_descriptor.png, id=27, 628.3475pt x 230.8625pt>
 File: ./images/keypoint_descriptor.png Graphic file (type png)
 
 <use ./images/keypoint_descriptor.png>
-Package pdftex.def Info: ./images/keypoint_descriptor.png used on input line 31
-9.
+Package pdftex.def Info: ./images/keypoint_descriptor.png used on input line 33
+8.
 (pdftex.def)             Requested size: 182.09486pt x 66.9026pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--327
+Underfull \hbox (badness 10000) in paragraph at lines 343--347
 
  []
 
-[3 <./images/pcadiagram.jpg> <./images/imreg.png> <./images/keypoint_descriptor
-.png>] <./images/illustration_SIFT.png, id=34, 737.75626pt x 276.03125pt>
+[3 <./images/pcadiagram.jpg> <./images/imreg.png>]
+<./images/illustration_SIFT.png, id=34, 737.75626pt x 276.03125pt>
 File: ./images/illustration_SIFT.png Graphic file (type png)
 
 <use ./images/illustration_SIFT.png>
-Package pdftex.def Info: ./images/illustration_SIFT.png used on input line 349.
+Package pdftex.def Info: ./images/illustration_SIFT.png used on input line 376.
 
 (pdftex.def)             Requested size: 218.51521pt x 81.75703pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 359.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 386.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 359.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 386.
 
 <./images/md_rs.png, id=35, 461.725pt x 692.5875pt>
 File: ./images/md_rs.png Graphic file (type png)
  <use ./images/md_rs.png>
-Package pdftex.def Info: ./images/md_rs.png used on input line 374.
+Package pdftex.def Info: ./images/md_rs.png used on input line 407.
 (pdftex.def)             Requested size: 159.33821pt x 239.00635pt.
 
 <./images/mg_rs.png, id=36, 461.725pt x 692.5875pt>
 File: ./images/mg_rs.png Graphic file (type png)
  <use ./images/mg_rs.png>
-Package pdftex.def Info: ./images/mg_rs.png used on input line 380.
+Package pdftex.def Info: ./images/mg_rs.png used on input line 413.
 (pdftex.def)             Requested size: 159.33821pt x 239.00635pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./images/mdresult.jpg, id=37, 260.975pt x 245.91875pt>
+[4 <./images/keypoint_descriptor.png> <./images/illustration_SIFT.png> <./image
+s/md_rs.png>] <./images/mdresult.jpg, id=42, 260.975pt x 245.91875pt>
 File: ./images/mdresult.jpg Graphic file (type jpg)
 
 <use ./images/mdresult.jpg>
-Package pdftex.def Info: ./images/mdresult.jpg used on input line 394.
+Package pdftex.def Info: ./images/mdresult.jpg used on input line 434.
 (pdftex.def)             Requested size: 100.15425pt x 94.37694pt.
 
-<./images/mgresult.jpg, id=38, 260.975pt x 236.885pt>
+<./images/mgresult.jpg, id=43, 260.975pt x 236.885pt>
 File: ./images/mgresult.jpg Graphic file (type jpg)
 
 <use ./images/mgresult.jpg>
-Package pdftex.def Info: ./images/mgresult.jpg used on input line 395.
+Package pdftex.def Info: ./images/mgresult.jpg used on input line 435.
 (pdftex.def)             Requested size: 100.15425pt x 90.91002pt.
- [4 <./images/illustration_SIFT.png> <./images/md_rs.png>] <./images/md_chartlm
-s.jpg, id=44, 892.33376pt x 545.03625pt>
+
+<./images/md_chartlms.jpg, id=44, 892.33376pt x 545.03625pt>
 File: ./images/md_chartlms.jpg Graphic file (type jpg)
 
 <use ./images/md_chartlms.jpg>
-Package pdftex.def Info: ./images/md_chartlms.jpg used on input line 414.
+Package pdftex.def Info: ./images/md_chartlms.jpg used on input line 467.
 (pdftex.def)             Requested size: 227.62206pt x 139.02814pt.
 
-Overfull \hbox (7.15225pt too wide) in paragraph at lines 414--415
+Overfull \hbox (7.15225pt too wide) in paragraph at lines 467--468
  [][] 
  []
 
@@ -664,10 +662,10 @@ Overfull \hbox (7.15225pt too wide) in paragraph at lines 414--415
 File: ./images/mg_chartlms.jpg Graphic file (type jpg)
 
 <use ./images/mg_chartlms.jpg>
-Package pdftex.def Info: ./images/mg_chartlms.jpg used on input line 420.
+Package pdftex.def Info: ./images/mg_chartlms.jpg used on input line 473.
 (pdftex.def)             Requested size: 227.62206pt x 158.30132pt.
 
-Overfull \hbox (7.15225pt too wide) in paragraph at lines 420--421
+Overfull \hbox (7.15225pt too wide) in paragraph at lines 473--474
  [][] 
  []
 
@@ -701,10 +699,10 @@ or \DeclareInputMath before using this key.
 
 ) [6] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 6734 strings out of 494950
- 98541 string characters out of 6179040
- 198873 words of memory out of 5000000
- 9789 multiletter control sequences out of 15000+600000
+ 6735 strings out of 494950
+ 98558 string characters out of 6179040
+ 197878 words of memory out of 5000000
+ 9790 multiletter control sequences out of 15000+600000
  60590 words of font info for 95 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  44i,18n,47p,280b,521s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -719,7 +717,7 @@ mbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (6 pages, 4384103 bytes).
+Output written on main.pdf (6 pages, 4385477 bytes).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
  49 compressed objects within 1 object stream
