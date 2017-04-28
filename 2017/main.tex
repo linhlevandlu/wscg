@@ -21,11 +21,11 @@
  \RequirePackage[dvips,draft]{graphicx}
  \RequirePackage[dvips]{color}
 \fi
-
+\usepackage{subfig}
 
 \usepackage{nopageno}       % no page numbers at all; uncomment for final version
+\usepackage[utf8]{inputenc}     
 
-\usepackage{subfig}
 \usepackage{graphicx}
 \usepackage[justification=centering]{caption}
 \usepackage{amsmath}
@@ -134,7 +134,7 @@ automatically  the centroid position of the beetle mandibles which is used to co
 \end{abstract}
 
 \subsection*{Keywords}
-Morphology, image registration, detector/descriptor, SIFT, beetle, mandible
+Morphology, image registration, SIFT descriptor, beetle, mandible.
 \vspace*{1.0\baselineskip}
 }]
 
@@ -149,17 +149,20 @@ Morphology, image registration, detector/descriptor, SIFT, beetle, mandible
   Phenotype of beetle species are characterized by informations like
   age, sex, morphological criteria or environmental parameters. Biologists are
   used to proceed to manual measurements in case of
-  analysis at macro level as for example tissues or animal members.
+  analysis at macro level as for example tissues or animal members
+  \cite{houle2003automated} \cite{bromiley2014semi}.
   They can directly measure the geometrical characteristics of elements on the body of the animal: length,
   width, diameter, angles, \ldots Another way to obtain morphological
   measures is to take pictures of the members and to apply image processing algorithms. In order to
   evaluate a population of beetles from Brittany lands, a collection of
   $293$ beetles has been built. For each beetle, biologists took images of the left
-  and right mandibles(see Fig. \ref{figparts}). A set of landmarks has been manually located:
+  and right mandibles (see Fig. \ref{figparts}) and a set of landmarks has been manually located:
   16 for the left mandibles and and 18 for the right ones. The
   morphometric landmarks are precise points defined by
-  biologists. Landmarks are used in many biological studies and are currently included
-into the classification procedures.
+  biologists. Landmarks are widely used in many domains, not only in
+  biological studies. It is a large field in image processing and
+  appears in  most topics of computer vision such as face detection,
+  human orthodontic, morphometric analysis \ldots \cite{li09}\cite{favaedi2010cephalometric}\cite{bec03}.
 
 \begin{figure}[h]
 \centering
@@ -225,7 +228,7 @@ But the size of mandibles can vary from a beetle to another one and/or the orien
 The next step concerns the registration of an image (the scene) on a
 reference image (the model).
 
-We have chosen to use a Principal Component Analysis (PCA) \cite{bsspca}, \cite{shlens2014tutorial} to determine the rotation and translation parameter values between the two images.
+We have chosen to apply a method based on the Principal Component Analysis (PCA) \cite{bsspca}, \cite{shlens2014tutorial} to determine the rotation and translation parameter values between the two images.
 As input values, we use the lists of contour points defined at the segmentation step.
 Firstly, the centroid point and principal axis of each image are defined.
 The centroid point coordinates are computed like the mean coordinate of all contour points.
@@ -285,7 +288,11 @@ The Fig. \ref{fig:box} shows an example of the successive results obtained with 
 \subsection{Landmark detection using SIFT}
 
 The last task of the workflow consists in estimating the landmarks of the scene from the manual ones of the model.
-We use the SIFT method \cite{lowe2004distinctive} but we do not consider all points of the image as usually, only the area around each landmark of the model.
+SIFT method has been designed to identify points of interest inside
+images \cite{lowe2004distinctive}. We have also used it to fix
+landmarks but with some modifications of the usual method. In order to
+reduce the computing time and the possible errors of location, we do
+not consider all points of the imag. We only take into account the area around each landmark on the model.
 Firstly, the region (called patch) around each landmark of the model is computed then extracted in the scene image at the same position.
 Then, the SIFT descriptor is computed: the orientation and gradient magnitude are calculated for each pixel by using the gradient values computed during the Canny step by applying the following equations (\ref{eq:sift}):
 
@@ -331,7 +338,7 @@ Where:
 \end{itemize}
 The Fig. \ref{fig:Illustrate} illustrates how we apply SIFT into our workflow.
 To detect the scene landmarks, the patches \textit{$P_m$} of the model and \textit{$P_s$} of the scene are created with the size of $P_m$ smaller than the size of $P_s$.
-After experiments, we have kept 36 pixels as the size of \textit{$P_s$}.
+After experiments, we have kept 36X36 pixels as the size of \textit{$P_s$}.
 For each pixel in the patch \textit{$P_s$}, a sub-patch \textit{$P'_s$} is extracted with the same size than \textit{$P_m$}.
 When the \textit{$P'_s$} have a part outside \textit{$P_s$}, the outside pixels are also considered.
 Then, the distance \textit{$L(P_m,P'_s)$} is computed using equation (\ref{eq:L2distance}).
@@ -417,15 +424,18 @@ This explains than the success rate on the right mandibles is always greater tha
 
 \section{Conclusion}
 
-The morphometric analysis is a powerful tool in biology for the beetle species classification.
-In this paper, we have design a method to segment their mandibles and automatically locate landmarks which have been determined on a model by biologists.
+The morphometric analysis is a powerful tool to analyze and to
+classify species. 
+In this paper, we have designed a method to segment the beetle mandibles
+and to automatically locate landmarks which have been determined
+manually on an model image, by biologists.
 Each mandible has been segmented by using the Canny algorithm before to be registered using PCAI to align the images.
 The estimation step of the landmark position use the SIFT descriptor to find the best matching position.
 The results show that the method succeed in locating the landmarks for all images.
 The accuracy of the method is sufficient to be proposed to biologists as a replacement of the manual measures, but with a manual check for the bottom landmark.
 Moreover, considering the previous work in \cite{leestimating}, this method reduces the drastically the number of outlier landmarks and the MAELab implementation also reduce the global computing times and memory cost.
 From now, the next stage consists in improving the registration step in order to increase the matching step accuracy and completely remove manual interventions.
-By example, we could investigate the isomorphic registration methods to be more robust to the inter-species variations of mandible shapes.
+For example, we could investigate the isomorphic registration methods to be more robust to the inter-species variations of mandible shapes.
 
 
 

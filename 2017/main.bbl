@@ -1,15 +1,38 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{bec03}
+Jos\'e~Maria Becerra and Antonio~G Valdecasas.
+\newblock Landmark superimposition for taxonomic identification.
+\newblock {\em Biological Journal of the Linnean Society,}, 81:267–274, 2004.
 
 \bibitem{bland1996statistics}
 J~Martin Bland and Douglas~G Altman.
 \newblock Statistics notes: measurement error.
 \newblock {\em Bmj}, 313(7059):744, 1996.
 
+\bibitem{bromiley2014semi}
+Paul~A Bromiley, Anja~C Schunke, Hossein Ragheb, Neil~A Thacker, and Diethard
+  Tautz.
+\newblock Semi-automatic landmark point annotation for geometric morphometrics.
+\newblock {\em Frontiers in Zoology}, 11(1):61, 2014.
+
 \bibitem{canny1986computational}
 John Canny.
 \newblock A computational approach to edge detection.
 \newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, (6):679--698, 1986.
+
+\bibitem{favaedi2010cephalometric}
+Leila Favaedi and Maria Petrou.
+\newblock Cephalometric landmarks identification using probabilistic
+  relaxation.
+\newblock In {\em Engineering in Medicine and Biology Society (EMBC), 2010
+  Annual International Conference of the IEEE}, pages 4391--4394. IEEE, 2010.
+
+\bibitem{houle2003automated}
+David Houle, Jason Mezey, Paul Galpern, and Ashley Carter.
+\newblock Automated measurement of drosophila wings.
+\newblock {\em BMC evolutionary biology}, 3(1):25, 2003.
 
 \bibitem{adaptiveCanny}
 Dehua~Li Jun~Zeng.
@@ -21,6 +44,11 @@ Dehua~Li Jun~Zeng.
 L~L{\^e}~V{\~a}nh, M~Beurton-Aimar, JP~Salmon, A~Marie, and N~Parisey.
 \newblock Estimating landmarks on 2d images of beetle mandibles.
 \newblock {\em WSCG}, 2016.
+
+\bibitem{li09}
+Yunpeng Li, David.~J Crandall, and Daniel~P. Huttenlocher.
+\newblock Landmark classification in large-scale image collections.
+\newblock pages 1957--1964. Kyoto, Japan, 29 sept-2 oct 2009.
 
 \bibitem{lowe2004distinctive}
 David~G Lowe.
