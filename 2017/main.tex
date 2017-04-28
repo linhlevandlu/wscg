@@ -470,6 +470,31 @@ when we reconsider the datasets, the left mandible images have bigger
 scale values than the right mandible images. This could explain that the
 success rate of the right mandibles is always greater than this one of the left
 in all experiments.
+\\
+In  a previous work, we have tried to apply as set of procedures
+coming from an article of Palaniswamy \cite{palaniswamy2010automatic} who tried to find
+automatically a specific point of interest into a Drosophila wing. We
+have successed to fix the centroid of the mandibles by using these
+procedures (mainly based on the computation of a Probabilistic Hough
+Transform accumulator). But this way has not been enough efficient to set
+precisely the landmarks. D. Houle et al \cite{houle2003automated}
+have more recently described a method to estimate automatically the
+landmarks on Drosophila wings (with 12 landmarks). This method is
+mainly based on the use of a curve analysis (with splines) belonging
+to the wing shape. The method has been evaluated on 535 wing images. 
+The average proportion over all 12 points is 82\%. They have been able
+to improve their results by suppressing the least accuracy point (47\%
+of right results) that leads to a better parameter fitting. Y. Ke et
+al. \cite{ke2004pca} have proposed to combine SIFT descriptor 
+with PCA analysis to characterize images belonging to a graffity
+dataset. They also obtained good performances close to 95\% of correct
+results. The results presented in this article can be considered as in
+the same order of correctness than these works, but it concerns a problem, precise fixing of a
+lot of landmarks, more difficult to solve. One can note that this chain of
+treatments dedicated to the  estimation of landmarks on 2D images of
+mandibles is from now, user friendly available.   
+
+
 
 \begin{figure}[htb]
     \centering

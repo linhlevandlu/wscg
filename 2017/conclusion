@@ -1,15 +1,30 @@
 
 David Houle et al (Automated measurement of Drosophila wings)
-This artilce show a method to estimate automatically the landmarks on Drosophila wings (with 12 landmarks).
-For the first run, they take a model and try to estimate the landmarks on other ones. 
+
+This article showed a method to estimate automatically the landmarks on Drosophila wings (with 12 landmarks).
+This method includes 4 steps: (1) preprocessing is applied by median filter and subtraction of a gray scale opening; 
+(2) production of a skeletonized binary representation is threshold the preprocessed matrix, holes filled and short line segments removed. 
+The intersections of the remaining lines in this step are used as input for the next step;
+(3) registration of intersection of the joints is done by flipping to standard orientation and defining an affine transformation;
+and (4) fitting of each spline curve is optimized by maximizing the brightness of the pixels under the curve in the inverted image. 
+The output of this method is given the parameters for wing which used to detect the landmarks as 
+the intersections of the appropriate model curves.
+The method is evaluated on 535 wing images. For the first run, they take a model and try to estimate the landmarks on other ones. 
 The average proportion over all 12 points is 82%. The least accuracy point is 47%. When this point is removed,
 the average repeatability rises to 85%. Their result is improved when they try to choose another model and fitting
 the parameters. The average proportion is 93% and the accuracy on each landmark is also improved.
 
+Yan Ke and Rahul Sukthankar (PCA-SIFT: A More Distinctive Representation for Local Image Descriptors)
+
+propsed an examies the local image descriptor used SIFT. However, instead of using SIFT's smoothed weighted histograms,
+they applied PCA to normalized the gradient patch. The experiments is done with 3 types of descriptors: (1) standard of SIFT, 
+(2) PCA-SIFT where the eigenspace models the local gradient, (3) a varian of PCA-SIFT where the eigenspace directly models the local
+image patch rather than the local gradient. The results show that the standard SIFT representation is slightly better than PCA-SIFT for
+most of the domain. However, it is also given a significant result with 95% correctly.
+
+
 If we consider on the average proportion, clearly that our result is more improved than their result. 
 In another side, when we consider to the location of the landmarks. This result is more accuracy than the previous one.
-
-
 
 
 

@@ -5,45 +5,45 @@ The style file: plain.bst
 Database file #1: references.bib
 Warning--there's a number but no volume in canny1986computational
 Warning--empty booktitle in li09
-You've used 13 entries,
+You've used 15 entries,
             2118 wiz_defined-function locations,
-            582 strings with 6126 characters,
-and the built_in function-call counts, 4528 in all, are:
-= -- 455
-> -- 194
-< -- 3
-+ -- 80
-- -- 64
-* -- 312
-:= -- 748
-add.period$ -- 42
-call.type$ -- 13
-change.case$ -- 71
+            593 strings with 6542 characters,
+and the built_in function-call counts, 5330 in all, are:
+= -- 540
+> -- 225
+< -- 5
++ -- 92
+- -- 74
+* -- 369
+:= -- 871
+add.period$ -- 49
+call.type$ -- 15
+change.case$ -- 82
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 177
-empty$ -- 355
-format.name$ -- 64
-if$ -- 957
+cite$ -- 17
+duplicate$ -- 209
+empty$ -- 420
+format.name$ -- 74
+if$ -- 1133
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 13
-newline$ -- 68
-num.names$ -- 26
-pop$ -- 66
+int.to.str$ -- 15
+missing$ -- 15
+newline$ -- 78
+num.names$ -- 30
+pop$ -- 77
 preamble$ -- 1
-purify$ -- 58
+purify$ -- 67
 quote$ -- 0
-skip$ -- 128
+skip$ -- 152
 stack$ -- 0
-substring$ -- 300
-swap$ -- 44
-text.length$ -- 3
+substring$ -- 359
+swap$ -- 55
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 52
+type$ -- 60
 warning$ -- 2
-while$ -- 44
-width$ -- 15
-write$ -- 145
+while$ -- 53
+width$ -- 17
+write$ -- 169
 (There were 2 warnings)
