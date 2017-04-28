@@ -1,4 +1,4 @@
-% WSCG sample document 
+% WSCG sample document
 %
 % based on Gabriel Zachmann's sample
 % http://zach.in.tu-clausthal.de/latex/
@@ -29,7 +29,7 @@
 \usepackage{amsmath}
 \usepackage[linesnumbered,ruled]{algorithm2e}
 \usepackage[english]{babel}
-%\usepackage[utf8]{inputenc}     
+%\usepackage[utf8]{inputenc}
 \usepackage{enumitem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                Title
@@ -102,34 +102,19 @@ nparisey@rennes.inra.fr
 
 
 \begin{abstract}
-  \noindent
-In biology, morphometric analysis is widely used to detect the inter-organisms variations.
-It allows to classify and to determine the evolution of an organism
-family. The morphometric methods may be divided into groups considering the features used
-such as shape, structure, color, pattern or size of the
-object. In a previous work \cite{leestimating}, we have shown that the
-Probabilistic Hough Transform (PHT) method is efficient to compute
-automatically  the centroid position of the beetle mandibles which is used to compare different classes
-  of beetles. In this new work, we address the problem to consider more precisely the position or
-  the geometry of landmarks (points of interest) providen by
-  biologists on a source (i.e model) image, in order to register them automatically on different
-  scene images. Patches around manual landmarks on the model are
-  extracted and the SIFT descriptors of the pixels belonging to the
-  patches are computed. After a registration step between the model
-  and the considered scene, the corresponding patches on the scene are
-  identified and the SIFT descriptors are calculated. To obtain a good
-  registration between the scene and the model, we have defined an Iterative Principal Component
-  Analysis step which sets the rotation and translation parameter
-  values.  $290$ beetles have been collected and the set of the
-  mandibles images (left and right) has been analysed. The obtained results show that depending on the position of the
-   landmarks on the shape, a very good result can be obtained, i.e
-   more than $98\%$ of the landmarks are rightly placed, or a lower one,
-   i.e $63\%$ for the hardest to fix.
-   The complete workflow is implemented in the MAELab framework, freely available as library on a GitHub website.  
-
-
-
-
+In biology, the morphometric analysis is widely used to analyze the inter-organisms variations.
+It allows to classify and to determine the evolution of an organism's family.
+The morphometric methods consider features such as shape, structure, color, or size of the studied objects.
+In previous works \cite{leestimating}, we have analyzed beetle mandibles by using the centroid as feature, in order to classify the beetles.
+We have shown that the Probabilistic Hough Transform (PHT) is an efficient unsupervised method to compute the centroid.
+This paper proposes a new approach to precisely estimate the landmark geometry, points of interest defined by biologists on the mandible contours.
+In order to automatically register the landmarks on different mandibles, we defined patches around manual landmarks of the reference image.
+Each patch is described by computing its SIFT descriptor.
+Considering a query image, we apply a registration step performed by an Iterative Principal Component Analysis which identify the rotation and translation parameters.
+Then, the patches on the query image are identified and the SIFT descriptors computed.
+The biologists have collected $290$ beetles to provide two sets of mandible images separated into left and right side.
+The experiments show that, depending on the position of the landmarks on the mandible contour, the performance can go up to $98\%$ of good detection.
+The complete workflow is implemented in the MAELab framework, freely available as library on GitHub.
 \end{abstract}
 
 \subsection*{Keywords}
@@ -177,7 +162,7 @@ mainly includes three steps: firstly, a segmentation of the mandible
 shape by using the Canny algorithm, then an Iterative Principal
 Component Analysis to register a query image on a model image, and
 finally a landmark estimation using the SIFT descriptor.\\
-The section $2$ presents the complete workflow then the section $3$ details the experiments and exposes the results. 
+The section $2$ presents the complete workflow then the section $3$ details the experiments and exposes the results.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -195,8 +180,8 @@ We propose hereafter a workflow including (1) the segmentation of each
 image, (2) a registration step on a model image then (3) the detection
 of landmark positions (Figure \ref{fig:method}). It is worth to note
 that all pictures of mandibles have been taken
-in same conditions with same camera and same resolution, and that 
-the model image has been chosen randomly from the set of images. 
+in same conditions with same camera and same resolution, and that
+the model image has been chosen randomly from the set of images.
 
 
 \subsection{Image segmentation}
@@ -216,7 +201,7 @@ With a simple algorithm, the contour image is parsed to suppress the edges insid
 \begin{figure}[htb]
 \centering
 \subfloat[Contours identifying by the Canny algorithm]
-  {\label{canny1}\includegraphics[width=0.2\textwidth]{./images/canny1}}~~ 
+  {\label{canny1}\includegraphics[width=0.2\textwidth]{./images/canny1}}~~
 \subfloat[Contour selection by post-processing]
   {\label{canny2}\includegraphics[width=0.2\textwidth]{./images/canny2}}
 \caption{Step of the mandible contour detection.}
@@ -252,7 +237,7 @@ contour point, determined as detailed in the algorithm \ref{alg1}.
 			\If{$p_i \neq p_j$}
 			{
 				Compute the perpendicular distance $d_{ij}$ between line $(c,p_i)$ and $p_j$.
-			}		
+			}
 		}
 		Compute the average distance ($d_{mean}$) of all distances $d_{ij}$;\\
 
@@ -270,7 +255,7 @@ The translation between the scene and the model image is calculated like the dis
 points. The rotation angle is the angle between the principal axes of
 these two images. Translation then rotation operations are applied to
 register the scene on the model. However, in some cases, the
-translation and rotation between two images are 
+translation and rotation between two images are
 not enough precise because the result of the segmentation could
 contains noise. To improve that, we have considered some specificities of our
  images and observed that the tip of mandible is less
@@ -317,7 +302,7 @@ is computed then extracted in the scene image at the same
 position. Then, the SIFT descriptor is computed: the orientation and
 the gradient magnitude are calculated for each pixel by using the
 gradient values computed during the Canny step by applying the
-following equations (\ref{eq:sift}): 
+following equations (\ref{eq:sift}):
 
 \begin{equation}
 \label{eq:sift}
@@ -339,7 +324,7 @@ As usually, eight directions are taking into account ($0^o - 45^o$,
 $46^o - 90^o$, $91^o - 135^o$, $136^o - 180^o$, $181^o - 225^o$,
 $226^o - 270^o$, $271^o - 315^o$, $316^o - 360^o$). Finally, the
 feature vector is normalized to reduce the effects of illumination
-changes. 
+changes.
 
 \begin{figure}[htb]
     \centering
@@ -372,18 +357,18 @@ and \textit{$P_s$} of the scene are created with the size of $P_m$
 smaller than the size of $P_s$. After experiments, we have kept 36X36 pixels as the size of \textit{$P_s$}.
 For each pixel in the patch \textit{$P_s$}, a sub-patch
 \textit{$P'_s$} is extracted with the same size than \textit{$P_m$}.
-When the \textit{$P'_s$} have a part outside \textit{$P_s$}, the outside pixels are also considered. 
+When the \textit{$P'_s$} have a part outside \textit{$P_s$}, the outside pixels are also considered.
 Then, the distance \textit{$L(P_m,P'_s)$} is computed using equation
 (\ref{eq:L2distance}). The position of the estimated landmark corresponds to the position of
 the sub-patch \textit{$P'_s$} with the smallest distance $L$ to
 \textit{$P_m$}. Finally, the position of the estimated landmarks are set at the
 original location on the original scene image by applying the reverse
-operation of rotation and translation. 
+operation of rotation and translation.
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.48\textwidth]{./images/illustration_SIFT}
     \caption{Steps of descriptors comparisons between the patch $P_m$
-      of the model image and the patches $P'_s$ of the scene image.} 
+      of the model image and the patches $P'_s$ of the scene image.}
     \label{fig:Illustrate}
 \end{figure}
 
@@ -404,7 +389,7 @@ The results have shown differences in algorithm accuracy: estimated
 landmarks are well positioned on some scene images but not satisfying
 on others. As we mentioned before, mandibles images can exhibit
 different sizes because beetles have also different sizes of
-mandible. We detected that our method is sensible to this parameter. 
+mandible. We detected that our method is sensible to this parameter.
 To improve the results, we have inserted a pre-processing step to
 estimate the scale between a scene image and the model before the
 computing of the SIFT descriptors. The bounding boxes of the mandible
@@ -462,7 +447,7 @@ the $16^{th}$ landmark. The statistic is done on each estimated
 landmark of all the images with a standard deviation error
 \cite{bland1996statistics}. As we can see in Fig. \ref{canny}, the
 noise of the contour part located at the base of a mandible is higher
-than the noise located at the tip of the mandible. 
+than the noise located at the tip of the mandible.
 This explains why the correct proportion on $11^{th}$ and $12^{th}$
 landmarks of the left mandible and $13^{th}$ and $14^{th}$ landmarks of
 the right one are less accurate than other landmarks. Moreover,
@@ -481,18 +466,18 @@ precisely the landmarks. D. Houle et al \cite{houle2003automated}
 have more recently described a method to estimate automatically the
 landmarks on Drosophila wings (with 12 landmarks). This method is
 mainly based on the use of a curve analysis (with splines) belonging
-to the wing shape. The method has been evaluated on 535 wing images. 
+to the wing shape. The method has been evaluated on 535 wing images.
 The average proportion over all 12 points is 82\%. They have been able
 to improve their results by suppressing the least accuracy point (47\%
 of right results) that leads to a better parameter fitting. Y. Ke et
-al. \cite{ke2004pca} have proposed to combine SIFT descriptor 
+al. \cite{ke2004pca} have proposed to combine SIFT descriptor
 with PCA analysis to characterize images belonging to a graffity
 dataset. They also obtained good performances close to 95\% of correct
 results. The results presented in this article can be considered as in
 the same order of correctness than these works, but it concerns a problem, precise fixing of a
 lot of landmarks, more difficult to solve. One can note that this chain of
 treatments dedicated to the  estimation of landmarks on 2D images of
-mandibles is from now, user friendly available.   
+mandibles is from now, user friendly available.
 
 
 
@@ -518,7 +503,7 @@ been determined manually on an model image, by biologists. Each
 mandible has been segmented by using the Canny algorithm before to be
 registered using PCAI to align the images. The estimation step of the
 landmark position use the SIFT descriptor to find the best matching
-position. 
+position.
 The results show that the method succeed in locating the landmarks for all images.
 The accuracy of the method is sufficient to be proposed to biologists
 as an alternative to the manual measures. Moreover, considering the previous work in
@@ -532,7 +517,7 @@ Neural Networks computing,  which have rised up in
 image processing recently. Biologists are interested in large scale
 analysis of their species collections, automatic classification is one of the
 bottlenecks to solve towards a better integration of informatic procedures in
-their current way to work. 
+their current way to work.
 
 
 
@@ -542,28 +527,28 @@ their current way to work.
 
 \end{document}
 
-Especially in agriculture, morphology is one of the best ways 
-to learn about the evolution of the beetle on crops 
+Especially in agriculture, morphology is one of the best ways
+to learn about the evolution of the beetle on crops
 
 
   They constitute
   the ground truth to evaluate the automatically estimated landmarks.
 
-  
- 
+
+
   If the goal is to consider more precisely
   the position or the geometry of the landmark areas, the results are not
    accurate enough to consider the replacement of manual landmarks by the automatically estimated landmarks. In this
-   paper, we propose 
+   paper, we propose
 
 Moreover, we
    have added a registration procedure based on an Iterative Principal Component Analysis.
    Finally, the landmarks are been located using a SIFT descriptor computed
-   in the landmarks area of the model image and . 
+   in the landmarks area of the model image and .
 
 %-------------------------------------------------------------------------
 % example of algorithm typesetting
-% to allow this, uncomment line 
+% to allow this, uncomment line
 % \RequirePackage[noend]{myalgorithm}
 % in the wscg.sty file
 % and download that package from Gabriel Zachmann's page http://zach.in.tu-clausthal.de/latex/
@@ -602,14 +587,14 @@ Moreover, we
 \end{thebibliography}
 
 %{\bfseries
-%Last page should be fully used by text, figures etc. Do not leave empty space, please. 
+%Last page should be fully used by text, figures etc. Do not leave empty space, please.
 
-%Do not lock the PDF -- additional text and info will be inserted, i.e. ISSN/ISBN etc. 
+%Do not lock the PDF -- additional text and info will be inserted, i.e. ISSN/ISBN etc.
 %}
 
 %\begin{equation}
 %\label{eq:sift}
-%\resizebox{.5 \textwidth}{!} 
+%\resizebox{.5 \textwidth}{!}
 %{$
 %\begin{aligned}
 %	m(x,y) = \sqrt{(P(x+1,y) - P(x-1,y))^2 + (P(x,y+1) - P(x,y-1))^2} \\
