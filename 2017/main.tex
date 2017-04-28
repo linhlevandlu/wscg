@@ -24,13 +24,12 @@
 \usepackage{subfig}
 
 \usepackage{nopageno}       % no page numbers at all; uncomment for final version
-\usepackage[utf8]{inputenc}     
-
 \usepackage{graphicx}
 \usepackage[justification=centering]{caption}
 \usepackage{amsmath}
 \usepackage[linesnumbered,ruled]{algorithm2e}
 \usepackage[english]{babel}
+\usepackage[utf8]{inputenc}     
 \usepackage{enumitem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                Title
@@ -272,15 +271,16 @@ points. The rotation angle is the angle between the principal axes of
 these two images. Translation then rotation operations are applied to
 register the scene on the model. However, in some cases, the
 translation and rotation between two images are 
-not enough precise because the result of the segmentation could contain some noise.
-To improve registration, we have enhanced the PCA by Iterating until
-the stabilization (PCAI).
-We have considered some specificity of our images and observed that
-the tip of mandible (landmark number 1) is less noisy than its base on images.
-So, we sort the contour points according to their y-value to build the subset containing the half upper part of contour points.
-PCA is again completed for this subset to refine the rotation and
-translation values. This operation is iterated until the new computing
-angle is lower than 1.5 degrees (see Fig. \ref{fig:pcai}).
+not enough precise because the result of the segmentation could
+contains noise. To improve that, we have considered some specificities of our
+ images and observed that the tip of mandible is less
+ noisy than its base. So, first we have sorted the contour
+ points according to their y-value to build the subset
+ containing the half upper part of contour points. Second, we have
+ enhanced the PCA by Iterating steps on this subset until the stabilization
+ (PCAI). At each iteration, the rotation value is refined and the
+ procedure will stop when the new computing angle is lower than 1.5 degrees (see
+ Fig. \ref{fig:pcai}).
 
 \begin{figure}[htb]
     \centering
@@ -312,8 +312,12 @@ images \cite{lowe2004distinctive}. We have also used it to fix
 landmarks but with some modifications of the usual method. In order to
 reduce the computing time and the possible errors of location, we do
 not consider all points of the image and only take into account the area around each landmark on the model.
-Firstly, the region (called patch) around each landmark of the model is computed then extracted in the scene image at the same position.
-Then, the SIFT descriptor is computed: the orientation and the gradient magnitude are calculated for each pixel by using the gradient values computed during the Canny step by applying the following equations (\ref{eq:sift}):
+Firstly, the region (called patch) around each landmark of the model
+is computed then extracted in the scene image at the same
+position. Then, the SIFT descriptor is computed: the orientation and
+the gradient magnitude are calculated for each pixel by using the
+gradient values computed during the Canny step by applying the
+following equations (\ref{eq:sift}): 
 
 \begin{equation}
 \label{eq:sift}
@@ -331,7 +335,11 @@ Where:
 	\item $\theta(x,y)$ is the orientation of the pixel at position $(x,y)$.
 \end{itemize}
 The SIFT descriptor for each patch is an histogram containing the sum of pixel gradients for each considered direction.
-As usually, eight directions are taking into account ($0^o - 45^o$, $46^o - 90^o$, $91^o - 135^o$, $136^o - 180^o$, $181^o - 225^o$, $226^o - 270^o$, $271^o - 315^o$, $316^o - 360^o$). Finally, the feature vector is normalized to reduce the effects of illumination changes.
+As usually, eight directions are taking into account ($0^o - 45^o$,
+$46^o - 90^o$, $91^o - 135^o$, $136^o - 180^o$, $181^o - 225^o$,
+$226^o - 270^o$, $271^o - 315^o$, $316^o - 360^o$). Finally, the
+feature vector is normalized to reduce the effects of illumination
+changes. 
 
 \begin{figure}[htb]
     \centering
@@ -374,7 +382,8 @@ operation of rotation and translation.
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.48\textwidth]{./images/illustration_SIFT}
-    \caption{Steps of descriptors comparisons between the patch $P_m$ of the model image and the patches $P'_s$ of the scene image.}
+    \caption{Steps of descriptors comparisons between the patch $P_m$
+      of the model image and the patches $P'_s$ of the scene image.} 
     \label{fig:Illustrate}
 \end{figure}
 
@@ -420,7 +429,7 @@ for a right and a left mandible with the manual and estimated
 landmarks. The estimated landmarks are quite near with the manual
 landmarks, as it is shown in the following statistical evaluation.
 \\
-The statistics have been obtained for all landmarks of the scene images.
+The statistics have been computed for all landmarks of the scene images.
 We have compared the positions between the manual and estimated
 landmarks by accepting an error from 1\% to 2\% of the bounding box's
 size. According to this way, a global statistic compares all pairs of
@@ -455,23 +464,23 @@ landmark of all the images with a standard deviation error
 noise of the contour part located at the base of a mandible is higher
 than the noise located at the tip of the mandible. 
 This explains why the correct proportion on $11^{th}$ and $12^{th}$
-landmark of the left mandible and $13^{th}$ and $14^{th}$ landmark of
-the right mandible are less accurate than other landmarks. Moreover,
+landmarks of the left mandible and $13^{th}$ and $14^{th}$ landmarks of
+the right one are less accurate than other landmarks. Moreover,
 when we reconsider the datasets, the left mandible images have bigger
-scale values than the right mandible images. This explains than the
-success rate on the right mandibles is always greater than on the left
-mandibles in all experiments.
+scale values than the right mandible images. This could explain that the
+success rate of the right mandibles is always greater than this one of the left
+in all experiments.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.5\textwidth]{./images/md_chartlms}
-    \caption{The proportions of well estimated landmark for each model landmark of right mandibles.}
+    \caption{The proportion of well estimated landmarks of right mandibles.}
     \label{figmdresultlm}
 \end{figure}
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.5\textwidth]{./images/mg_chartlms}
-    \caption{The proportions of well estimated landmark for each model landmark of left mandibles.}
+    \caption{The proportion of well estimated landmarks of left mandibles.}
     \label{figmgresultlm}
 \end{figure}
 

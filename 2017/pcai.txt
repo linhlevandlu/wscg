@@ -1,0 +1,12 @@
+However, in some cases, the translation
+ and rotation between two images are not enough
+precise because the result of the segmentation contains noise. To
+ improve this, we have considered some specificities of our
+ images and observed that the tip of mandible is less
+ noisy than its base. So, first we have sorted the contour
+ points according to their y-value to build the subset
+ containing the half upper part of contour points. Second, we have
+ enhanced the PCA by Iterating steps on this subset until the stabilization
+ (PCAI). At each iteration, the rotation value is refined and the
+ procedure will stop when the new computing angle is lower than 1.5 degrees (see
+ Fig. 4).
