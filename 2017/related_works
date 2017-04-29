@@ -1,0 +1,130 @@
+
+Introduction
+
+The landmarks are the particular points in an image. These points are 
+carried the information that represent the shape. In the approach of 
+shape analysis, the landmark detection methods are based on the contour points
+or all points of the objects. The methods try to find the longest line segment
+from a point with minimum possible error [cite 34, 27, 14], or determine
+the support region for each point on the contours and detect dominant 
+points by a process of nonmaxima suppression [cite 35,19]. This landmarks
+are considered as the intersection between the line sgements or the 
+corners. This is differenct in our cases. The landmarks are the points that 
+have some particular meaning and they are defined by the bilogists. 
+
+
+
+
+Related works
+
+Landmark detection on 2D image is a large area in image processing, and it has
+been applied in many fields such as face recognition, human orthodontics and biology morphometry.
+
+In human orthodontic field, the methods to automatic landmark detection are separated 
+into two categories: feature-based detection and pattern matching. In generally, the 
+feature-based detection methods [] include three stages: preprocess the image (reduce the noise and
+ehance the image), edge detection and landmarks extraction. The second groups is based on 
+the used of pattern matching techniques[cite].
+
+
+In face recognition field, the facial points are most of the features that
+used to recognize the face. The facial parameters are extracted from the images (i.e 
+Kanade had extracted 16 parameters [cite], Brunelli and Poggio [cite] used 35 parameters) and
+computed the distance i.e Euclidean distance.
+
+In biological morphometry, some research about the landmarks on Drosophila wing are done.
+A et al[cite] proposed a semi-automated process which marking two landmarks positions and the 
+system fits a series of spline curves to margin with the viens of the wing, the landmarks as the intersection
+of the splines. Paris National Museum of Natural Histogry [cite} has applied the 
+techniques of mathematical morphology and skeletonisation to obtain the landmarks.
+Palaniswamy et al [cite] have proposed a method to detect the landmarks
+on the wing of Drosophila which combined among segmentation, PHT and template matching.
+We also try to applied the Palaniswamy's method to identify the landmarks on
+mandibles of the beetles, as  previous work [cite].
+
+In this paper, we propose a method to identify the landmarks on beetle's mandilbes
+with the steps have been described in section [Introduction].
+
+
+
+Lists of some articles:
+SIFT
+1. Active shape models with SIFT descriptors and MARS: (Stephen Milborrow and Fred Nicolls) 2014
+Present a technique for locating landmarks in images of human faces. They replace SIFT descriptor for 1D
+gradient profiles of the classical Active Shape Model (ASM), then using Multivariate Adaptive Regression Splines 
+(MARS) for descriptor  matching.
+
+2. PCA-SIFT: A more distinctive representation for local image descriptors 2004
+This paper examines the local image descriptor used by SIFT but they have applied PCA to the normalized the gradient patch.
+
+3. Object Recognition and Modeling Using SIFT Features (Alessandro Bruno, Luca Greco, Marco Cascia) 2013
+This paper present a technique to recognize and model the image based on local features matching. Firstly, the object model
+is created by selecting a subset of the available view using SIFT descriptors to evaluate image similarity and relevance. 
+Then, the recognition is done by searching and comparing the object in the image (set of view of the objects) with the object model.
+
+
+Point of interest
+1. Point-of-Interest Detection for Range Data (Viksten et al) 2008
+This paper shows how to use an extend Harris detector on range data and discuss variants of the Harris measure.
+
+2. Scale & Affine Invariant Interest Point Detectors (KRYSTIAN MIKOLAJCZYK AND CORDELIA SCHMID) 2004
+This paper proposes a method to detect the interest points invariant to scale and affine transformations. The interest 
+points are extracted by the Harris detector
+
+3. An affine invariant interest point detector (Krystian Mikolaijczyk and Cordelia Schmid) 2002
+Firstly, a multi-scale version of this detector is used for initialization. An iterative algorithm
+then modifies location, scale and neighbourhood of each point and converges to affine invariant points.
+An affine-adapted Harris detector determines the location of interest point.
+
+4. Automatic landmark point detection and tracking for human facial expressions (Tie and Guan) 2013
+This paper proposed an efficient and robust method for facial landmark detection adn tracking from
+video. They used scale invariant feature to detect the input frame. Multiple Differential
+Evolution Markov Chanin filter are applied for tracking the points. A kernel correlation analysis
+is proposed to detect the like-lihood by maximizing  the similirar criterion between the target points and the candidate points. The detection likelihood is then integrated into the tracker’s observation likelihood
+
+5. Automatic landmark detection and face recognition for side view face images (Pinar Santamiz, Luuk J. Spreeuwers and Raymond N.J. Velhuis) 2013
+This paper proposed the method to find three landmarks points on side view of the face. The method used PCA, Linear Discriminant Analysis, LBP and HOG to describe the face image. Then, Support Vector Machine is applied to train.
+
+6. Automatic landmark location with a combined active shape model (Dianle Z., Dijana P.D. and Bernadette D.) 2016
+This paper proposed a Active Shape Models, is robuts to illumination, translation and rotation. It exploits the SIFT and the Active Shape 
+Model (ASM).
+
+
+Biology and medical
+1. Automatic Landmark Detection and Non-linear Landmark- and Surface-based Registration of
+Lung CT Images (Jan et al) 2010
+This paper presented a feature-based registration for lung CT images and automatically detected inner-lung landmark pairs. In a first step, an affine pre-registration of surface models generated from lung segmentation masks is performed. Following, an automatic algorithm is used for the landmark identification and landmark transfer between fixed and moving image. The result of this landmark
+detection and the result of a non-linear diffusion-based surface registration are used to generate the final deformation field by thin-plate-splines interpolation.
+
+2. Automatic localization of retinal landmarks (Xiang Cheng et al) 2012
+They proposed a sementic image transformation (SIT) approach for retinal representation and automatic landmark detection. The proposed SIT characterizes the local statistics of a fundus image and boosts
+the intrinsic retinal structures, such as optic disc(OD), macula. They propose our salient OD and macular models based on SIT for  retinal  landmark  detection.
+
+3. Collaborative Regression-based Anatomical Landmark Detection (Yaozong Gao and Dinggang Shen) 2015
+In this paper, they proposed a collaborative landmark detection framework to address these limitations. The concept of collaboration is reflected in two aspects. 1) Multi-resolution collaboration. A multi-resolution strategy is proposed to hierarchically localize landmarks by gradually excluding uninformative votes from faraway voxels. Moreover, for the informative voxels near the landmark, a spherical sampling strategy is also designed in the training stage to improve their prediction accuracy. 2) Inter-landmark collaboration. A confidence-based landmark detection strategy is proposed to improve the detection accuracy of “difficult-to-detect” landmarks by using spatial guidance from “easy-to-detect” landmarks
+
+4. Automated measurement of drosophila wings (D Houle, J Mezey, P Galpern) 2003
+They proposed a semi-automated process which marking two landmarks positions and the system fits a series of spline curves to margin with the viens of the wing, the landmarks are detected as the intersection
+of the splines
+
+5. Automated facial landmark detection, comparison and visualization (Marek Galvánek, Katarína Furmanová, Igor Chalás, Jiří Sochor) 2015
+In this paper, they introduced a system which incorporates a newly proposed algorithm for automatic landmark detection. The algorithm is based on surface curvature and symmetric profile extraction. The landmarks are then used in the Generalized Procrustes analysis for facial comparison.
+
+6. Automated Detection of 3D Landmarks for the Elimination of Non-Biological Variation in Geometric Morphometric Analyses (D Aneja et al) 2015
+They presented an algorithm-based system to automatically detect 17 landmarks on 3D meshes of mouse mandibles, based entirely upon mathematically defined criteria
+
+
+Some common methods to detect the interest points:
+- Laplacian of Gaussian 1998
+- Moravec corner detection 1980
+- Harris and Stephens corner detection 1988 1997
+- Shi and Tomasi corner detection 1994
+- SUSAN 1995, 1997
+- SIFT 2004
+- FAST, Faster  2006
+- ...
+Some applications:
+- Face detection
+- Street detection
+- Line detection
+- Human orthodontics
