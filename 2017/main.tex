@@ -204,8 +204,8 @@ As previously mentioned, all images have been captured at the same scale.
 However, the mandible size can vary from a beetle to another one, as their orientation and position can differ from a picture to another one.
 This point is taken into account in this registration step from a query image (the scene) to a reference image (the model).
 
-We have chosen to apply a method based on the Principal Component Analysis (PCA) \cite{bsspca,shlens2014tutorial} to determine the rotation and translation parameter between the two images.
-In input, we consider the two lists of contour points defined from the segmentation of the two images.
+We have chosen to apply a method based on the Principal Component Analysis (PCA) \cite{bsspca,shlens2014tutorial} to determine the rotation and translation parameters between the two images.
+As input, we consider the two lists of contour points defined from the segmentation of the two images.
 Firstly, the centroid and the principal axis of each image are computed.
 The centroid corresponds to the mean point of all contour points.
 The principal axis is the line connecting the centroid to a contour point, determined with algorithm \ref{alg1}.
@@ -247,9 +247,8 @@ The translation between the scene image and the model image is computed from the
 The rotation is computed from the angle between the principal axes of these two images.
 Translation then rotation operations are applied to register the scene on the model.
 However, the translation and rotation can be imprecise when the result of the segmentation contains noise.
-In order to prevent these cases, we remarked and used the image specificity that implies that the tip of the mandible is less noisy than its base.
-So, we have sorted the contour points according to their y-value to build the subset containing the half upper part of contour points.
-Then, we have enhanced the PCA by an Iterative process on this subset until stabilization (PCAI).
+In order to solve this problem, we take into account the tip part of the mandible which is less noisy than the base part.
+So, we sort the contour points according to their y-value to build a subset containing the upper part of contour points. After several tests, we choose to fix the limit at the  three quarters of the shape height. Then, we iterate the registration process by computing the centroid and the axes (PCA process). Then, we have enhanced the PCA by an Iterative process on this subset until stabilization (PCAI).
 At each iteration, the rotation value is refined.
 The procedure stop when the new computing angle is lower than $1.5$ degrees (see Fig. \ref{fig:pcai}).
 
@@ -268,11 +267,11 @@ final contour obtained at the end of the PCAI process.
 \subsection{Landmark detection with SIFT}
 \label{sec:sift}
 
-The last step of the workflow consists of estimating the position of the landmark in scene image from the manual ones of the model.
+The last step of the workflow consists in estimating the position of the landmark in a scene image from the manual ones of the model.
 We relied on the SIFT method \cite{lowe2004distinctive} that has been used in a lot of computer vision methods to identify points of interests.
-We modified some aspects of the initial method to defined a process specialized to the landmark identification.
+We modified some aspects of the initial SIFT to defined a process specialized to the landmark identification.
 In order to reduce the computing time and the possible errors of location, we do not consider all points of the image but only the area around each landmark on the model.
-Firstly, the patch around each landmark of the model is computed and extracted at the same position in the scene image.
+Firstly, a patch around each landmark of the model is computed and another one is extracted at the same position in the scene image.
 Then, the SIFT descriptor is computed.
 The orientation and the gradient magnitude are calculated for each pixel by using the gradient values computed during contour detection (see Sec. \ref{sec:segmentation}) by applying the classical equations \ref{eq:sift}:
 
@@ -324,13 +323,12 @@ Where:
 \end{itemize}
 
 The Fig. \ref{fig:Illustrate} illustrates how we have applied the SIFT method into our workflow.
-IN order to detect the scene landmarks, the patches \textit{$P_m$} of the model and \textit{$P_s$} of the scene are initialized with the size of $P_m$ smaller than the size of $P_s$.
-After experiments, we have kept $36 \times 36$ pixels as the size of \textit{$P_s$}.
-For each pixel in the patch \textit{$P_s$}, a sub-patch \textit{$P'_s$} is extracted with the same size than \textit{$P_m$}.
+In order to detect the scene landmarks, the patches \textit{$P_m$} of the model and \textit{$P_s$} of the scene are initialized with the size of $P_m$.
+After experiments, we have kept $36 \times 36$ pixels as the size of \textit{$P_s$} to always consider a \textit{$P_s$} size is larger than the \textit{$P_m$} size. For each pixel in the patch \textit{$P_s$}, a sub-patch \textit{$P'_s$} is extracted with the same size than \textit{$P_m$}.
 When \textit{$P'_s$} have a part outside \textit{$P_s$}, the outside pixels are also considered.
 Then, the distance \textit{$L(P_m,P'_s)$} is computed using equation (\ref{eq:L2distance}).
-The estimated position of the landmark corresponds to the position of the sub-patch \textit{$P'_s$} with the smallest distance $L$ to \textit{$P_m$}.
-Finally, the position of the estimated landmarks are positioned in the original scene image by applying the reverse operations of rotation and translation computed in registration step (see Sec. \ref{sec:registration}).
+The estimated position of the landmark corresponds to the position of the sub-patch \textit{$P'_s$} which has the smallest distance $L$ to \textit{$P_m$}.
+Finally, the coordinates of the estimated landmarks are positioned in the original scene image by applying the reverse operations of rotation and translation computed in registration step (see Sec. \ref{sec:registration}).
 
 \begin{figure}[htbp]
     \centering
@@ -377,16 +375,14 @@ sides of the bounding boxes. Then, the scene contours are rescaled to fit the mo
 \end{figure}
 
 Figs. \ref{figresult} and \ref{figresult2} show the final results
-for a right and a left mandible with the manual and estimated
-landmarks. The estimated landmarks are quite near with the manual
+for a right and a left mandibles with the manual and estimated
+landmarks. The estimated landmarks are quite near to the manual
 landmarks, as it is shown in the following statistical evaluation.
 \\
 The statistics have been computed for all landmarks of the scene images.
 We have compared the positions between the manual and estimated
-landmarks by accepting an error from 1\% to 2\% of the bounding box's
-size. According to this way, a global statistic compares all pairs of
-corresponding landmarks on all images as presented in
-Fig. \ref{figctresult}. It shows the global results with a score of
+landmarks. A global statistic (Fig. \ref{figctresult}) compares all pairs of
+manual-estimating landmarks on all images. It shows the global results with a score of
 well-positioned landmarks equal to \textbf{87.03}\% for right
 mandibles and \textbf{78.82}\% for left mandibles.
 
@@ -398,7 +394,7 @@ mandibles and \textbf{78.82}\% for left mandibles.
 \label{figctresult}
 \end{figure}
 
-Besides the global results, we are also interested by the accuracy of
+Besides the global results, we have been also interested by the accuracy of
 the individual positions of the estimated landmarks.
 We have computed the distance between the manual landmarks and their
 corresponding estimated landmarks in order to examine the proportion
@@ -418,11 +414,11 @@ than the noise located at the tip of the mandible.
 This explains why the correct proportion on $11^{th}$ and $12^{th}$
 landmarks of the left mandible and $13^{th}$ and $14^{th}$ landmarks of
 the right one are less accurate than other landmarks. Moreover,
-when we reconsider the datasets, the left mandible images have bigger
-scale values than the right mandible images. This could explain that the
+when we reconsider the datasets, the left mandible images exhibit more variability in their sizes than the right mandible images. This could explain that the
 success rate of the right mandibles is always greater than this one of the left
 in all experiments.
-\\
+
+\section{Discussion}
 In  a previous work, we have tried to apply a set of procedures
 coming from an article of Palaniswamy \cite{palaniswamy2010automatic} who tried to find
 automatically a specific point of interest into a Drosophila wing. We
@@ -441,7 +437,7 @@ al. \cite{ke2004pca} have proposed to combine SIFT descriptor
 with PCA analysis to characterize images belonging to a Graffiti
 dataset. They also obtained good performances close to 95\% of correct
 results. The results presented in this article can be considered as in
-the same order of correctness than these works, but it concerns a problem, precise fixing of a
+the same order of correctness than these works, but it concerns a problem, precisely fixing a
 lot of landmarks, more difficult to solve. One can note that this chain of
 treatments dedicated to the  estimation of landmarks on 2D images of
 mandibles is from now, user-friendly available.
@@ -468,9 +464,8 @@ classify species. In this paper, we have designed a method to segment
 the beetle mandibles and to automatically locate landmarks which have
 been determined manually on a model image, by biologists. Each
 mandible has been segmented by using the Canny algorithm before to be
-registered using PCAI to align the images. The estimation step of the
-landmark position uses the SIFT descriptor to find the best matching
-position.
+registered by using PCAI to align the images. The estimation step of the
+landmark position uses the SIFT descriptor to refine the estimated position.
 The results show that the method succeeds in locating the landmarks for all images.
 The accuracy of the method is sufficient to be proposed to biologists
 as an alternative to the manual measures. Moreover, considering the previous work in
